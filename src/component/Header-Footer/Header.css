@@ -1,0 +1,21 @@
+.header-main {
+    background: black;
+    padding: 20px 0;
+}
+
+.header-dropdown {
+    padding: 0px !important;
+}
+
+.header-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white !important;
+}
+
+.header-dropdown-item {
+    padding: 0px !important;
+    color: white !important;
+    background: transparent !important;
+}
+
