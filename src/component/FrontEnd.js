@@ -4,6 +4,8 @@ import Header from './Header-Footer/Header';
 import Home from './Home/Home';
 import KeyNotes from './KeyNotes/KeyNotes';
 import Papers from './Papers/Papers';
+import Presentations from './Presentations/Presentations';
+import Workshops from './Workshops/Workshops';
 
 class FrontEnd extends Component {
     state = {  }
@@ -16,6 +18,8 @@ class FrontEnd extends Component {
                             <Route path="/" exact component={Home} />
                             <Route path="/keynotes" component={KeyNotes}/>
                             <Route path="/papers" component={Papers}/>
+                            <Route path="/presentations" component={Presentations}/>
+                            <Route path="/workshops" component={Workshops}/>
                         </Switch>
                 </Router>
             </div>

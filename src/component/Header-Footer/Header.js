@@ -30,7 +30,7 @@ class Header extends Component {
     }
 
     workshops() {
-        return this.props.history.push('/workshopsconductors')
+        return this.props.history.push('/workshops')
     }
 
     importantDates() {
