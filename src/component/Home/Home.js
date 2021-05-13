@@ -12,7 +12,7 @@ class Home extends Component {
                     <Carousel.Item interval={10}>
                         <Image src={banner} fluid />
                         <Carousel.Caption>
-                            <p className="home-banner-title">ICAC 2021</p>
+                            <p className="home-banner-title">ICAF 2021</p>
                             <h1>International Conference on Application Frameworks</h1>
                             <br/>
                             <h3>04th 05th and 06th July 2021</h3>

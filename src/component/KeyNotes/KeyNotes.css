@@ -1,0 +1,19 @@
+.keynotes-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.keynotes-speakers {
+    padding: 50px 0px;
+}
+
+.keynotes-links {
+    margin-right: 10px;
+    color: black;
+}
+

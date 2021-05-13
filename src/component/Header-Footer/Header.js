@@ -12,8 +12,8 @@ class Header extends Component {
         super(props);
         this.state = { }
 
-        this.researchers = this.researchers.bind(this)
-        this.presenters = this.presenters.bind(this)
+        this.papers = this.papers.bind(this)
+        this.presentations = this.presentations.bind(this)
         this.workshops = this.workshops.bind(this)
         this.importantDates = this.importantDates.bind(this)
         this.program = this.program.bind(this)
@@ -21,12 +21,12 @@ class Header extends Component {
 
     }
 
-    researchers() {
-        return this.props.history.push('/researchers')
+    papers() {
+        return this.props.history.push('/papers')
     }
 
-    presenters() {
-        return this.props.history.push('/presenters')
+    presentations() {
+        return this.props.history.push('/presentations')
     }
 
     workshops() {
@@ -60,9 +60,9 @@ class Header extends Component {
                             </Nav.Item>
                             <Nav.Item>
                             <NavDropdown className="nav-link header-item header-dropdown" title={<span className="header-dropdown-item">For Authors</span>} id="nav-dropdown">
-                                <NavDropdown.Item onClick={this.researchers} eventKey="4.1">Researchers</NavDropdown.Item>
-                                <NavDropdown.Item onClick={this.presenters} eventKey="4.1">Presenters</NavDropdown.Item>
-                                <NavDropdown.Item onClick={this.workshops} eventKey="4.1">Workshop Conductors</NavDropdown.Item>
+                                <NavDropdown.Item onClick={this.papers} eventKey="4.1">Call for Papers</NavDropdown.Item>
+                                <NavDropdown.Item onClick={this.presentations} eventKey="4.1">Call for Presentations</NavDropdown.Item>
+                                <NavDropdown.Item onClick={this.workshops} eventKey="4.1">Call for Workshops</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={this.importantDates} eventKey="4.1">Important Dates</NavDropdown.Item>
                             </NavDropdown>
@@ -73,6 +73,12 @@ class Header extends Component {
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item onClick={this.registrations} eventKey="4.1">Registrations</NavDropdown.Item>
                                 </NavDropdown>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <NavLink className="nav-link header-item" to="/attendeedashboard">Dashboard</NavLink>
+                                {/*<NavLink className="nav-link header-item" to="/reviewerdashboard">Dashboard</NavLink>*/}
+                                {/*<NavLink className="nav-link header-item" to="/editordashboard">Dashboard</NavLink>*/}
+                                {/*<NavLink className="nav-link header-item" to="/admindashboard">Dashboard</NavLink>*/}
                             </Nav.Item>
                             <Nav.Item>
                                 <NavLink className="nav-link header-item" to="/login"><FontAwesomeIcon icon={faSignInAlt} /></NavLink>
