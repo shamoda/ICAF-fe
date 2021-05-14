@@ -1,0 +1,22 @@
+.downloads-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.downloads-topics {
+    margin-top: 50px;
+    text-align: justify;
+}
+
+.downloads-button {
+    background-color: black !important;
+    /* border-radius: 20px !important; */
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}

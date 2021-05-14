@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Col, Container, Row, ListGroup, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileDownload, faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import './Presentations.css'
 
 class Presentations extends Component {
@@ -45,8 +47,8 @@ class Presentations extends Component {
                     </div>
 
                     <div className="presentations-topics">
-                        <Button variant="dark" className="workshops-button">Download Template</Button>
-                        <Button variant="dark" className="workshops-button">Submit My Presentation</Button>
+                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Download Template</Button>
+                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileUpload } />&nbsp; Submit My Presentation</Button>
                     </div>
                     
                 </Container>

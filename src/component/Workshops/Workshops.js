@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Col, Container, Row, ListGroup, Button } from 'react-bootstrap';
+import { Col, Container, Row, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileDownload, faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import './Workshops.css'
 
 class Workshops extends Component {
@@ -44,8 +46,8 @@ class Workshops extends Component {
                     </div>
 
                     <div className="workshops-topics">
-                        <Button variant="dark" className="workshops-button">Download Proposal Template</Button>
-                        <Button variant="dark" className="workshops-button">Submit Workshop Proposal</Button>
+                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Download Proposal Template</Button>
+                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileUpload } />&nbsp; Submit Workshop Proposal</Button>
                     </div>
 
                     <div className="workshops-email">

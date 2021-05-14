@@ -18,6 +18,7 @@ class Header extends Component {
         this.importantDates = this.importantDates.bind(this)
         this.program = this.program.bind(this)
         this.registrations = this.registrations.bind(this)
+        this.downloads = this.downloads.bind(this)
 
     }
 
@@ -45,6 +46,10 @@ class Header extends Component {
         return this.props.history.push('/registrations')
     }
 
+    downloads() {
+        return this.props.history.push('/downloads')
+    }
+
     render() {
         return ( 
             <div className="header-main">
@@ -65,6 +70,7 @@ class Header extends Component {
                                 <NavDropdown.Item onClick={this.workshops} eventKey="4.1">Call for Workshops</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={this.importantDates} eventKey="4.1">Important Dates</NavDropdown.Item>
+                                <NavDropdown.Item onClick={this.downloads} eventKey="4.1">Downloads</NavDropdown.Item>
                             </NavDropdown>
                             </Nav.Item>
                             <Nav.Item>

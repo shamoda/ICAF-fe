@@ -17,8 +17,8 @@ class Home extends Component {
                             <br/>
                             <h3>04th 05th and 06th July 2021</h3>
                             <br/>
-                            <h4>Sri Lanka Institute of Information Technology, Sri Lanka</h4>
-                            <p className="home-banner-bottom">Virtual Conference</p>
+                            <h4 className="home-banner-bottom">Sri Lanka Institute of Information Technology, Sri Lanka</h4>
+                            {/* <p className="home-banner-bottom">Virtual Conference</p> */}
 
                         </Carousel.Caption>
                     </Carousel.Item>
