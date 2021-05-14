@@ -5,7 +5,18 @@ import { faFileDownload, faFileUpload } from '@fortawesome/free-solid-svg-icons'
 import './Papers.css'
 
 class Papers extends Component {
-    state = {  }
+
+    constructor(props){
+        super(props);
+        this.state = { }
+
+        this.submitPaperClicked = this.submitPaperClicked.bind(this);
+    }
+
+    submitPaperClicked() {
+        return this.props.history.push('/paperregistration');
+    }
+
     render() { 
         return ( 
             <div>
@@ -77,7 +88,7 @@ class Papers extends Component {
 
                     <div className="papers-topics">
                         <Button variant="dark" className="papers-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Download Template</Button>
-                        <Button variant="dark" className="papers-button"><FontAwesomeIcon icon={ faFileUpload } />&nbsp; Submit My Paper</Button>
+                        <Button onClick={this.submitPaperClicked} variant="dark" className="papers-button"><FontAwesomeIcon icon={ faFileUpload } />&nbsp; Submit My Paper</Button>
                     </div>
 
                 </Container>

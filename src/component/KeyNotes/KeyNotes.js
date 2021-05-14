@@ -24,9 +24,9 @@ class KeyNotes extends Component {
                                 <Card.Text>
                                     College of Engineering and Computing, Florida International University, USA
                                 </Card.Text>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faLinkedin } className="fa-lg" /></Link>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faTwitterSquare } className="fa-lg" /></Link>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faFacebookSquare } className="fa-lg" /></Link>
+                                <Link to="www.linkedin.com" className="keynotes-links"><FontAwesomeIcon icon={ faLinkedin } className="fa-lg" /></Link>
+                                <Link to="www.twitter.com" className="keynotes-links"><FontAwesomeIcon icon={ faTwitterSquare } className="fa-lg" /></Link>
+                                <Link to="www.facebook.com" className="keynotes-links"><FontAwesomeIcon icon={ faFacebookSquare } className="fa-lg" /></Link>
                             </Card.Body>
                         </Card>
 
@@ -37,9 +37,9 @@ class KeyNotes extends Component {
                                 <Card.Text>
                                     Department of Psychological Medicine, University of Auckland
                                 </Card.Text>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faLinkedin } className="fa-lg" /></Link>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faTwitterSquare } className="fa-lg" /></Link>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faFacebookSquare } className="fa-lg" /></Link>
+                                <Link to="www.linkedin.com" className="keynotes-links"><FontAwesomeIcon icon={ faLinkedin } className="fa-lg" /></Link>
+                                <Link to="www.twitter.com" className="keynotes-links"><FontAwesomeIcon icon={ faTwitterSquare } className="fa-lg" /></Link>
+                                <Link to="www.facebook.com" className="keynotes-links"><FontAwesomeIcon icon={ faFacebookSquare } className="fa-lg" /></Link>
                             </Card.Body>
                         </Card>
 
@@ -50,9 +50,9 @@ class KeyNotes extends Component {
                                 <Card.Text>
                                     Mobility Systems and Civil Engineering, University of Technology, Sweden
                                 </Card.Text>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faLinkedin } className="fa-lg" /></Link>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faTwitterSquare } className="fa-lg" /></Link>
-                                <Link className="keynotes-links"><FontAwesomeIcon icon={ faFacebookSquare } className="fa-lg" /></Link>
+                                <Link to="www.linkedin.com" className="keynotes-links"><FontAwesomeIcon icon={ faLinkedin } className="fa-lg" /></Link>
+                                <Link to="www.twitter.com" className="keynotes-links"><FontAwesomeIcon icon={ faTwitterSquare } className="fa-lg" /></Link>
+                                <Link to="www.facebook.com" className="keynotes-links"><FontAwesomeIcon icon={ faFacebookSquare } className="fa-lg" /></Link>
                             </Card.Body>
                         </Card>
                     </CardDeck>
