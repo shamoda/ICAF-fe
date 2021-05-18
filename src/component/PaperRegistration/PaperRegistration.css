@@ -27,6 +27,14 @@
 .paperregistration-button {
     font-weight: 600;
     background-color: black !important;
-    margin: 20px 0;
+    margin-top: 20px;
+}
+
+.paperregistration-error {
+    color: red;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 

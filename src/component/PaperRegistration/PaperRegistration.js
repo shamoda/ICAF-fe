@@ -1,9 +1,97 @@
 import React, { Component } from 'react';
 import { Form, Container, Button } from 'react-bootstrap';
+import PaperRegistrationDataService from './PaperRegistrationDataService'
 import './PaperRegistration.css'
 
 class PaperRegistration extends Component {
-    state = {  }
+    
+    constructor(props){
+        super(props);
+        this.state = { 
+            title: '',
+            author: '',
+            paperAbstract: '',
+            name: '',
+            email: '',
+            contact: '',
+            password: '',
+            temppassword: '',
+            paper: null,
+            error: null
+         }
+
+        this.registerResearcher = this.registerResearcher.bind(this);
+        this.displayError = this.displayError.bind(this);
+        this.onFileChange = this.onFileChange.bind(this);
+    }
+
+    registerResearcher(event) {
+        event.preventDefault();
+
+        if (this.state.title === '') {
+            this.displayError('Title cannot be empty')
+        } else if (this.state.author === '') {
+            this.displayError('Author(s) cannot be empty')
+        } else if (this.state.paperAbstract === '') {
+            this.displayError('Paper abstract cannot be empty')
+        } else if (this.state.name === '') {
+            this.displayError('Contact name cannot be empty')
+        } else if (this.state.email === '') {
+            this.displayError('Email cannot be empty')
+        } else if (this.state.contact === '') {
+            this.displayError('Contact number cannot be empty')
+        } else if (this.state.password === '') {
+            this.displayError('Password cannot be empty')
+        } else if (this.state.temppassword === '') {
+            this.displayError('Please re-enter password')
+        } else if (this.state.paper == null) {
+            this.displayError('You must upload your research paper')
+        } else if (this.state.password != this.state.temppassword) {
+            this.displayError('The passwords you entered do not match. Please re-enter your password')
+        } else {
+
+            let formData = new FormData();
+            formData.append('title', this.state.title);
+            formData.append('author', this.state.author);
+            formData.append('paperAbstract', this.state.paperAbstract);
+            formData.append('name', this.state.name);
+            formData.append('email', this.state.email);
+            formData.append('contact', this.state.contact);
+            formData.append('password', this.state.password);
+            formData.append('paper', this.state.paper);
+
+            PaperRegistrationDataService.registerResearcher(formData)
+                .then( response => {
+                    console.log(response)
+                })
+                .catch( error => {
+                    console.log(error)
+                })
+
+        }
+    }
+
+    displayError(msg) {
+        this.setState({
+            error: msg
+        })
+    }
+
+    handleChange = event =>{
+        this.setState({
+            [event.target.name] : event.target.value,
+            error: null
+        }, () => console.log(this.state));
+    };
+
+    onFileChange(event) {
+        if (event.target.files.length) {
+            this.setState({
+                paper: event.target.files[0]
+            }, () => console.log('File selected'));
+        }
+    }
+
     render() { 
         return ( 
             <div>
@@ -12,7 +100,7 @@ class PaperRegistration extends Component {
                 </div>
 
                 <Container className="paperregistration-container">
-                    <Form autoComplete="off">
+                    <Form autoComplete="off" onSubmit={this.registerResearcher}>
                         <Form.Group controlId="title" className="paperregistration-form-group">
                             <Form.Label>Title</Form.Label>
                             <Form.Control onChange={this.handleChange} name="title" value={this.state.title} type="text" placeholder="research paper title" className = "paperregistration-form-input" />
@@ -27,13 +115,20 @@ class PaperRegistration extends Component {
                                 Separate each author's name with a pipe symbol (ex: "J. Doe | A. Marry")
                             </Form.Text>
                         </Form.Group>
-                        <Form.Group controlId="abstract" className="paperregistration-form-group">
+                        <Form.Group controlId="paperAbstract" className="paperregistration-form-group">
                             <Form.Label>Abstract</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="abstract" value={this.state.abstract} maxlength="650"  as="textarea" rows={5} placeholder="abstract about your research" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="paperAbstract" value={this.state.paperAbstract} maxLength="650"  as="textarea" rows={5} placeholder="abstract about your research" className = "paperregistration-form-input" />
+                        </Form.Group>
+                        <Form.Group controlId="name" className="paperregistration-form-group">
+                            <Form.Label>Contact Person Name</Form.Label>
+                            <Form.Control onChange={this.handleChange} name="name" value={this.state.name} type="text" placeholder="contact person name" className = "paperregistration-form-input" />
                         </Form.Group>
                         <Form.Group controlId="email" className="paperregistration-form-group">
                             <Form.Label>Email</Form.Label>
                             <Form.Control onChange={this.handleChange} name="email" value={this.state.email} type="email" placeholder="we will contact you via this email" className = "paperregistration-form-input" />
+                            <Form.Text className="text-muted">
+                                Use this email to login to your profile
+                            </Form.Text>
                         </Form.Group>
                         <Form.Group controlId="contact" className="paperregistration-form-group">
                             <Form.Label>Contact No</Form.Label>
@@ -53,7 +148,8 @@ class PaperRegistration extends Component {
                                 File format: PDF
                             </Form.Text>
                         </Form.Group>
-                        <Button variant="dark" className="paperregistration-button">Submit</Button>
+                        <Button type="submit" variant="dark" className="paperregistration-button">Submit</Button>
+                        {this.state.error && <p className="paperregistration-error">{this.state.error}</p>}
                     </Form>
                 </Container>
 
