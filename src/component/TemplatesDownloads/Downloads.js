@@ -14,7 +14,7 @@ class Downloads extends Component {
                 </div>
 
                 <Container className="downloads-container">
-                    <div className="downloads-topics">
+                    {/* <div className="downloads-topics">
                         <h4>Important</h4>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac, 
@@ -22,12 +22,12 @@ class Downloads extends Component {
                             Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at, 
                             efficitur a orci. Integer at placerat velit.
                         </p>
-                    </div>
+                    </div> */}
 
                     <div className="downloads-topics">
-                        <Button variant="dark" className="downloads-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Research Paper Template</Button>
-                        <Button variant="dark" className="downloads-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Presentation Template</Button>
-                        <Button variant="dark" className="downloads-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Workshop Proposal Template</Button>
+                        <Button variant="dark" className="downloads-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Research Paper Template</Button><br/>
+                        <Button variant="dark" className="downloads-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Presentation Template</Button><br/>
+                        <Button variant="dark" className="downloads-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Workshop Proposal Template</Button>
                     </div>
                 </Container>
             </div>

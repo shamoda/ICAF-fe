@@ -5,6 +5,7 @@ import Header from './Header-Footer/Header';
 import Home from './Home/Home';
 import ImportantDates from './ImportantDates/ImportantDates';
 import KeyNotes from './KeyNotes/KeyNotes';
+import Login from './Login/Login';
 import PaperRegistration from './PaperRegistration/PaperRegistration';
 import Papers from './Papers/Papers';
 import Presentations from './Presentations/Presentations';
@@ -28,6 +29,7 @@ class FrontEnd extends Component {
                             <Route path="/importantdates" component={ImportantDates}/>
                             <Route path="/downloads" component={Downloads}/>
                             <Route path="/program" component={Program}/>
+                            <Route path="/login" component={Login}/>
                             <Route path="/paperregistration" component={PaperRegistration}/>
                         </Switch>
                     <Footer/>

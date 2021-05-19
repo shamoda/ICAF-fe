@@ -9,7 +9,7 @@
 }
 
 .program-container {
-    margin-top: 50px;
+    margin: 95px 0px;
 }
 
 .program-description {
@@ -19,12 +19,12 @@
 .program-topics {
     margin-top: 50px;
     text-align: center;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
 }
 
 .program-button {
     background-color: black !important;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-right: 20px;
     margin-bottom:10px;
 }

@@ -46,8 +46,8 @@ class Workshops extends Component {
                     </div>
 
                     <div className="workshops-topics">
-                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Download Proposal Template</Button>
-                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileUpload } />&nbsp; Submit Workshop Proposal</Button>
+                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Download Proposal Template</Button>
+                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileUpload } />&nbsp; Submit Workshop Proposal</Button>
                     </div>
 
                     <div className="workshops-email">

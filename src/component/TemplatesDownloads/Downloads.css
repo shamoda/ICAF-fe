@@ -8,15 +8,22 @@
     padding: 28px 0px;
 }
 
+.downloads-container {
+    margin: 115px 0px;
+}
+
 .downloads-topics {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     text-align: justify;
+    text-align: center !important;
 }
 
 .downloads-button {
     background-color: black !important;
+    margin: 10px 0px;
+    width: 30%;
     /* border-radius: 20px !important; */
     margin-right: 20px;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    /* margin-top: 50px; */
+    /* margin-bottom: 100px; */
 }

@@ -47,8 +47,8 @@ class Presentations extends Component {
                     </div>
 
                     <div className="presentations-topics">
-                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileDownload } />&nbsp; Download Template</Button>
-                        <Button variant="dark" className="workshops-button"><FontAwesomeIcon icon={ faFileUpload } />&nbsp; Submit My Presentation</Button>
+                        <Button variant="dark" className="presentations-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Download Template</Button>
+                        <Button variant="dark" className="presentations-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileUpload } />&nbsp; Submit My Presentation</Button>
                     </div>
                     
                 </Container>
