@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Container, Button } from 'react-bootstrap';
+import { Form, Container, Button, Modal, Spinner } from 'react-bootstrap';
+import swal from 'sweetalert';
 import PaperRegistrationDataService from './PaperRegistrationDataService'
 import './PaperRegistration.css'
 
@@ -17,7 +18,8 @@ class PaperRegistration extends Component {
             password: '',
             temppassword: '',
             paper: null,
-            error: null
+            error: null,
+            loading: false
          }
 
         this.registerResearcher = this.registerResearcher.bind(this);
@@ -48,7 +50,15 @@ class PaperRegistration extends Component {
             this.displayError('You must upload your research paper')
         } else if (this.state.password != this.state.temppassword) {
             this.displayError('The passwords you entered do not match. Please re-enter your password')
+        } else if (this.state.title.length < 20) {
+            this.displayError('Title is too short')
+        } else if (this.state.paperAbstract.length < 100) {
+            this.displayError('Paper abstract is too short')
+        } else if (this.state.contact.length != 10) {
+            this.displayError('Invalid phone number')
         } else {
+
+            this.setState({loading: true})
 
             let formData = new FormData();
             formData.append('title', this.state.title);
@@ -62,10 +72,23 @@ class PaperRegistration extends Component {
 
             PaperRegistrationDataService.registerResearcher(formData)
                 .then( response => {
-                    console.log(response)
+                    this.setState({loading: false})
+                    swal({
+                        title: "Registration Successful!",
+                        text: "Log in to your profile to stay up to date",
+                        icon: "success",
+                        button: "Login",
+                      }).then(result => {
+                        return this.props.history.push('/login')
+                      })
                 })
                 .catch( error => {
-                    console.log(error)
+                    swal({
+                        title: "Oops!",
+                        text: "Something went wrong, please try again.",
+                        icon: "error",
+                        button: "Ok",
+                      })
                 })
 
         }
@@ -87,7 +110,8 @@ class PaperRegistration extends Component {
     onFileChange(event) {
         if (event.target.files.length) {
             this.setState({
-                paper: event.target.files[0]
+                paper: event.target.files[0],
+                error: null
             }, () => console.log('File selected'));
         }
     }
@@ -152,6 +176,12 @@ class PaperRegistration extends Component {
                         {this.state.error && <p className="paperregistration-error">{this.state.error}</p>}
                     </Form>
                 </Container>
+
+                <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
+                    <Modal.Header>
+                    <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
+                    </Modal.Header>
+                </Modal>
 
             </div>
          );
