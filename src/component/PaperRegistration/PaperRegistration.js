@@ -83,6 +83,7 @@ class PaperRegistration extends Component {
                       })
                 })
                 .catch( error => {
+                    this.setState({loading: false})
                     swal({
                         title: "Oops!",
                         text: "Something went wrong, please try again.",
