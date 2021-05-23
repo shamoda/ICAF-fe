@@ -74,7 +74,7 @@ class PaperRegistration extends Component {
                 .then( response => {
                     this.setState({loading: false})
                     swal({
-                        title: "Registration Successful!",
+                        title: "Paper Submission Successful!",
                         text: "Log in to your profile to stay up to date",
                         icon: "success",
                         button: "Login",

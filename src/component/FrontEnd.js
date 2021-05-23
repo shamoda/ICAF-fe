@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AttendeeRegistration from './AttendeeRegistration/AttendeeRegistration';
 import Footer from './Header-Footer/Footer';
 import Header from './Header-Footer/Header';
 import Home from './Home/Home';
@@ -31,6 +32,7 @@ class FrontEnd extends Component {
                             <Route path="/program" component={Program}/>
                             <Route path="/login" component={Login}/>
                             <Route path="/paperregistration" component={PaperRegistration}/>
+                            <Route path="/attendeeregistration" component={AttendeeRegistration}/>
                         </Switch>
                     <Footer/>
                 </Router>

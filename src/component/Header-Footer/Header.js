@@ -43,7 +43,7 @@ class Header extends Component {
     }
 
     registrations() {
-        return this.props.history.push('/registrations')
+        return this.props.history.push('/attendeeregistration')
     }
 
     downloads() {

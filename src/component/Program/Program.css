@@ -24,6 +24,7 @@
 
 .program-button {
     background-color: black !important;
+    width: 25%;
     /* margin-top: 20px; */
     margin-right: 20px;
     margin-bottom:10px;

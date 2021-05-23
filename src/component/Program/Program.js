@@ -27,9 +27,9 @@ class Program extends Component {
                         </div>
 
                         <div className="program-topics">
-                            <Button variant="dark" className="program-button"><FontAwesomeIcon icon={ faFilePdf } />&nbsp; Research Papers</Button>
-                            <Button variant="dark" className="program-button"><FontAwesomeIcon icon={ faFilePowerpoint } />&nbsp; Presentations</Button>
-                            <Button variant="dark" className="program-button"><FontAwesomeIcon icon={ faCogs } />&nbsp; Workshops</Button>
+                            <Button variant="dark" className="program-button"><FontAwesomeIcon style={{marginRight: "10px", marginTop:"3px"}} icon={ faFilePdf } />&nbsp; Research Papers</Button>
+                            <Button variant="dark" className="program-button"><FontAwesomeIcon style={{marginRight: "10px", marginTop:"3px"}} icon={ faFilePowerpoint } />&nbsp; Presentations</Button>
+                            <Button variant="dark" className="program-button"><FontAwesomeIcon style={{marginRight: "10px", marginTop:"3px"}} icon={ faCogs } />&nbsp; Workshops</Button>
                         </div>
                     </Container>
                 </div>
