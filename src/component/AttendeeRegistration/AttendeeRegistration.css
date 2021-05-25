@@ -25,9 +25,10 @@
 }
 
 .attendeeregistration-button {
-    font-weight: 600;
+    font-weight: 800;
     background-color: black !important;
     margin-top: 10px;
+    width: 150px !important;
 }
 
 .attendeeregistration-error {
@@ -48,4 +49,5 @@
 
 .attendeeregistration-paypal {
     width: 100px !important;
+    text-align: center;
 }
