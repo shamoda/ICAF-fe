@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Container, Button, Modal, Spinner } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { PayPalButton } from "react-paypal-button-v2";
 import swal from 'sweetalert';
 import './AttendeeRegistration.css'
 import AttendeeRegistrationDataService from './AttendeeRegistrationDataService';
@@ -17,11 +20,17 @@ class AttendeeRegistration extends Component {
             organization: '',
             address: '',
             error: null,
-            loading: false
+            loading: false,
+            notPaid: true
          }
 
         this.registerAttendee = this.registerAttendee.bind(this);
         this.displayError = this.displayError.bind(this);
+        this.payBtnClicked = this.payBtnClicked.bind(this);
+    }
+
+    payBtnClicked() {
+        this.setState({notPaid: !this.state.notPaid})
     }
 
     registerAttendee(event) {
@@ -133,9 +142,30 @@ class AttendeeRegistration extends Component {
                             <Form.Label>Re-Enter Password</Form.Label>
                             <Form.Control onChange={this.handleChange} name="temppassword" value={this.state.temppassword} type="password" placeholder="re-enter password" className = "attendeeregistration-form-input" />
                         </Form.Group>
-                        <Button type="submit" variant="dark" className="attendeeregistration-button">Register</Button>
+                        <p style={{color: "black", fontWeight: "600"}}>Registration Fee: $25.00</p>
+                        <Button onClick={this.payBtnClicked} variant="dark" className="attendeeregistration-button" disabled={!this.state.notPaid}>Pay</Button>
+                        <Button variant="dark" className="attendeeregistration-arrow"><FontAwesomeIcon icon={faArrowRight} /></Button>
+                        <Button type="submit" className="attendeeregistration-button" disabled={this.state.notPaid}>Register</Button>
                         {this.state.error && <p className="attendeeregistration-error">{this.state.error}</p>}
                     </Form>
+                    <div className="attendeeregistration-paypal">
+                        <PayPalButton
+                            style={{layout: "horizontal", color: "black", height: 50}}
+                            amount="0.01"
+                            shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                            onSuccess={(details) => {
+                                alert("Transaction completed by " + details.payer.name.given_name);
+
+                                // OPTIONAL: Call your server to save the transaction
+                                // return fetch("/paypal-transaction-complete", {
+                                //     method: "post",
+                                //     body: JSON.stringify({
+                                //         orderID: data.orderID
+                                //     })
+                                // });
+                            }}
+                        />
+                    </div>
                 </Container>
 
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>

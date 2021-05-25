@@ -12,7 +12,7 @@ class Downloads extends Component {
         this.state = { loading: false }
 
         this.downloadPaperTemplateClicked = this.downloadPaperTemplateClicked.bind(this);
-        this.downloadPresentationTemplateClicked = this.downloadPresentationTemplateClicked.bind(this);
+        // this.downloadPresentationTemplateClicked = this.downloadPresentationTemplateClicked.bind(this);
         this.downloadProposalTemplateClicked = this.downloadProposalTemplateClicked.bind(this);
     }
 
@@ -36,25 +36,25 @@ class Downloads extends Component {
             });
     }
 
-    downloadPresentationTemplateClicked() {
-        this.setState({loading: true})
-        DownloadsDataService.downloadPresentation()
-            .then(({ data }) => {
-                this.setState({loading: false})
-                const downloadUrl = window.URL.createObjectURL(new Blob([data]));
-                const link = document.createElement('a');
-                link.href = downloadUrl;
-                link.setAttribute('download', 'icaf-presentation-template.pptx');
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
-                swal({
-                    title: "Presentation Template Downloaded",
-                    icon: "success",
-                    button: "Ok",
-                  })
-            });
-    }
+    // downloadPresentationTemplateClicked() {
+    //     this.setState({loading: true})
+    //     DownloadsDataService.downloadPresentation()
+    //         .then(({ data }) => {
+    //             this.setState({loading: false})
+    //             const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+    //             const link = document.createElement('a');
+    //             link.href = downloadUrl;
+    //             link.setAttribute('download', 'icaf-presentation-template.pptx');
+    //             document.body.appendChild(link);
+    //             link.click();
+    //             link.remove();
+    //             swal({
+    //                 title: "Presentation Template Downloaded",
+    //                 icon: "success",
+    //                 button: "Ok",
+    //               })
+    //         });
+    // }
 
     downloadProposalTemplateClicked() {
         this.setState({loading: true})
@@ -86,7 +86,7 @@ class Downloads extends Component {
                 <Container className="downloads-container">
                     <div className="downloads-topics">
                         <Button onClick={this.downloadPaperTemplateClicked} variant="dark" className="downloads-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Research Paper Template</Button><br/>
-                        <Button onClick={this.downloadPresentationTemplateClicked} variant="dark" className="downloads-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Presentation Template</Button><br/>
+                        {/* <Button onClick={this.downloadPresentationTemplateClicked} variant="dark" className="downloads-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Presentation Template</Button><br/> */}
                         <Button onClick={this.downloadProposalTemplateClicked} variant="dark" className="downloads-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Workshop Proposal Template</Button>
                     </div>
                 </Container>

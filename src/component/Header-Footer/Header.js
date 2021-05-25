@@ -66,7 +66,7 @@ class Header extends Component {
                             <Nav.Item>
                             <NavDropdown className="nav-link header-item header-dropdown" title={<span className="header-dropdown-item">For Authors</span>} id="nav-dropdown">
                                 <NavDropdown.Item onClick={this.papers} eventKey="4.1">Call for Papers</NavDropdown.Item>
-                                <NavDropdown.Item onClick={this.presentations} eventKey="4.1">Call for Presentations</NavDropdown.Item>
+                                {/* <NavDropdown.Item onClick={this.presentations} eventKey="4.1">Call for Presentations</NavDropdown.Item> */}
                                 <NavDropdown.Item onClick={this.workshops} eventKey="4.1">Call for Workshops</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={this.importantDates} eventKey="4.1">Important Dates</NavDropdown.Item>
