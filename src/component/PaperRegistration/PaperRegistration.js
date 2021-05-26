@@ -52,7 +52,7 @@ class PaperRegistration extends Component {
             this.displayError('The passwords you entered do not match. Please re-enter your password')
         } else if (this.state.title.length < 20) {
             this.displayError('Title is too short')
-        } else if (this.state.paperAbstract.length < 100) {
+        } else if (this.state.paperAbstract.length < 275) {
             this.displayError('Paper abstract is too short')
         } else if (this.state.contact.length != 10) {
             this.displayError('Invalid phone number')

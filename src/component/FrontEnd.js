@@ -10,6 +10,7 @@ import KeyNotes from './KeyNotes/KeyNotes';
 import Login from './Login/Login';
 import PaperRegistration from './PaperRegistration/PaperRegistration';
 import Papers from './Papers/Papers';
+import PapersList from './PapersList/PapersList';
 import Program from './Program/Program';
 import Downloads from './TemplatesDownloads/Downloads';
 import Workshops from './Workshops/Workshops';
@@ -34,6 +35,7 @@ class FrontEnd extends Component {
                             <Route path="/paperregistration" component={PaperRegistration}/>
                             <Route path="/attendeeregistration" component={AttendeeRegistration}/>
                             <Route path="/committeeregistration" component={CommitteeRegistration}/>
+                            <Route path="/test" component={PapersList}/>
                         </Switch>
                     <Footer/>
                 </Router>
