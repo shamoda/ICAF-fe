@@ -28,16 +28,12 @@ class Program extends Component {
                         </div>
 
                         <div className="program-topics">
-                            {/* <Button variant="dark" className="program-button"><FontAwesomeIcon style={{marginRight: "10px", marginTop:"3px"}} icon={ faFilePdf } />&nbsp; Research Papers</Button> */}
-                            {/* <Button variant="dark" className="program-button"><FontAwesomeIcon style={{marginRight: "10px", marginTop:"3px"}} icon={ faFilePowerpoint } />&nbsp; Presentations</Button> */}
-                            {/* <Button variant="dark" className="program-button"><FontAwesomeIcon style={{marginRight: "10px", marginTop:"3px"}} icon={ faCogs } />&nbsp; Workshops</Button> */}
-                            
-                            <Tabs style={{textAlign: "center"}} defaultActiveKey="a" unmountOnExit={true} >
+                            <Tabs style={{textAlign: "center"}} variant="tabs" defaultActiveKey="a" unmountOnExit={true} >
                                 <Tab style={{textAlign: "left"}} eventKey="a" title="Papers">
                                     <PapersList />
                                 </Tab>
                                 <Tab style={{textAlign: "left"}} eventKey="b" title="Workshops">
-                                    <PapersList />
+                                    Workshop List comes here
                                 </Tab>
                             </Tabs>
 

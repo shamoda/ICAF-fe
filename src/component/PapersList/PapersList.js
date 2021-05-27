@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faFastBackward, faFastForward, faFilePdf, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
+import { faDownload, faFastBackward, faFastForward, faFilePdf, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import './PapersList.css'
 import PapersListDataService from './PapersListDataService';
 
@@ -109,32 +109,37 @@ class PapersList extends Component {
 
         const pageNumCss = {
             width : "45px",
-            color: "#ffff",
+            color: "black",
             textAlign: "center",
-            fontWeight: "bold"
+            fontWeight: "bold",
+            backgroundColor: "white",
+            borderColor: "black"
         }
 
         const searchBox = {
-            width: "250px"
+            width: "250px",
+            fontWeight: "bold",
+            border: "none",
+            borderColor: "#24a0ed"
         }
 
         return ( 
             <div>
                 <Container className="paperlist-container">
-                    <Card className={"border border-dark bg-dark text-white"}>
-                        <Card.Header>
+                    <Card className={""} style={{backgroundColor: "white"}}>
+                        <Card.Header style={{backgroundColor: "white"}}>
                             <div style={{float:"left", fontSize: "20px", fontWeight: "600"}}>
                             <FontAwesomeIcon icon={faFilePdf} />&nbsp; Research Papers
                             </div>
                             <div style={{float:"right"}}>
                                 <InputGroup size="sm">
-                                    <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="start typing..." name="search" value={this.state.search} className="bg-dark text-white"  />&nbsp;
+                                    <FontAwesomeIcon style={{marginTop: "8px"}} icon={faSearch} />&nbsp; <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="start typing..." name="search" value={this.state.search} className=""  />&nbsp;
                                 </InputGroup>
                             </div>
                         </Card.Header>
 
-                        <Card.Body>
-                            <Table striped bordered hover variant="dark">
+                        <Card.Body style={{backgroundColor: "white"}}>
+                            <Table hover style={{backgroundColor: "white"}} variant="">
                                 <tbody>
 
                                     {this.state.papers.length === 0 ? <tr align="center">
@@ -148,7 +153,7 @@ class PapersList extends Component {
                                         <p style={{margin: "5px 0px"}}>By: {paper.author}</p>
                                         <p style={{margin: "0px"}}>{paper.paperAbstract.slice(0, 270)}...</p>
                                     </td>
-                                    <td style={{width: "15%", textAlign: "center", padding:"75px 0px"}}><Button onClick={() => this.downloadPaperTemplateClicked(paper.fileName)} variant="outline-light"><FontAwesomeIcon icon={faDownload} />&nbsp; Download</Button></td>
+                                    <td style={{width: "15%", textAlign: "center", padding:"75px 0px"}}><Button onClick={() => this.downloadPaperTemplateClicked(paper.fileName)} variant="outline-dark"><FontAwesomeIcon icon={faDownload} />&nbsp; Download</Button></td>
                                     </tr>)) 
                                     }
                                     
@@ -156,26 +161,26 @@ class PapersList extends Component {
                             </Table>
                         </Card.Body>
 
-                        <Card.Footer>
+                        <Card.Footer style={{backgroundColor: "white", color: "black"}}>
                             <div style={{float:"left"}}>
                                 Showing Page {currentPage} of {Math.ceil(totalPages)}
                             </div>
                             <div style={{float:"right"}}>
                                 <InputGroup size="sm">
                                     <InputGroup.Prepend>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === 1 ? true : false} onClick={this.firstPage}>
+                                        <Button type="button" variant="outline-dark" disabled={currentPage === 1 ? true : false} onClick={this.firstPage}>
                                         <FontAwesomeIcon icon={faFastBackward} /> First
                                         </Button>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === 1 ? true : false} onClick={this.prevPage}>
+                                        <Button type="button" variant="outline-dark" disabled={currentPage === 1 ? true : false} onClick={this.prevPage}>
                                         <FontAwesomeIcon icon={faStepBackward} /> Prev
                                         </Button>
                                     </InputGroup.Prepend>
-                                    <FormControl style={pageNumCss} className="bg-dark" name="currentPage" value={currentPage} disabled />
+                                    <FormControl style={pageNumCss} className="" name="currentPage" value={currentPage} disabled />
                                     <InputGroup.Append>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === totalPages ? true : false} onClick={this.nextPage}>
+                                        <Button type="button" variant="outline-dark" disabled={currentPage === totalPages ? true : false} onClick={this.nextPage}>
                                             Next <FontAwesomeIcon icon={faStepForward} />
                                         </Button>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === totalPages ? true : false} onClick={this.lastPage}>
+                                        <Button type="button" variant="outline-dark" disabled={currentPage === totalPages ? true : false} onClick={this.lastPage}>
                                             Last <FontAwesomeIcon icon={faFastForward} />
                                         </Button>
                                     </InputGroup.Append>
