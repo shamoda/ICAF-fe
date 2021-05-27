@@ -8,6 +8,7 @@ import Home from './Home/Home';
 import ImportantDates from './ImportantDates/ImportantDates';
 import KeyNotes from './KeyNotes/KeyNotes';
 import Login from './Login/Login';
+import NotFoundError from './NotFoundError/NotFoundError';
 import PaperRegistration from './PaperRegistration/PaperRegistration';
 import Papers from './Papers/Papers';
 import PapersList from './PapersList/PapersList';
@@ -35,7 +36,7 @@ class FrontEnd extends Component {
                             <Route path="/paperregistration" component={PaperRegistration}/>
                             <Route path="/attendeeregistration" component={AttendeeRegistration}/>
                             <Route path="/committeeregistration" component={CommitteeRegistration}/>
-                            <Route path="/test" component={PapersList}/>
+                            <Route path="/test" component={NotFoundError}/>
                         </Switch>
                     <Footer/>
                 </Router>
