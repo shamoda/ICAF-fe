@@ -81,8 +81,8 @@ class Header extends Component {
                                 </NavDropdown>
                             </Nav.Item>
                             <Nav.Item>
-                                <NavLink className="nav-link header-item" to="/attendeedashboard">Dashboard</NavLink>
-                                {/*<NavLink className="nav-link header-item" to="/reviewerdashboard">Dashboard</NavLink>*/}
+                                {/* <NavLink className="nav-link header-item" to="/attendeedashboard">Dashboard</NavLink> */}
+                                <NavLink className="nav-link header-item" to="/reviewer">Dashboard</NavLink>
                                 {/*<NavLink className="nav-link header-item" to="/editordashboard">Dashboard</NavLink>*/}
                                 {/*<NavLink className="nav-link header-item" to="/admindashboard">Dashboard</NavLink>*/}
                             </Nav.Item>

@@ -14,7 +14,7 @@ class PapersList extends Component {
 
             currentPage : 1,
             entriesPerPage : 5,
-            search: null,
+            search: '',
             searchMessage:null,
             loading: false
         }
@@ -25,8 +25,8 @@ class PapersList extends Component {
     refreshPapers() {
         let example = {
             title: this.state.search,
-            approved: false,
-            paid: false
+            status: 'approved',
+            paid: true
         }
         PapersListDataService.getResearchPapers(example)
             .then(response => {

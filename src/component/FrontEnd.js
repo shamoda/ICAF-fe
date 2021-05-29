@@ -13,6 +13,8 @@ import PaperRegistration from './PaperRegistration/PaperRegistration';
 import Papers from './Papers/Papers';
 import PapersList from './PapersList/PapersList';
 import Program from './Program/Program';
+import ReviewerDashboard from './ReviewerDashboard/ReviewerDashboard';
+import ReviewPaperDetails from './ReviewPapers/ReviewPaperDetails/ReviewPaperDetails';
 import ReviewPapers from './ReviewPapers/ReviewPapers';
 import Downloads from './TemplatesDownloads/Downloads';
 import Workshops from './Workshops/Workshops';
@@ -37,7 +39,9 @@ class FrontEnd extends Component {
                             <Route path="/paperregistration" component={PaperRegistration}/>
                             <Route path="/attendeeregistration" component={AttendeeRegistration}/>
                             <Route path="/committeeregistration" component={CommitteeRegistration}/>
-                            <Route path="/test" component={ReviewPapers}/>
+                            <Route path="/review/:email" component={ReviewPaperDetails}/>
+                            <Route path="/review/" component={ReviewPapers}/>
+                            <Route path="/reviewer" component={ReviewerDashboard}/>
 
                             <Route component={NotFoundError}/>
                         </Switch>

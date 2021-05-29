@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Row, Col, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faEdit, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
+import { faDownload, faEdit, faEye, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
+import swal from 'sweetalert';
 import './ReviewPapers.css'
 import ReviewPapersDataService from './ReviewPapersDataService';
 
@@ -11,22 +12,24 @@ class ReviewPapers extends Component {
         super(props);
         this.state = {
             papers:[],
+            rComment: '',
+            status: '',
 
             currentPage : 1,
             entriesPerPage : 5,
-            search: null,
+            search: '',
             searchMessage:null,
             loading: false
         }
 
         this.refreshPapers = this.refreshPapers.bind(this);
+        this.submitBtnClicked = this.submitBtnClicked.bind(this);
     }
 
     refreshPapers() {
         let example = {
             title: this.state.search,
-            approved: false,
-            paid: false
+            status: 'pending'
         }
         ReviewPapersDataService.getResearchPapers(example)
             .then(response => {
@@ -56,6 +59,17 @@ class ReviewPapers extends Component {
                     button: "Ok",
                   })
             });
+    }
+
+    formChange = event =>{
+        this.setState({
+            [event.target.name] : event.target.value
+        }, () => console.log('form changed'));
+        
+    };
+
+    submitBtnClicked(email) {
+        return this.props.submitBtnClicked(email)
     }
 
     firstPage = () => {
@@ -126,6 +140,10 @@ class ReviewPapers extends Component {
 
         return ( 
             <div>
+                {/* <div className="attendeeregistration-title">
+                    Pending Papers
+                </div> */}
+
                 <Container className="paperlist-container">
                     <Card className={""} style={{backgroundColor: "white"}}>
                         <Card.Header style={{backgroundColor: "white"}}>
@@ -152,7 +170,7 @@ class ReviewPapers extends Component {
                                     <td style={{padding:"30px"}}>
                                         <h5>{paper.title}</h5>
                                         <p style={{margin: "5px 0px"}}>By: {paper.author}</p>
-                                        <p style={{margin: "0px"}}>{paper.paperAbstract}</p>
+                                        {/* <p style={{margin: "0px"}}>{paper.paperAbstract}</p>
                                         <br/>
                                         <Row>
                                             <Col>Name: {paper.name}</Col>
@@ -160,28 +178,28 @@ class ReviewPapers extends Component {
                                         </Row>
                                         <Row>
                                             <Col>Contact: {paper.contact}</Col>
-                                            <Col></Col>
                                         </Row>
-                                        <Button style={{background: "transparent", color: "blue", border: "none", margin: "0px", padding: "0px"}} onClick={() => this.downloadPaperTemplateClicked(paper.fileName)}><FontAwesomeIcon size="sm" icon={faDownload} />&nbsp; {paper.fileName}</Button>
+                                        <Button style={{background: "transparent", color: "blue", border: "none", margin: "0px", padding: "0px"}} onClick={() => this.downloadPaperTemplateClicked(paper.fileName)}><FontAwesomeIcon size="sm" icon={faDownload} />&nbsp; {paper.fileName}</Button> */}
                                     </td>
-                                    <td style={{width: "15%", textAlign: "center", padding:"65px 10px"}}>
-                                        <Form autoComplete="off" onSubmit={this.registrationBtnClicked} >
-                                                <Form.Control
+                                    <td style={{width: "15%", textAlign: "center", padding:"40px 10px"}}>
+                                        <Form autoComplete="off" >
+                                                {/* <Form.Control
                                                     as="select"
                                                     className="my-1 mr-sm-2"
                                                     custom
+                                                    onChange={this.formChange}
                                                     name="status"
                                                     value={this.state.status}
                                                     required
                                                 >
                                                     <option value="">Choose...</option>
-                                                    <option value={true}>Approve</option>
-                                                    <option value={false}>Reject</option>
+                                                    <option value="approved">Approve</option>
+                                                    <option value="rejected">Reject</option>
                                                 </Form.Control>
-                                                <Form.Group controlId="comment">
-                                                    <Form.Control onChange={this.handleChange} name="comment" value={this.state.comment} maxLength="100"  as="textarea" rows={3} placeholder="your comment" required />
-                                                </Form.Group>
-                                            <Button type="submit" variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                                <Form.Group>
+                                                    <Form.Control onChange={this.formChange} name="rComment" value={this.state.rComment} maxLength="100"  as="textarea" rows={3} placeholder="your comment" required />
+                                                </Form.Group> */}
+                                            <Button onClick={() => this.submitBtnClicked(paper.email)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
                                         </Form>
                                     </td>
                                     </tr>)) 
