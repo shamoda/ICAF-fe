@@ -1,0 +1,221 @@
+.header-main {
+    background: black;
+    padding: 20px 0;
+}
+
+.header-dropdown {
+    padding: 0px !important;
+}
+
+.header-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white !important;
+}
+
+.header-dropdown-item {
+    padding: 0px !important;
+    color: white !important;
+    background: transparent !important;
+}
+
+
+    .home-banner-bottom {
+    padding-bottom: 250px;
+}
+
+.home-banner-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    padding-bottom: 70px;
+}
+.workshops-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.importantdates-div {
+    margin: 50px 0;
+}
+
+.importantdates-row {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.importantdates-col {
+    padding: 30px 0;
+}
+
+.importantdates-title {
+    background-color: beige;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.importantdates-date {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+.keynotes-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.keynotes-speakers {
+    padding: 50px 0px;
+}
+
+.keynotes-links {
+    margin-right: 10px;
+    color: black;
+}
+
+
+.papers-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.papers-container {
+    margin-top: 50px;
+}
+
+.papers-description {
+    text-align: justify;
+}
+
+.papers-topics {
+    margin-top: 50px;
+    text-align: justify;
+}
+
+.papers-button {
+    background-color: black !important;
+    /* border-radius: 20px !important; */
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+
+.presentations-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.presentations-container {
+    margin-top: 50px;
+}
+
+.presentations-description {
+    text-align: justify;
+}
+
+.presentations-topics {
+    margin-top: 50px;
+    text-align: justify;
+}
+
+.presentations-button {
+    background-color: black !important;
+    /* border-radius: 20px !important; */
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.downloads-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.downloads-topics {
+    margin-top: 50px;
+    text-align: justify;
+}
+
+.downloads-button {
+    background-color: black !important;
+    /* border-radius: 20px !important; */
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.workshops-title {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 80px;
+    height: 200px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+
+.workshops-container {
+    margin-top: 50px;
+}
+
+.workshops-description {
+    text-align: justify;
+}
+
+.workshops-topics {
+    margin-top: 50px;
+    text-align: justify;
+}
+
+.workshops-button {
+    background-color: black !important;
+    /* border-radius: 20px !important; */
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.workshops-email {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.workshops-row {
+    padding-top: 20px;
+    color: black !important;
+}
+
+.footer-container {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 15px;
+    height: 100px;
+    background: black;
+    text-align: center;
+    padding: 28px 0px;
+}
+/*# sourceMappingURL=index.1713380f.css.map */
