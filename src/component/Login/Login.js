@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Container, Button, Modal, Spinner } from 'react-bootstrap';
+import authentication from '../../authentication/authentication';
+import AuthenticationDataService from '../../authentication/AuthenticationDataService';
+import Authentication from '../../authentication/Authentication';
 import './Login.css'
 
 class Login extends Component {
@@ -12,7 +15,52 @@ class Login extends Component {
             error: null
          }
 
-        // this.registerResearcher = this.registerResearcher.bind(this);
+        this.loginClicked = this.loginClicked.bind(this);
+        this.errorOccured = this.errorOccured.bind(this);
+    }
+
+    errorOccured(msg) {
+        this.setState({error: msg})
+    }
+
+    loginClicked(event) {
+        event.preventDefault();
+
+        if (this.state.email === '') {
+            this.errorOccured("Email cannot be empty")
+            return
+        } else if (this.state.password === '') {
+            this.errorOccured("Password cannot be empty")
+            return
+        }
+
+        let formData = new FormData();
+        formData.append('email', this.state.email);
+        formData.append('password', this.state.password);
+
+        AuthenticationDataService.login(formData)
+            .then(response => {
+                if (response.data != null) {
+                    Authentication.successfulLogin(response.data)
+                    if (Authentication.loggedAsResearcher()) {
+                        this.props.history.push('/');
+                    } else if (Authentication.loggedAsWorkshopConductor()) {
+                        this.props.history.push('/');
+                    } else if (Authentication.loggedAsReviewer()) {
+
+                    } else if (Authentication.loggedAsEditor()) {
+
+                    } else if (Authentication.loggedAsAdmin()) {
+
+                    } else {
+                        this.errorOccured("Invalid Email or Password")
+                    }
+                } else {
+                    this.errorOccured("Invalid Email or Password")
+                }
+            }).catch (error => {
+                this.errorOccured("Invalid Email or Password")
+            })
     }
 
     handleChange = event =>{
@@ -30,7 +78,7 @@ class Login extends Component {
                 </div>
 
                 <Container className="login-container">
-                    <Form autoComplete="off" onSubmit={this.registerResearcher}>
+                    <Form autoComplete="off" onSubmit={this.loginClicked}>
                         <Form.Group controlId="email" className="login-form-group">
                             <Form.Label>Email</Form.Label>
                             <Form.Control onChange={this.handleChange} name="email" value={this.state.email} type="email" placeholder="email" className = "login-form-input" />

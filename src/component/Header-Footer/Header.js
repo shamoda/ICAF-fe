@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import Authentication from '../../authentication/Authentication';
 import './Header.css'
 
 class Header extends Component {
@@ -81,14 +82,16 @@ class Header extends Component {
                                 </NavDropdown>
                             </Nav.Item>
                             <Nav.Item>
-                                {/* <NavLink className="nav-link header-item" to="/attendeedashboard">Dashboard</NavLink> */}
-                                <NavLink className="nav-link header-item" to="/reviewer">Dashboard</NavLink>
-                                {/*<NavLink className="nav-link header-item" to="/editordashboard">Dashboard</NavLink>*/}
-                                {/*<NavLink className="nav-link header-item" to="/admindashboard">Dashboard</NavLink>*/}
+                                {Authentication.loggedAsResearcher() && <NavLink className="nav-link header-item" to="/researcherprofile">My Profile</NavLink>}
+                                {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/workshopprofile">My Profile</NavLink>}
+                                {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="/attendeeprofile">My Profile</NavLink>}
+                                {Authentication.loggedAsReviewer() && <NavLink className="nav-link header-item" to="/reviewer">Dashboard</NavLink>}
+                                {Authentication.loggedAsEditor() && <NavLink className="nav-link header-item" to="/editor">Dashboard</NavLink>}
+                                {Authentication.loggedAsAdmin() && <NavLink className="nav-link header-item" to="/admin">Dashboard</NavLink>}
                             </Nav.Item>
                             <Nav.Item>
-                                <NavLink className="nav-link header-item" to="/login"><FontAwesomeIcon icon={faSignInAlt} /></NavLink>
-                                {/*<NavLink className="nav-link header-item" to="/"><FontAwesomeIcon icon={faSignOutAlt} /></NavLink>*/}
+                                {!Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" to="/login"><FontAwesomeIcon icon={faSignInAlt} /></NavLink>}
+                                {Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" onClick={() => Authentication.logout()} to="/"><FontAwesomeIcon icon={faSignOutAlt} /></NavLink>}
                             </Nav.Item>
                         </Nav>
                 {/*    </Navbar.Collapse>*/}

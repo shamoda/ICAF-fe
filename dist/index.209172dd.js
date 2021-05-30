@@ -57071,6 +57071,8 @@ try {
   var _reactRouter = require('react-router');
   var _fortawesomeReactFontawesome = require('@fortawesome/react-fontawesome');
   var _fortawesomeFreeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+  var _authenticationAuthentication = require('../../authentication/Authentication');
+  var _authenticationAuthenticationDefault = _parcelHelpers.interopDefault(_authenticationAuthentication);
   require('./Header.css');
   var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\Header-Footer\\Header.js";
   class Header extends _react.Component {
@@ -57113,7 +57115,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55,
+            lineNumber: 56,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Nav, {
@@ -57122,14 +57124,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59,
+            lineNumber: 60,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 60,
+            lineNumber: 61,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
@@ -57138,14 +57140,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61,
+            lineNumber: 62,
             columnNumber: 33
           }
         }, "Home")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63,
+            lineNumber: 64,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
@@ -57154,14 +57156,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64,
+            lineNumber: 65,
             columnNumber: 33
           }
         }, "Key Notes")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66,
+            lineNumber: 67,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown, {
@@ -57171,7 +57173,7 @@ try {
             __self: this,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 67,
+              lineNumber: 68,
               columnNumber: 98
             }
           }, "For Authors"),
@@ -57179,7 +57181,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67,
+            lineNumber: 68,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Item, {
@@ -57188,7 +57190,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68,
+            lineNumber: 69,
             columnNumber: 33
           }
         }, "Call for Papers"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Item, {
@@ -57197,14 +57199,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70,
+            lineNumber: 71,
             columnNumber: 33
           }
         }, "Call for Workshops"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Divider, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71,
+            lineNumber: 72,
             columnNumber: 33
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Item, {
@@ -57213,7 +57215,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72,
+            lineNumber: 73,
             columnNumber: 33
           }
         }, "Important Dates"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Item, {
@@ -57222,14 +57224,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73,
+            lineNumber: 74,
             columnNumber: 33
           }
         }, "Downloads"))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76,
+            lineNumber: 77,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown, {
@@ -57239,7 +57241,7 @@ try {
             __self: this,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 77,
+              lineNumber: 78,
               columnNumber: 102
             }
           }, "For Attendees"),
@@ -57247,7 +57249,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77,
+            lineNumber: 78,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Item, {
@@ -57256,14 +57258,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 78,
+            lineNumber: 79,
             columnNumber: 37
           }
         }, "Program"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Divider, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79,
+            lineNumber: 80,
             columnNumber: 37
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.NavDropdown.Item, {
@@ -57272,48 +57274,111 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80,
+            lineNumber: 81,
             columnNumber: 37
           }
         }, "Registrations"))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83,
+            lineNumber: 84,
             columnNumber: 29
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+        }, _authenticationAuthenticationDefault.default.loggedAsResearcher() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+          className: "nav-link header-item",
+          to: "/researcherprofile",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 85,
+            columnNumber: 73
+          }
+        }, "My Profile"), _authenticationAuthenticationDefault.default.loggedAsWorkshopConductor() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+          className: "nav-link header-item",
+          to: "/workshopprofile",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 86,
+            columnNumber: 80
+          }
+        }, "My Profile"), _authenticationAuthenticationDefault.default.loggedAsAttendee() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+          className: "nav-link header-item",
+          to: "/attendeeprofile",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 87,
+            columnNumber: 71
+          }
+        }, "My Profile"), _authenticationAuthenticationDefault.default.loggedAsReviewer() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
           className: "nav-link header-item",
           to: "/reviewer",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85,
-            columnNumber: 33
+            lineNumber: 88,
+            columnNumber: 71
+          }
+        }, "Dashboard"), _authenticationAuthenticationDefault.default.loggedAsEditor() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+          className: "nav-link header-item",
+          to: "/editor",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 89,
+            columnNumber: 69
+          }
+        }, "Dashboard"), _authenticationAuthenticationDefault.default.loggedAsAdmin() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+          className: "nav-link header-item",
+          to: "/admin",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 90,
+            columnNumber: 68
           }
         }, "Dashboard")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89,
+            lineNumber: 92,
             columnNumber: 29
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+        }, !_authenticationAuthenticationDefault.default.isUserLoggedIn() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
           className: "nav-link header-item",
           to: "/login",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90,
-            columnNumber: 33
+            lineNumber: 93,
+            columnNumber: 70
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
           icon: _fortawesomeFreeSolidSvgIcons.faSignInAlt,
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90,
-            columnNumber: 87
+            lineNumber: 93,
+            columnNumber: 124
+          }
+        })), _authenticationAuthenticationDefault.default.isUserLoggedIn() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
+          className: "nav-link header-item",
+          onClick: () => _authenticationAuthenticationDefault.default.logout(),
+          to: "/",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 94,
+            columnNumber: 69
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          icon: _fortawesomeFreeSolidSvgIcons.faSignOutAlt,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 94,
+            columnNumber: 158
           }
         })))))
       );
@@ -57328,7 +57393,98 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","react-router-dom":"1PMSK","react-router":"3v97x","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","./Header.css":"3vLW7","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3vLW7":[function() {},{}],"3LuGV":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","react-router-dom":"1PMSK","react-router":"3v97x","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","./Header.css":"3vLW7","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","../../authentication/Authentication":"60PIY"}],"3vLW7":[function() {},{}],"60PIY":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _axios = require("axios");
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+class Athentication {
+  // ::::::::: User roles :::::::::
+  // researcher
+  // workshopConductor
+  // attendee
+  // reviewer
+  // editor
+  // admin
+  successfulLogin(user) {
+    // this.setupAxiosInterceptors(authHead)
+    sessionStorage.setItem('authenticatedUserEmail', user.email);
+    sessionStorage.setItem('authenticatedUserName', user.name);
+    sessionStorage.setItem('authenticatedUserContact', user.contact);
+    sessionStorage.setItem('authenticatedUserRole', user.role);
+  }
+  logout() {
+    this.ejectAxiosInterceptor();
+    sessionStorage.removeItem('authenticatedUserEmail');
+    sessionStorage.removeItem('authenticatedUserName');
+    sessionStorage.removeItem('authenticatedUserContact');
+    sessionStorage.removeItem('authenticatedUserRole');
+  }
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('authenticatedUserEmail');
+    if (user === null) return false;
+    return true;
+  }
+  loggedUserId() {
+    let id = sessionStorage.getItem('authenticatedUserEmail');
+    if (id === null) return '';
+    return id;
+  }
+  loggedUserName() {
+    let name = sessionStorage.getItem('authenticatedUserName');
+    if (name === null) return '';
+    return name;
+  }
+  loggedUserRole() {
+    let role = sessionStorage.getItem('authenticatedUserRole');
+    if (role != null) return role;
+    return null;
+  }
+  loggedAsResearcher() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'researcher') return true;
+    return false;
+  }
+  loggedAsWorkshopConductor() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'workshopConductor') return true;
+    return false;
+  }
+  loggedAsAttendee() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'attendee') return true;
+    return false;
+  }
+  loggedAsReviewer() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'reviewer') return true;
+    return false;
+  }
+  loggedAsEditor() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'editor') return true;
+    return false;
+  }
+  loggedAsAdmin() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'admin') return true;
+    return false;
+  }
+  setupAxiosInterceptors(basicAuthHeader) {
+    this.id = _axiosDefault.default.interceptors.request.use(config => {
+      config.headers.authorization = basicAuthHeader;
+      return config;
+    });
+  }
+  ejectAxiosInterceptor() {
+    console.log(this.id);
+    _axiosDefault.default.interceptors.request.eject(this.id);
+    console.log(this.id);
+  }
+}
+exports.default = new Athentication();
+
+},{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"3LuGV":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -61291,6 +61447,11 @@ try {
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _reactBootstrap = require('react-bootstrap');
+  require('../../authentication/authentication');
+  var _authenticationAuthenticationDataService = require('../../authentication/AuthenticationDataService');
+  var _authenticationAuthenticationDataServiceDefault = _parcelHelpers.interopDefault(_authenticationAuthenticationDataService);
+  var _authenticationAuthentication = require('../../authentication/Authentication');
+  var _authenticationAuthenticationDefault = _parcelHelpers.interopDefault(_authenticationAuthentication);
   require('./Login.css');
   var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\Login\\Login.js";
   class Login extends _react.Component {
@@ -61301,6 +61462,42 @@ try {
         password: '',
         error: null
       };
+      this.loginClicked = this.loginClicked.bind(this);
+      this.errorOccured = this.errorOccured.bind(this);
+    }
+    errorOccured(msg) {
+      this.setState({
+        error: msg
+      });
+    }
+    loginClicked(event) {
+      event.preventDefault();
+      if (this.state.email === '') {
+        this.errorOccured("Email cannot be empty");
+        return;
+      } else if (this.state.password === '') {
+        this.errorOccured("Password cannot be empty");
+        return;
+      }
+      let formData = new FormData();
+      formData.append('email', this.state.email);
+      formData.append('password', this.state.password);
+      _authenticationAuthenticationDataServiceDefault.default.login(formData).then(response => {
+        if (response.data != null) {
+          _authenticationAuthenticationDefault.default.successfulLogin(response.data);
+          if (_authenticationAuthenticationDefault.default.loggedAsResearcher()) {
+            this.props.history.push('/');
+          } else if (_authenticationAuthenticationDefault.default.loggedAsWorkshopConductor()) {
+            this.props.history.push('/');
+          } else if (_authenticationAuthenticationDefault.default.loggedAsReviewer()) {} else if (_authenticationAuthenticationDefault.default.loggedAsEditor()) {} else if (_authenticationAuthenticationDefault.default.loggedAsAdmin()) {} else {
+            this.errorOccured("Invalid Email or Password");
+          }
+        } else {
+          this.errorOccured("Invalid Email or Password");
+        }
+      }).catch(error => {
+        this.errorOccured("Invalid Email or Password");
+      });
     }
     handleChange = event => {
       this.setState({
@@ -61314,7 +61511,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27,
+            lineNumber: 75,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -61322,7 +61519,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 28,
+            lineNumber: 76,
             columnNumber: 17
           }
         }, "LOGIN"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -61330,16 +61527,16 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 32,
+            lineNumber: 80,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
           autoComplete: "off",
-          onSubmit: this.registerResearcher,
+          onSubmit: this.loginClicked,
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 33,
+            lineNumber: 81,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -61348,14 +61545,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34,
+            lineNumber: 82,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35,
+            lineNumber: 83,
             columnNumber: 29
           }
         }, "Email"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -61368,7 +61565,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36,
+            lineNumber: 84,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Text, {
@@ -61376,7 +61573,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37,
+            lineNumber: 85,
             columnNumber: 29
           }
         }, "Registered Email")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -61385,14 +61582,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41,
+            lineNumber: 89,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42,
+            lineNumber: 90,
             columnNumber: 29
           }
         }, "Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -61405,7 +61602,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43,
+            lineNumber: 91,
             columnNumber: 29
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -61415,7 +61612,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 45,
+            lineNumber: 93,
             columnNumber: 25
           }
         }, "Login"), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -61423,7 +61620,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46,
+            lineNumber: 94,
             columnNumber: 46
           }
         }, this.state.error))))
@@ -61437,7 +61634,104 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","./Login.css":"PwUQC","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"PwUQC":[function() {},{}],"6hQXG":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","../../authentication/authentication":"5FiPT","../../authentication/AuthenticationDataService":"OSYmX","../../authentication/Authentication":"60PIY","./Login.css":"PwUQC","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5FiPT":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _axios = require("axios");
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+class Athentication {
+  // ::::::::: User roles :::::::::
+  // researcher
+  // workshopConductor
+  // reviewer
+  // editor
+  // admin
+  successfulLogin(user) {
+    // this.setupAxiosInterceptors(authHead)
+    sessionStorage.setItem('authenticatedUserEmail', user.email);
+    sessionStorage.setItem('authenticatedUserName', user.name);
+    sessionStorage.setItem('authenticatedUserContact', user.contact);
+    sessionStorage.setItem('authenticatedUserRole', user.role);
+  }
+  logout() {
+    this.ejectAxiosInterceptor();
+    sessionStorage.removeItem('authenticatedUserEmail');
+    sessionStorage.removeItem('authenticatedUserName');
+    sessionStorage.removeItem('authenticatedUserContact');
+    sessionStorage.removeItem('authenticatedUserRole');
+  }
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('authenticatedUserEmail');
+    if (user === null) return false;
+    return true;
+  }
+  loggedUserId() {
+    let id = sessionStorage.getItem('authenticatedUserEmail');
+    if (id === null) return '';
+    return id;
+  }
+  loggedUserName() {
+    let name = sessionStorage.getItem('authenticatedUserName');
+    if (name === null) return '';
+    return name;
+  }
+  loggedUserRole() {
+    let role = sessionStorage.getItem('authenticatedUserRole');
+    if (role != null) return role;
+    return null;
+  }
+  loggedAsResearcher() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'researcher') return true;
+    return false;
+  }
+  loggedAsWorkshopConductor() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'workshopConductor') return true;
+    return false;
+  }
+  loggedAsReviewer() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'reviewer') return true;
+    return false;
+  }
+  loggedAsEditor() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'editor') return true;
+    return false;
+  }
+  loggedAsAdmin() {
+    let role = this.loggedUserRole();
+    if (role != null && role === 'admin') return true;
+    return false;
+  }
+  setupAxiosInterceptors(basicAuthHeader) {
+    this.id = _axiosDefault.default.interceptors.request.use(config => {
+      config.headers.authorization = basicAuthHeader;
+      return config;
+    });
+  }
+  ejectAxiosInterceptor() {
+    console.log(this.id);
+    _axiosDefault.default.interceptors.request.eject(this.id);
+    console.log(this.id);
+  }
+}
+exports.default = new Athentication();
+
+},{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"OSYmX":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _axios = require('axios');
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+class AthenticationDataService {
+  login(user) {
+    return _axiosDefault.default.post('http://localhost:8080/api/v1/user/login', user);
+  }
+}
+exports.default = new AthenticationDataService();
+
+},{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"PwUQC":[function() {},{}],"6hQXG":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
