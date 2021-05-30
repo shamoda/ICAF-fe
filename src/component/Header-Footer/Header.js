@@ -3,15 +3,16 @@ import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCog, faSignInAlt, faSignOutAlt, faUserLock } from '@fortawesome/free-solid-svg-icons'
 import Authentication from '../../authentication/Authentication';
 import './Header.css'
+import UpdateProfile from '../UpdateProfile/UpdateProfile';
 
 class Header extends Component {
 
     constructor(props){
         super(props);
-        this.state = { }
+        this.state = { show: false }
 
         this.papers = this.papers.bind(this)
         this.presentations = this.presentations.bind(this)
@@ -49,6 +50,13 @@ class Header extends Component {
 
     downloads() {
         return this.props.history.push('/downloads')
+    }
+
+    showModal = () => {
+        this.setState({
+            ...this.state,
+            show : !this.state.show
+        })
     }
 
     render() {
@@ -90,10 +98,14 @@ class Header extends Component {
                                 {Authentication.loggedAsAdmin() && <NavLink className="nav-link header-item" to="/admin">Dashboard</NavLink>}
                             </Nav.Item>
                             <Nav.Item>
+                                {Authentication.isUserLoggedIn() && <NavLink onClick={this.showModal} to="#" className="nav-link header-item"><FontAwesomeIcon icon={faUserLock} /> </NavLink>}
+                            </Nav.Item>
+                            <Nav.Item>
                                 {!Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" to="/login"><FontAwesomeIcon icon={faSignInAlt} /></NavLink>}
                                 {Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" onClick={() => Authentication.logout()} to="/"><FontAwesomeIcon icon={faSignOutAlt} /></NavLink>}
                             </Nav.Item>
                         </Nav>
+                        <UpdateProfile show={this.state.show} onHide={this.showModal} />
                 {/*    </Navbar.Collapse>*/}
                 {/*</Navbar>*/}
             </div>

@@ -1,0 +1,31 @@
+.updateprofile-form-group {
+    font-weight: 600;
+}
+
+.updateprofile-form-input {
+    border-width: 2px !important;
+    color: black !important;
+    font-weight: 480 !important;
+}
+
+.updateprofile-button {
+    font-weight: 600;
+    background-color: black !important;
+    margin-top: 0px;
+}
+
+.updateprofile-col {
+    text-align: right !important;
+    width: 15px !important;
+}
+
+.updateprofile-error {
+    color: red;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+
