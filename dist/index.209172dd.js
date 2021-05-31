@@ -57587,15 +57587,18 @@ try {
         this.setState({
           loading: true
         });
-        let user = {
-          email: sessionStorage.getItem('authenticatedUserEmail'),
-          name: sessionStorage.getItem('authenticatedUserName'),
-          contact: sessionStorage.getItem('authenticatedUserContact'),
-          role: sessionStorage.getItem('authenticatedUserRole'),
-          password: this.state.password
-        };
-        console.log(user);
-        _UpdateProfileDataServiceDefault.default.updateUser(user).then(response => {
+        // let user = {
+        // email: sessionStorage.getItem('authenticatedUserEmail'),
+        // name: sessionStorage.getItem('authenticatedUserName'),
+        // contact: sessionStorage.getItem('authenticatedUserContact'),
+        // role: sessionStorage.getItem('authenticatedUserRole'),
+        // password: this.state.password
+        // }
+        let formData = new FormData();
+        formData.append('email', sessionStorage.getItem('authenticatedUserEmail'));
+        formData.append('password', this.state.password);
+        console.log(formData);
+        _UpdateProfileDataServiceDefault.default.updatePassword(formData).then(response => {
           this.setState({
             loading: false,
             password: '',
@@ -57632,7 +57635,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79,
+            lineNumber: 83,
             columnNumber: 13
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
@@ -57640,7 +57643,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 88,
+            lineNumber: 92,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
@@ -57648,7 +57651,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89,
+            lineNumber: 93,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -57657,14 +57660,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90,
+            lineNumber: 94,
             columnNumber: 25
           }
         }), "  Change Password")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Body, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94,
+            lineNumber: 98,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -57674,7 +57677,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95,
+            lineNumber: 99,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
@@ -57683,21 +57686,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96,
+            lineNumber: 100,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97,
+            lineNumber: 101,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98,
+            lineNumber: 102,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -57706,14 +57709,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 99,
+            lineNumber: 103,
             columnNumber: 37
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 100,
+            lineNumber: 104,
             columnNumber: 41
           }
         }, "New Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -57726,14 +57729,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 101,
+            lineNumber: 105,
             columnNumber: 41
           }
         }))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 104,
+            lineNumber: 108,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -57742,14 +57745,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105,
+            lineNumber: 109,
             columnNumber: 37
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106,
+            lineNumber: 110,
             columnNumber: 41
           }
         }, "Re-Enter New Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -57762,14 +57765,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107,
+            lineNumber: 111,
             columnNumber: 41
           }
         })))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111,
+            lineNumber: 115,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
@@ -57777,7 +57780,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112,
+            lineNumber: 116,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -57787,7 +57790,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113,
+            lineNumber: 117,
             columnNumber: 37
           }
         }, "Update"), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -57795,7 +57798,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114,
+            lineNumber: 118,
             columnNumber: 58
           }
         }, this.state.error)))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
@@ -57806,21 +57809,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123,
+            lineNumber: 127,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 124,
+            lineNumber: 128,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125,
+            lineNumber: 129,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
@@ -57828,7 +57831,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125,
+            lineNumber: 129,
             columnNumber: 34
           }
         }), " Please wait..."))))
@@ -57850,6 +57853,9 @@ var _axiosDefault = _parcelHelpers.interopDefault(_axios);
 class UpdateProfileDataService {
   updateUser(user) {
     return _axiosDefault.default.post('http://localhost:8080/api/v1/user', user);
+  }
+  updatePassword(user) {
+    return _axiosDefault.default.post('http://localhost:8080/api/v1/user/changepassword', user);
   }
 }
 exports.default = new UpdateProfileDataService();

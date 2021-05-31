@@ -37,17 +37,21 @@ class UpdateProfile extends Component {
             this.displayError('The passwords you entered do not match. Please re-enter your password')
         } else {
             this.setState({loading: true})
-            let user = {
-                email: sessionStorage.getItem('authenticatedUserEmail'),
-                name: sessionStorage.getItem('authenticatedUserName'),
-                contact: sessionStorage.getItem('authenticatedUserContact'),
-                role: sessionStorage.getItem('authenticatedUserRole'),
-                password: this.state.password
-            }
+            // let user = {
+            //     email: sessionStorage.getItem('authenticatedUserEmail'),
+            //     name: sessionStorage.getItem('authenticatedUserName'),
+            //     contact: sessionStorage.getItem('authenticatedUserContact'),
+            //     role: sessionStorage.getItem('authenticatedUserRole'),
+            //     password: this.state.password
+            // }
 
-            console.log(user)
+            let formData = new FormData();
+            formData.append('email', sessionStorage.getItem('authenticatedUserEmail'));
+            formData.append('password', this.state.password);
 
-            UpdateProfileDataService.updateUser(user)
+            console.log(formData)
+
+            UpdateProfileDataService.updatePassword(formData)
                 .then(response => {
                     this.setState({loading: false, password: '', temppassword: ''})
                     swal({
