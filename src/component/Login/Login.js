@@ -43,7 +43,7 @@ class Login extends Component {
                 if (response.data != null) {
                     Authentication.successfulLogin(response.data)
                     if (Authentication.loggedAsResearcher()) {
-                        this.props.history.push('/');
+                        this.props.history.push('/researcherprofile');
                     } else if (Authentication.loggedAsWorkshopConductor()) {
                         this.props.history.push('/');
                     } else if (Authentication.loggedAsReviewer()) {

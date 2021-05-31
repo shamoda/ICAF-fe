@@ -26313,6 +26313,8 @@ try {
   require('./PapersList/PapersList');
   var _ProgramProgram = require('./Program/Program');
   var _ProgramProgramDefault = _parcelHelpers.interopDefault(_ProgramProgram);
+  var _ResearcherDashboardResearcherDashboard = require('./ResearcherDashboard/ResearcherDashboard');
+  var _ResearcherDashboardResearcherDashboardDefault = _parcelHelpers.interopDefault(_ResearcherDashboardResearcherDashboard);
   var _ReviewerDashboardReviewerDashboard = require('./ReviewerDashboard/ReviewerDashboard');
   var _ReviewerDashboardReviewerDashboardDefault = _parcelHelpers.interopDefault(_ReviewerDashboardReviewerDashboard);
   var _ReviewPapersReviewPaperDetailsReviewPaperDetails = require('./ReviewPapers/ReviewPaperDetails/ReviewPaperDetails');
@@ -26332,28 +26334,28 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 26,
+            lineNumber: 27,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27,
+            lineNumber: 28,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_HeaderFooterHeaderDefault.default, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 28,
+            lineNumber: 29,
             columnNumber: 21
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Switch, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 29,
+            lineNumber: 30,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26363,7 +26365,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 30,
+            lineNumber: 31,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26372,7 +26374,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31,
+            lineNumber: 32,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26381,7 +26383,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 32,
+            lineNumber: 33,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26390,7 +26392,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34,
+            lineNumber: 35,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26399,7 +26401,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35,
+            lineNumber: 36,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26408,7 +26410,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36,
+            lineNumber: 37,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26417,7 +26419,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37,
+            lineNumber: 38,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26426,7 +26428,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38,
+            lineNumber: 39,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26435,7 +26437,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39,
+            lineNumber: 40,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26444,7 +26446,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40,
+            lineNumber: 41,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26453,7 +26455,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41,
+            lineNumber: 42,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26462,7 +26464,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42,
+            lineNumber: 43,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26471,7 +26473,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43,
+            lineNumber: 44,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26480,7 +26482,16 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44,
+            lineNumber: 45,
+            columnNumber: 29
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
+          path: "/researcherprofile",
+          component: _ResearcherDashboardResearcherDashboardDefault.default,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 46,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -26488,14 +26499,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46,
+            lineNumber: 48,
             columnNumber: 29
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_HeaderFooterFooterDefault.default, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48,
+            lineNumber: 50,
             columnNumber: 21
           }
         })))
@@ -26509,7 +26520,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-router-dom":"1PMSK","./AttendeeRegistration/AttendeeRegistration":"7J4Y4","./CommitteeRegistration/CommitteeRegistration":"2D39I","./Header-Footer/Footer":"1eSZl","./Header-Footer/Header":"7exsp","./Home/Home":"3LuGV","./ImportantDates/ImportantDates":"5Zf5r","./KeyNotes/KeyNotes":"5xkef","./Login/Login":"6BYIv","./NotFoundError/NotFoundError":"6hQXG","./PaperRegistration/PaperRegistration":"heLLU","./Papers/Papers":"5kZEy","./PapersList/PapersList":"3jsKV","./Program/Program":"3gTe6","./ReviewerDashboard/ReviewerDashboard":"6bD5a","./ReviewPapers/ReviewPaperDetails/ReviewPaperDetails":"3hAnV","./ReviewPapers/ReviewPapers":"10NoN","./TemplatesDownloads/Downloads":"244jY","./Workshops/Workshops":"5brXo","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"1PMSK":[function(require,module,exports) {
+},{"react":"3b2NM","react-router-dom":"1PMSK","./AttendeeRegistration/AttendeeRegistration":"7J4Y4","./CommitteeRegistration/CommitteeRegistration":"2D39I","./Header-Footer/Footer":"1eSZl","./Header-Footer/Header":"7exsp","./Home/Home":"3LuGV","./ImportantDates/ImportantDates":"5Zf5r","./KeyNotes/KeyNotes":"5xkef","./Login/Login":"6BYIv","./NotFoundError/NotFoundError":"6hQXG","./PaperRegistration/PaperRegistration":"heLLU","./Papers/Papers":"5kZEy","./PapersList/PapersList":"3jsKV","./Program/Program":"3gTe6","./ResearcherDashboard/ResearcherDashboard":"1ld84","./ReviewerDashboard/ReviewerDashboard":"6bD5a","./ReviewPapers/ReviewPaperDetails/ReviewPaperDetails":"3hAnV","./ReviewPapers/ReviewPapers":"10NoN","./TemplatesDownloads/Downloads":"244jY","./Workshops/Workshops":"5brXo","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"1PMSK":[function(require,module,exports) {
 "use strict";
 if ("development" === "production") {
   module.exports = require("./cjs/react-router-dom.min.js");
@@ -61862,7 +61873,7 @@ try {
         if (response.data != null) {
           _authenticationAuthenticationDefault.default.successfulLogin(response.data);
           if (_authenticationAuthenticationDefault.default.loggedAsResearcher()) {
-            this.props.history.push('/');
+            this.props.history.push('/researcherprofile');
           } else if (_authenticationAuthenticationDefault.default.loggedAsWorkshopConductor()) {
             this.props.history.push('/');
           } else if (_authenticationAuthenticationDefault.default.loggedAsReviewer()) {} else if (_authenticationAuthenticationDefault.default.loggedAsEditor()) {} else if (_authenticationAuthenticationDefault.default.loggedAsAdmin()) {} else {
@@ -63776,7 +63787,409 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","./Program.css":"4Qng0","../PapersList/PapersList":"3jsKV","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4Qng0":[function() {},{}],"6bD5a":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","./Program.css":"4Qng0","../PapersList/PapersList":"3jsKV","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4Qng0":[function() {},{}],"1ld84":[function(require,module,exports) {
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _ResearcherDashboardDataService = require('./ResearcherDashboardDataService');
+  var _ResearcherDashboardDataServiceDefault = _parcelHelpers.interopDefault(_ResearcherDashboardDataService);
+  require('./ResearcherDashboard.css');
+  var _reactBootstrap = require('react-bootstrap');
+  var _fortawesomeReactFontawesome = require('@fortawesome/react-fontawesome');
+  var _fortawesomeFreeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+  var _reactPaypalButtonV = require("react-paypal-button-v2");
+  var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\ResearcherDashboard\\ResearcherDashboard.js";
+  class ResearcherDashboard extends _react.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: '',
+        email: '',
+        contact: '',
+        title: '',
+        author: '',
+        paperAbstract: '',
+        fileName: '',
+        status: '',
+        paid: '',
+        rComment: '',
+        loading: false,
+        isPending: false,
+        isApproved: false,
+        isRejected: false,
+        paymentPending: false,
+        published: false
+      };
+      this.refreshResearcher = this.refreshResearcher.bind(this);
+      this.downloadPaperTemplateClicked = this.downloadPaperTemplateClicked.bind(this);
+      this.updatePaymentStatus = this.updatePaymentStatus.bind(this);
+      this.getStatus = this.getStatus.bind(this);
+    }
+    refreshResearcher() {
+      _ResearcherDashboardDataServiceDefault.default.getResearcher(sessionStorage.getItem('authenticatedUserEmail')).then(res => {
+        this.setState({
+          name: res.data.name,
+          email: res.data.email,
+          contact: res.data.contact,
+          title: res.data.title,
+          author: res.data.author,
+          paperAbstract: res.data.paperAbstract,
+          fileName: res.data.fileName,
+          status: res.data.status,
+          paid: res.data.paid,
+          rComment: res.data.rcomment
+        }, () => {
+          this.getStatus();
+        });
+      });
+    }
+    updatePaymentStatus() {
+      _ResearcherDashboardDataServiceDefault.default.updatePayment(sessionStorage.getItem('authenticatedUserEmail')).then(res => {
+        this.refreshResearcher();
+      });
+    }
+    getStatus() {
+      if (this.state.status == 'pending') {
+        this.setState({
+          isPending: true
+        });
+      } else if (this.state.status == 'approved') {
+        this.setState({
+          isApproved: true
+        });
+      } else if (this.state.status == 'rejected') {
+        this.setState({
+          isRejected: true
+        });
+      }
+      if (this.state.paid == 'false' && this.state.status == 'approved') {
+        this.setState({
+          paymentPending: true
+        });
+      }
+      if (this.state.paid == 'true' && this.state.status == 'approved') {
+        this.setState({
+          published: true
+        });
+      }
+    }
+    componentDidMount() {
+      this.refreshResearcher();
+    }
+    downloadPaperTemplateClicked() {
+      this.setState({
+        loading: true
+      });
+      _ResearcherDashboardDataServiceDefault.default.downloadPaper(this.state.fileName).then(({data}) => {
+        this.setState({
+          loading: false
+        });
+        const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', this.state.fileName);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        swal({
+          title: "Research Paper Downloaded",
+          icon: "success",
+          button: "Ok"
+        });
+      });
+    }
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 105,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "researcherdashboard-title",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 106,
+            columnNumber: 17
+          }
+        }, "RESEARCHER PROFILE"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
+          style: {
+            marginTop: "85px",
+            marginBottom: "85px"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 110,
+            columnNumber: 17
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("h2", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 111,
+            columnNumber: 21
+          }
+        }, this.state.title), /*#__PURE__*/_reactDefault.default.createElement("h4", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112,
+            columnNumber: 21
+          }
+        }, "Author(s): ", this.state.author), /*#__PURE__*/_reactDefault.default.createElement("p", {
+          style: {
+            marginBottom: "5px"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 113,
+            columnNumber: 21
+          }
+        }, this.state.paperAbstract), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          style: {
+            background: "transparent",
+            color: "blue",
+            border: "none",
+            marginBottom: "20px",
+            fontWeight: "600",
+            padding: "0px"
+          },
+          onClick: this.downloadPaperTemplateClicked,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 115,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          size: "sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faDownload,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 115,
+            columnNumber: 197
+          }
+        }), "  Download"), this.state.isPending && /*#__PURE__*/_reactDefault.default.createElement("h5", {
+          style: {
+            color: "#FE4E02"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 116,
+            columnNumber: 46
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          className: "fa-sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faClock,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 116,
+            columnNumber: 77
+          }
+        }), "  Pending"), this.state.isApproved && /*#__PURE__*/_reactDefault.default.createElement("h5", {
+          style: {
+            color: "green"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 117,
+            columnNumber: 47
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          className: "fa-sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faCheckCircle,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 117,
+            columnNumber: 76
+          }
+        }), "  Approved"), this.state.isRejected && /*#__PURE__*/_reactDefault.default.createElement("h5", {
+          style: {
+            color: "red"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 118,
+            columnNumber: 47
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          className: "fa-sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faTimesCircle,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 118,
+            columnNumber: 74
+          }
+        }), "  Rejected"), !this.state.isPending && /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 119,
+            columnNumber: 47
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("b", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 119,
+            columnNumber: 50
+          }
+        }, "Reviewer comment:"), " ", this.state.rComment), this.state.paymentPending && /*#__PURE__*/_reactDefault.default.createElement("p", {
+          style: {
+            marginBottom: "0px",
+            marginTop: "20px"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120,
+            columnNumber: 51
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("b", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120,
+            columnNumber: 103
+          }
+        }, "Please complete your research paper submission by making the necessary payment")), this.state.paymentPending && /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 121,
+            columnNumber: 51
+          }
+        }, "Submission fee: $10"), this.state.paymentPending && /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "attendeeregistration-paypal",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 122,
+            columnNumber: 51
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactPaypalButtonV.PayPalButton, {
+          style: {
+            layout: "horizontal",
+            color: "gold",
+            height: 40,
+            tagline: "true",
+            label: "pay"
+          },
+          amount: "10.00",
+          shippingPreference: "NO_SHIPPING",
+          /*default is "GET_FROM_FILE"*/
+          onSuccess: details => {
+            // this.setState({notPaid: !this.state.notPaid})
+            this.updatePaymentStatus();
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 123,
+            columnNumber: 25
+          }
+        })), this.state.published && /*#__PURE__*/_reactDefault.default.createElement("h5", {
+          style: {
+            color: "green"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 133,
+            columnNumber: 46
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          className: "fa-sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faCheckCircle,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 133,
+            columnNumber: 75
+          }
+        }), "  Congradulations! Your paper is now visible for everyone.")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
+          centered: true,
+          size: "sm",
+          show: this.state.loading,
+          onHide: () => console.log('please wait...'),
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 138,
+            columnNumber: 17
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 139,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 140,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
+          animation: "border",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 140,
+            columnNumber: 34
+          }
+        }), " Downloading..."))))
+      );
+    }
+  }
+  exports.default = ResearcherDashboard;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"react":"3b2NM","./ResearcherDashboardDataService":"55qJP","./ResearcherDashboard.css":"1jgXb","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","react-paypal-button-v2":"3Wd1q","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"55qJP":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _axios = require('axios');
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+class ResearcherDashboardDataService {
+  getResearcher(email) {
+    return _axiosDefault.default.get(`http://localhost:8080/api/v1/researcher/${email}`);
+  }
+  downloadPaper(fileName) {
+    return _axiosDefault.default.get(`http://localhost:8080/api/v1/download/paper/${fileName}`, {
+      responseType: 'blob'
+    });
+  }
+  updatePayment(email) {
+    return _axiosDefault.default.post(`http://localhost:8080/api/v1/researcher/pay/${email}`);
+  }
+}
+exports.default = new ResearcherDashboardDataService();
+
+},{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"1jgXb":[function() {},{}],"6bD5a":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
