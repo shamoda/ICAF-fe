@@ -6,7 +6,18 @@ import './Program.css'
 import PapersList from '../PapersList/PapersList';
 
 class Program extends Component {
-    state = {  }
+
+    constructor(props){
+        super(props);
+        this.state = { }
+
+        this.redirectToLogin = this.redirectToLogin.bind(this);
+    }
+
+    redirectToLogin() {
+        return this.props.history.push('/login')
+    }
+
     render() { 
         return ( 
             <div>
@@ -30,7 +41,7 @@ class Program extends Component {
                         <div className="program-topics">
                             <Tabs style={{textAlign: "center"}} variant="tabs" defaultActiveKey="a" unmountOnExit={true} >
                                 <Tab style={{textAlign: "left"}} eventKey="a" title="Papers">
-                                    <PapersList />
+                                    <PapersList redirectToLogin={this.redirectToLogin}  />
                                 </Tab>
                                 <Tab style={{textAlign: "left"}} eventKey="b" title="Workshops">
                                     Workshop List comes here

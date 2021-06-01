@@ -116,6 +116,7 @@ class ResearcherDashboard extends Component {
                     {this.state.isPending && <h5 style={{color: "#FE4E02"}}><FontAwesomeIcon className="fa-sm" icon={faClock} />&nbsp; Pending</h5>}
                     {this.state.isApproved && <h5 style={{color: "green"}}><FontAwesomeIcon className="fa-sm" icon={faCheckCircle} />&nbsp; Approved</h5>}
                     {this.state.isRejected && <h5 style={{color: "red"}}><FontAwesomeIcon className="fa-sm" icon={faTimesCircle} />&nbsp; Rejected</h5>}
+                    {this.state.published && <h5 style={{color: "green"}}><FontAwesomeIcon className="fa-sm" icon={faCheckCircle} />&nbsp; Congradulations! Your paper is now visible for everyone.</h5>}
                     {!this.state.isPending && <p><b>Reviewer comment:</b> {this.state.rComment}</p>}
                     {this.state.paymentPending && <p style={{marginBottom: "0px", marginTop: "20px"}}><b>Please complete your research paper submission by making the necessary payment</b></p>}
                     {this.state.paymentPending && <p>Submission fee: $10</p>}
@@ -125,12 +126,14 @@ class ResearcherDashboard extends Component {
                             amount="10.00"
                             shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                             onSuccess={(details) => {
-                                // this.setState({notPaid: !this.state.notPaid})
+                                this.setState({paymentPending: !this.state.paymentPending})
+                                this.setState({published: !this.state.published})
                                 this.updatePaymentStatus()
+
                             }}
                         />
                     </div>}
-                    {this.state.published && <h5 style={{color: "green"}}><FontAwesomeIcon className="fa-sm" icon={faCheckCircle} />&nbsp; Congradulations! Your paper is now visible for everyone.</h5>}
+                    {/* {this.state.published && <h5 style={{color: "green"}}><FontAwesomeIcon className="fa-sm" icon={faCheckCircle} />&nbsp; Congradulations! Your paper is now visible for everyone.</h5>} */}
 
 
                 </Container>

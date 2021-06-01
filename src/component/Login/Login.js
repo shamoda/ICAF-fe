@@ -4,6 +4,7 @@ import authentication from '../../authentication/authentication';
 import AuthenticationDataService from '../../authentication/AuthenticationDataService';
 import Authentication from '../../authentication/Authentication';
 import './Login.css'
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -12,7 +13,8 @@ class Login extends Component {
         this.state = { 
             email: '',
             password: '',
-            error: null
+            error: null,
+            loading: false,
          }
 
         this.loginClicked = this.loginClicked.bind(this);
@@ -34,18 +36,23 @@ class Login extends Component {
             return
         }
 
+        this.setState({loading: true}, () => console.log(''))
+
         let formData = new FormData();
         formData.append('email', this.state.email);
         formData.append('password', this.state.password);
 
         AuthenticationDataService.login(formData)
             .then(response => {
+                this.setState({loading: false})
                 if (response.data != null) {
                     Authentication.successfulLogin(response.data)
                     if (Authentication.loggedAsResearcher()) {
                         this.props.history.push('/researcherprofile');
                     } else if (Authentication.loggedAsWorkshopConductor()) {
                         this.props.history.push('/');
+                    } else if (Authentication.loggedAsAttendee()) {
+                        this.props.history.push('/program');
                     } else if (Authentication.loggedAsReviewer()) {
 
                     } else if (Authentication.loggedAsEditor()) {
@@ -59,7 +66,13 @@ class Login extends Component {
                     this.errorOccured("Invalid Email or Password")
                 }
             }).catch (error => {
-                this.errorOccured("Invalid Email or Password")
+                this.setState({loading: false})
+                swal({
+                    title: "Oops!",
+                    text: "Something went wrong, please try again.",
+                    icon: "error",
+                    button: "Ok",
+                  })
             })
     }
 
@@ -90,10 +103,17 @@ class Login extends Component {
                             <Form.Label>Password</Form.Label>
                             <Form.Control onChange={this.handleChange} name="password" value={this.state.password} type="password" placeholder="password" className = "login-form-input" />
                         </Form.Group>
-                        <Button type="submit" variant="dark" className="login-button">Login</Button>
+                        <Button type="submit" variant="dark" className="login-button">Login</Button><br/>
                         {this.state.error && <p className="login-error">{this.state.error}</p>}
+                        <Link style={{textDecoration: "none", fontSize: "14px", marginTop: "0px"}} to="/attendeeregistration">Don't have an account? Become an Attendee</Link>
                     </Form>
                 </Container>
+
+                <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
+                    <Modal.Header>
+                    <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
+                    </Modal.Header>
+                </Modal>
             </div>
          );
     }

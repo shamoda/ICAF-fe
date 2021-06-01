@@ -195,7 +195,7 @@
 }
 
 .login-form-group {
-    margin-top: 30px;
+    margin-top: 20px;
     font-weight: 600;
 }
 
@@ -208,7 +208,7 @@
 .login-button {
     font-weight: 600;
     background-color: black !important;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .login-error {
@@ -216,7 +216,7 @@
     font-weight: 600;
     font-size: 14px;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 0px !important;
 }
 .NotFoundError-title {
     font-family: 'Bebas Neue', cursive;

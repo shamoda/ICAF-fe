@@ -92,7 +92,7 @@ class Header extends Component {
                             <Nav.Item>
                                 {Authentication.loggedAsResearcher() && <NavLink className="nav-link header-item" to="/researcherprofile">My Profile</NavLink>}
                                 {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/workshopprofile">My Profile</NavLink>}
-                                {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="/attendeeprofile">My Profile</NavLink>}
+                                {/* {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="/attendeeprofile">My Profile</NavLink>} */}
                                 {Authentication.loggedAsReviewer() && <NavLink className="nav-link header-item" to="/reviewer">Dashboard</NavLink>}
                                 {Authentication.loggedAsEditor() && <NavLink className="nav-link header-item" to="/editor">Dashboard</NavLink>}
                                 {Authentication.loggedAsAdmin() && <NavLink className="nav-link header-item" to="/admin">Dashboard</NavLink>}

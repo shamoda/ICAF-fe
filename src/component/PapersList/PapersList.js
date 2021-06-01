@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faFastBackward, faFastForward, faFilePdf, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import './PapersList.css'
 import PapersListDataService from './PapersListDataService';
+import Authentication from '../../authentication/Authentication';
+import Program from '../Program/Program';
 
 class PapersList extends Component {
     
@@ -39,23 +41,36 @@ class PapersList extends Component {
     }
 
     downloadPaperTemplateClicked(fileName) {
-        this.setState({loading: true})
-        PapersListDataService.downloadPaper(fileName)
-            .then(({ data }) => {
-                this.setState({loading: false})
-                const downloadUrl = window.URL.createObjectURL(new Blob([data]));
-                const link = document.createElement('a');
-                link.href = downloadUrl;
-                link.setAttribute('download', fileName);
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
-                swal({
-                    title: "Research Paper Downloaded",
-                    icon: "success",
-                    button: "Ok",
-                  })
-            });
+        if (!Authentication.isUserLoggedIn()) {
+            swal({
+                // title: "Oops!!!",
+                title: "First you have to Login",
+                icon: "warning",
+                buttons: true,
+              }).then((result) => {
+                  if ((result)) {
+                    return this.props.redirectToLogin()
+                  } 
+              })
+        } else {
+            this.setState({loading: true})
+            PapersListDataService.downloadPaper(fileName)
+                .then(({ data }) => {
+                    this.setState({loading: false})
+                    const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+                    const link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.setAttribute('download', fileName);
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                    swal({
+                        title: "Research Paper Downloaded",
+                        icon: "success",
+                        button: "Ok",
+                      })
+                });
+        }
     }
 
     firstPage = () => {

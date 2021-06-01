@@ -57323,15 +57323,6 @@ try {
             lineNumber: 94,
             columnNumber: 80
           }
-        }, "My Profile"), _authenticationAuthenticationDefault.default.loggedAsAttendee() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
-          className: "nav-link header-item",
-          to: "/attendeeprofile",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 95,
-            columnNumber: 71
-          }
         }, "My Profile"), _authenticationAuthenticationDefault.default.loggedAsReviewer() && /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.NavLink, {
           className: "nav-link header-item",
           to: "/reviewer",
@@ -61840,6 +61831,7 @@ try {
   var _authenticationAuthentication = require('../../authentication/Authentication');
   var _authenticationAuthenticationDefault = _parcelHelpers.interopDefault(_authenticationAuthentication);
   require('./Login.css');
+  var _reactRouterDom = require('react-router-dom');
   var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\Login\\Login.js";
   class Login extends _react.Component {
     constructor(props) {
@@ -61847,7 +61839,8 @@ try {
       this.state = {
         email: '',
         password: '',
-        error: null
+        error: null,
+        loading: false
       };
       this.loginClicked = this.loginClicked.bind(this);
       this.errorOccured = this.errorOccured.bind(this);
@@ -61866,16 +61859,24 @@ try {
         this.errorOccured("Password cannot be empty");
         return;
       }
+      this.setState({
+        loading: true
+      }, () => console.log(''));
       let formData = new FormData();
       formData.append('email', this.state.email);
       formData.append('password', this.state.password);
       _authenticationAuthenticationDataServiceDefault.default.login(formData).then(response => {
+        this.setState({
+          loading: false
+        });
         if (response.data != null) {
           _authenticationAuthenticationDefault.default.successfulLogin(response.data);
           if (_authenticationAuthenticationDefault.default.loggedAsResearcher()) {
             this.props.history.push('/researcherprofile');
           } else if (_authenticationAuthenticationDefault.default.loggedAsWorkshopConductor()) {
             this.props.history.push('/');
+          } else if (_authenticationAuthenticationDefault.default.loggedAsAttendee()) {
+            this.props.history.push('/program');
           } else if (_authenticationAuthenticationDefault.default.loggedAsReviewer()) {} else if (_authenticationAuthenticationDefault.default.loggedAsEditor()) {} else if (_authenticationAuthenticationDefault.default.loggedAsAdmin()) {} else {
             this.errorOccured("Invalid Email or Password");
           }
@@ -61883,7 +61884,15 @@ try {
           this.errorOccured("Invalid Email or Password");
         }
       }).catch(error => {
-        this.errorOccured("Invalid Email or Password");
+        this.setState({
+          loading: false
+        });
+        swal({
+          title: "Oops!",
+          text: "Something went wrong, please try again.",
+          icon: "error",
+          button: "Ok"
+        });
       });
     }
     handleChange = event => {
@@ -61898,7 +61907,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75,
+            lineNumber: 88,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -61906,7 +61915,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76,
+            lineNumber: 89,
             columnNumber: 17
           }
         }, "LOGIN"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -61914,7 +61923,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80,
+            lineNumber: 93,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
@@ -61923,7 +61932,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 81,
+            lineNumber: 94,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -61932,14 +61941,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82,
+            lineNumber: 95,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83,
+            lineNumber: 96,
             columnNumber: 29
           }
         }, "Email"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -61952,7 +61961,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84,
+            lineNumber: 97,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Text, {
@@ -61960,7 +61969,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85,
+            lineNumber: 98,
             columnNumber: 29
           }
         }, "Registered Email")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -61969,14 +61978,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89,
+            lineNumber: 102,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90,
+            lineNumber: 103,
             columnNumber: 29
           }
         }, "Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -61989,7 +61998,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 91,
+            lineNumber: 104,
             columnNumber: 29
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -61999,18 +62008,71 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 93,
+            lineNumber: 106,
             columnNumber: 25
           }
-        }, "Login"), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
+        }, "Login"), /*#__PURE__*/_reactDefault.default.createElement("br", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 106,
+            columnNumber: 101
+          }
+        }), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
           className: "login-error",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94,
+            lineNumber: 107,
             columnNumber: 46
           }
-        }, this.state.error))))
+        }, this.state.error), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
+          style: {
+            textDecoration: "none",
+            fontSize: "14px",
+            marginTop: "0px"
+          },
+          to: "/attendeeregistration",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 108,
+            columnNumber: 25
+          }
+        }, "Don't have an account? Become an Attendee"))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
+          centered: true,
+          size: "sm",
+          show: this.state.loading,
+          onHide: () => console.log('please wait...'),
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112,
+            columnNumber: 17
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 113,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 114,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
+          animation: "border",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 114,
+            columnNumber: 34
+          }
+        }), " Please wait..."))))
       );
     }
   }
@@ -62021,7 +62083,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","../../authentication/authentication":"5FiPT","../../authentication/AuthenticationDataService":"OSYmX","../../authentication/Authentication":"60PIY","./Login.css":"PwUQC","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5FiPT":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","../../authentication/authentication":"5FiPT","../../authentication/AuthenticationDataService":"OSYmX","../../authentication/Authentication":"60PIY","./Login.css":"PwUQC","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5FiPT":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
@@ -63140,6 +63202,9 @@ try {
   require('./PapersList.css');
   var _PapersListDataService = require('./PapersListDataService');
   var _PapersListDataServiceDefault = _parcelHelpers.interopDefault(_PapersListDataService);
+  var _authenticationAuthentication = require('../../authentication/Authentication');
+  var _authenticationAuthenticationDefault = _parcelHelpers.interopDefault(_authenticationAuthentication);
+  require('../Program/Program');
   var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\PapersList\\PapersList.js";
   class PapersList extends _react.Component {
     constructor(props) {
@@ -63170,26 +63235,39 @@ try {
       this.refreshPapers();
     }
     downloadPaperTemplateClicked(fileName) {
-      this.setState({
-        loading: true
-      });
-      _PapersListDataServiceDefault.default.downloadPaper(fileName).then(({data}) => {
-        this.setState({
-          loading: false
-        });
-        const downloadUrl = window.URL.createObjectURL(new Blob([data]));
-        const link = document.createElement('a');
-        link.href = downloadUrl;
-        link.setAttribute('download', fileName);
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
+      if (!_authenticationAuthenticationDefault.default.isUserLoggedIn()) {
         swal({
-          title: "Research Paper Downloaded",
-          icon: "success",
-          button: "Ok"
+          // title: "Oops!!!",
+          title: "First you have to Login",
+          icon: "warning",
+          buttons: true
+        }).then(result => {
+          if (result) {
+            return this.props.redirectToLogin();
+          }
         });
-      });
+      } else {
+        this.setState({
+          loading: true
+        });
+        _PapersListDataServiceDefault.default.downloadPaper(fileName).then(({data}) => {
+          this.setState({
+            loading: false
+          });
+          const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.setAttribute('download', fileName);
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          swal({
+            title: "Research Paper Downloaded",
+            icon: "success",
+            button: "Ok"
+          });
+        });
+      }
     }
     firstPage = () => {
       if (this.state.currentPage > 1) {
@@ -63249,7 +63327,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 127,
+            lineNumber: 142,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -63257,7 +63335,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 128,
+            lineNumber: 143,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card, {
@@ -63268,7 +63346,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 129,
+            lineNumber: 144,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Header, {
@@ -63278,7 +63356,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 130,
+            lineNumber: 145,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -63290,7 +63368,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 131,
+            lineNumber: 146,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -63298,7 +63376,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 132,
+            lineNumber: 147,
             columnNumber: 29
           }
         }), "  Research Papers"), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -63308,7 +63386,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 134,
+            lineNumber: 149,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup, {
@@ -63316,7 +63394,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135,
+            lineNumber: 150,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -63327,7 +63405,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136,
+            lineNumber: 151,
             columnNumber: 37
           }
         }), "  ", /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.FormControl, {
@@ -63341,7 +63419,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136,
+            lineNumber: 151,
             columnNumber: 106
           }
         }), " "))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Body, {
@@ -63351,7 +63429,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 141,
+            lineNumber: 156,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Table, {
@@ -63363,14 +63441,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 142,
+            lineNumber: 157,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("tbody", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 143,
+            lineNumber: 158,
             columnNumber: 33
           }
         }, this.state.papers.length === 0 ? /*#__PURE__*/_reactDefault.default.createElement("tr", {
@@ -63378,7 +63456,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 145,
+            lineNumber: 160,
             columnNumber: 71
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("td", {
@@ -63386,7 +63464,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 146,
+            lineNumber: 161,
             columnNumber: 41
           }
         }, "No Records Found")) : currentEntries.map(paper => /*#__PURE__*/_reactDefault.default.createElement("tr", {
@@ -63394,7 +63472,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 150,
+            lineNumber: 165,
             columnNumber: 37
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("td", {
@@ -63404,14 +63482,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 151,
+            lineNumber: 166,
             columnNumber: 37
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("h5", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 152,
+            lineNumber: 167,
             columnNumber: 41
           }
         }, paper.title), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -63421,7 +63499,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 153,
+            lineNumber: 168,
             columnNumber: 41
           }
         }, "By: ", paper.author), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -63431,7 +63509,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 154,
+            lineNumber: 169,
             columnNumber: 41
           }
         }, paper.paperAbstract.slice(0, 270), "...")), /*#__PURE__*/_reactDefault.default.createElement("td", {
@@ -63443,7 +63521,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156,
+            lineNumber: 171,
             columnNumber: 37
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -63452,7 +63530,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156,
+            lineNumber: 171,
             columnNumber: 105
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -63460,7 +63538,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156,
+            lineNumber: 171,
             columnNumber: 202
           }
         }), "  Download"))))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Footer, {
@@ -63471,7 +63549,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 164,
+            lineNumber: 179,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -63481,7 +63559,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165,
+            lineNumber: 180,
             columnNumber: 29
           }
         }, "Showing Page ", currentPage, " of ", Math.ceil(totalPages)), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -63491,7 +63569,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 168,
+            lineNumber: 183,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup, {
@@ -63499,14 +63577,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169,
+            lineNumber: 184,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup.Prepend, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 170,
+            lineNumber: 185,
             columnNumber: 37
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -63517,7 +63595,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 171,
+            lineNumber: 186,
             columnNumber: 41
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -63525,7 +63603,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 172,
+            lineNumber: 187,
             columnNumber: 41
           }
         }), " First"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -63536,7 +63614,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 174,
+            lineNumber: 189,
             columnNumber: 41
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -63544,7 +63622,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 175,
+            lineNumber: 190,
             columnNumber: 41
           }
         }), " Prev")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.FormControl, {
@@ -63556,14 +63634,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 178,
+            lineNumber: 193,
             columnNumber: 37
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup.Append, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 179,
+            lineNumber: 194,
             columnNumber: 37
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -63574,7 +63652,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 180,
+            lineNumber: 195,
             columnNumber: 41
           }
         }, "Next ", /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -63582,7 +63660,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 181,
+            lineNumber: 196,
             columnNumber: 50
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -63593,7 +63671,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 183,
+            lineNumber: 198,
             columnNumber: 41
           }
         }, "Last ", /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -63601,7 +63679,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 184,
+            lineNumber: 199,
             columnNumber: 50
           }
         })))))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
@@ -63612,21 +63690,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 193,
+            lineNumber: 208,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 194,
+            lineNumber: 209,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 195,
+            lineNumber: 210,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
@@ -63634,7 +63712,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 195,
+            lineNumber: 210,
             columnNumber: 34
           }
         }), " Downloading..."))))
@@ -63648,7 +63726,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","./PapersList.css":"1Zqc4","./PapersListDataService":"4doiz","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"1Zqc4":[function() {},{}],"4doiz":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","./PapersList.css":"1Zqc4","./PapersListDataService":"4doiz","../../authentication/Authentication":"60PIY","../Program/Program":"3gTe6","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"1Zqc4":[function() {},{}],"4doiz":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 var _axios = require('axios');
@@ -63683,14 +63761,21 @@ try {
   var _PapersListPapersListDefault = _parcelHelpers.interopDefault(_PapersListPapersList);
   var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\Program\\Program.js";
   class Program extends _react.Component {
-    state = {};
+    constructor(props) {
+      super(props);
+      this.state = {};
+      this.redirectToLogin = this.redirectToLogin.bind(this);
+    }
+    redirectToLogin() {
+      return this.props.history.push('/login');
+    }
     render() {
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 12,
+            lineNumber: 23,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -63698,14 +63783,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 13,
+            lineNumber: 24,
             columnNumber: 17
           }
         }, "PROGRAM"), /*#__PURE__*/_reactDefault.default.createElement("div", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 17,
+            lineNumber: 28,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -63713,7 +63798,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18,
+            lineNumber: 29,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -63721,7 +63806,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19,
+            lineNumber: 30,
             columnNumber: 25
           }
         }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac, lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar. Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at, efficitur a orci. Integer at placerat velit. Nunc vehicula tristique elit sed suscipit. Mauris varius odio ut lacus interdum, ac mollis elit lobortis. Maecenas fermentum blandit odio nec interdum. Nunc efficitur diam nulla, hendrerit egestas augue dapibus eu. Donec vitae iaculis neque. Proin fermentum lectus purus, eget auctor mi gravida ut. Vivamus pellentesque est at ante tempor, sit amet sollicitudin orci mollis."), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -63729,7 +63814,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 30,
+            lineNumber: 41,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tabs, {
@@ -63742,7 +63827,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31,
+            lineNumber: 42,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -63754,14 +63839,15 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 32,
+            lineNumber: 43,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_PapersListPapersListDefault.default, {
+          redirectToLogin: this.redirectToLogin,
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 33,
+            lineNumber: 44,
             columnNumber: 37
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -63773,7 +63859,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35,
+            lineNumber: 46,
             columnNumber: 33
           }
         }, "Workshop List comes here"))))))
@@ -64038,18 +64124,37 @@ try {
             lineNumber: 118,
             columnNumber: 74
           }
-        }), "  Rejected"), !this.state.isPending && /*#__PURE__*/_reactDefault.default.createElement("p", {
+        }), "  Rejected"), this.state.published && /*#__PURE__*/_reactDefault.default.createElement("h5", {
+          style: {
+            color: "green"
+          },
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 119,
+            columnNumber: 46
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          className: "fa-sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faCheckCircle,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 119,
+            columnNumber: 75
+          }
+        }), "  Congradulations! Your paper is now visible for everyone."), !this.state.isPending && /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120,
             columnNumber: 47
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("b", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119,
+            lineNumber: 120,
             columnNumber: 50
           }
         }, "Reviewer comment:"), " ", this.state.rComment), this.state.paymentPending && /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -64060,21 +64165,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120,
+            lineNumber: 121,
             columnNumber: 51
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("b", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120,
+            lineNumber: 121,
             columnNumber: 103
           }
         }, "Please complete your research paper submission by making the necessary payment")), this.state.paymentPending && /*#__PURE__*/_reactDefault.default.createElement("p", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121,
+            lineNumber: 122,
             columnNumber: 51
           }
         }, "Submission fee: $10"), this.state.paymentPending && /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -64082,7 +64187,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122,
+            lineNumber: 123,
             columnNumber: 51
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactPaypalButtonV.PayPalButton, {
@@ -64097,35 +64202,21 @@ try {
           shippingPreference: "NO_SHIPPING",
           /*default is "GET_FROM_FILE"*/
           onSuccess: details => {
-            // this.setState({notPaid: !this.state.notPaid})
+            this.setState({
+              paymentPending: !this.state.paymentPending
+            });
+            this.setState({
+              published: !this.state.published
+            });
             this.updatePaymentStatus();
           },
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123,
+            lineNumber: 124,
             columnNumber: 25
           }
-        })), this.state.published && /*#__PURE__*/_reactDefault.default.createElement("h5", {
-          style: {
-            color: "green"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 133,
-            columnNumber: 46
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          className: "fa-sm",
-          icon: _fortawesomeFreeSolidSvgIcons.faCheckCircle,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 133,
-            columnNumber: 75
-          }
-        }), "  Congradulations! Your paper is now visible for everyone.")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
+        }))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
           centered: true,
           size: "sm",
           show: this.state.loading,
@@ -64133,21 +64224,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 138,
+            lineNumber: 141,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 139,
+            lineNumber: 142,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 140,
+            lineNumber: 143,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
@@ -64155,7 +64246,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 140,
+            lineNumber: 143,
             columnNumber: 34
           }
         }), " Downloading..."))))
