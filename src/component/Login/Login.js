@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Container, Button, Modal, Spinner } from 'react-bootstrap';
-import authentication from '../../authentication/authentication';
 import AuthenticationDataService from '../../authentication/AuthenticationDataService';
 import Authentication from '../../authentication/Authentication';
 import './Login.css'

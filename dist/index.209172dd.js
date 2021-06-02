@@ -62622,7 +62622,6 @@ try {
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _reactBootstrap = require('react-bootstrap');
-  require('../../authentication/authentication');
   var _authenticationAuthenticationDataService = require('../../authentication/AuthenticationDataService');
   var _authenticationAuthenticationDataServiceDefault = _parcelHelpers.interopDefault(_authenticationAuthenticationDataService);
   var _authenticationAuthentication = require('../../authentication/Authentication');
@@ -62704,7 +62703,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 88,
+            lineNumber: 87,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -62712,7 +62711,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89,
+            lineNumber: 88,
             columnNumber: 17
           }
         }, "LOGIN"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -62720,7 +62719,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 93,
+            lineNumber: 92,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
@@ -62729,7 +62728,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94,
+            lineNumber: 93,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -62738,14 +62737,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95,
+            lineNumber: 94,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96,
+            lineNumber: 95,
             columnNumber: 29
           }
         }, "Email"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -62758,7 +62757,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97,
+            lineNumber: 96,
             columnNumber: 29
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Text, {
@@ -62766,7 +62765,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98,
+            lineNumber: 97,
             columnNumber: 29
           }
         }, "Registered Email")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
@@ -62775,14 +62774,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 102,
+            lineNumber: 101,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 103,
+            lineNumber: 102,
             columnNumber: 29
           }
         }, "Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -62795,7 +62794,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 104,
+            lineNumber: 103,
             columnNumber: 29
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -62805,14 +62804,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106,
+            lineNumber: 105,
             columnNumber: 25
           }
         }, "Login"), /*#__PURE__*/_reactDefault.default.createElement("br", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106,
+            lineNumber: 105,
             columnNumber: 101
           }
         }), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -62820,7 +62819,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107,
+            lineNumber: 106,
             columnNumber: 46
           }
         }, this.state.error), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
@@ -62833,7 +62832,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 108,
+            lineNumber: 107,
             columnNumber: 25
           }
         }, "Don't have an account? Become an Attendee"))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
@@ -62844,21 +62843,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112,
+            lineNumber: 111,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113,
+            lineNumber: 112,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114,
+            lineNumber: 113,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
@@ -62866,7 +62865,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114,
+            lineNumber: 113,
             columnNumber: 34
           }
         }), " Please wait..."))))
@@ -62880,98 +62879,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","../../authentication/authentication":"5FiPT","../../authentication/AuthenticationDataService":"OSYmX","../../authentication/Authentication":"60PIY","./Login.css":"PwUQC","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5FiPT":[function(require,module,exports) {
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-_parcelHelpers.defineInteropFlag(exports);
-var _axios = require("axios");
-var _axiosDefault = _parcelHelpers.interopDefault(_axios);
-class Athentication {
-  // ::::::::: User roles :::::::::
-  // researcher
-  // workshopConductor
-  // attendee
-  // reviewer
-  // editor
-  // admin
-  successfulLogin(user) {
-    // this.setupAxiosInterceptors(authHead)
-    sessionStorage.setItem('authenticatedUserEmail', user.email);
-    sessionStorage.setItem('authenticatedUserName', user.name);
-    sessionStorage.setItem('authenticatedUserContact', user.contact);
-    sessionStorage.setItem('authenticatedUserRole', user.role);
-  }
-  logout() {
-    this.ejectAxiosInterceptor();
-    sessionStorage.removeItem('authenticatedUserEmail');
-    sessionStorage.removeItem('authenticatedUserName');
-    sessionStorage.removeItem('authenticatedUserContact');
-    sessionStorage.removeItem('authenticatedUserRole');
-  }
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('authenticatedUserEmail');
-    if (user === null) return false;
-    return true;
-  }
-  loggedUserId() {
-    let id = sessionStorage.getItem('authenticatedUserEmail');
-    if (id === null) return '';
-    return id;
-  }
-  loggedUserName() {
-    let name = sessionStorage.getItem('authenticatedUserName');
-    if (name === null) return '';
-    return name;
-  }
-  loggedUserRole() {
-    let role = sessionStorage.getItem('authenticatedUserRole');
-    if (role != null) return role;
-    return null;
-  }
-  loggedAsResearcher() {
-    let role = this.loggedUserRole();
-    if (role != null && role === 'researcher') return true;
-    return false;
-  }
-  loggedAsWorkshopConductor() {
-    let role = this.loggedUserRole();
-    if (role != null && role === 'workshopConductor') return true;
-    return false;
-  }
-  loggedAsAttendee() {
-    let role = this.loggedUserRole();
-    if (role != null && role === 'attendee') return true;
-    return false;
-  }
-  loggedAsReviewer() {
-    let role = this.loggedUserRole();
-    if (role != null && role === 'reviewer') return true;
-    return false;
-  }
-  loggedAsEditor() {
-    let role = this.loggedUserRole();
-    if (role != null && role === 'editor') return true;
-    return false;
-  }
-  loggedAsAdmin() {
-    let role = this.loggedUserRole();
-    if (role != null && role === 'admin') return true;
-    return false;
-  }
-  setupAxiosInterceptors(basicAuthHeader) {
-    this.id = _axiosDefault.default.interceptors.request.use(config => {
-      config.headers.authorization = basicAuthHeader;
-      return config;
-    });
-  }
-  ejectAxiosInterceptor() {
-    console.log(this.id);
-    _axiosDefault.default.interceptors.request.eject(this.id);
-    console.log(this.id);
-  }
-}
-exports.default = new Athentication();
-
-},{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"OSYmX":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","../../authentication/AuthenticationDataService":"OSYmX","../../authentication/Authentication":"60PIY","./Login.css":"PwUQC","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"OSYmX":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 var _axios = require('axios');
