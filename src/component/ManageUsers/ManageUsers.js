@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './ManageResearchers.css'
-import ManageResearchersDataService from './ManageResearchersDataService'
+import './ManageUsers.css'
+import ManageUsersDataService from './ManageUsersDataService'
 import Authentication from '../../authentication/Authentication';
 import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faFastBackward, faFastForward, faFilePdf, faSearch, faStepBackward, faStepForward, faTrash, faUserGraduate, faUserMd } from '@fortawesome/free-solid-svg-icons'
+import { faDownload, faFastBackward, faFastForward, faFilePdf, faSearch, faStepBackward, faStepForward, faTrash, faUserGraduate, faUserMd, faUsersCog } from '@fortawesome/free-solid-svg-icons'
 import { faResearchgate } from '@fortawesome/free-brands-svg-icons';
 
-class ManageResearchers extends Component {
+class ManageUsers extends Component {
     
     constructor(props){
         super(props);
@@ -26,11 +26,10 @@ class ManageResearchers extends Component {
 
     refreshUsers() {
         let example = {
-            title: this.state.search,
-            status: 'approved',
-            paid: true
+            name: this.state.search,
+            role: this.props.role
         }
-        ManageResearchersDataService.getUsers(example)
+        ManageUsersDataService.getUsers(example)
             .then(response => {
                 this.setState({users: response.data})
             })
@@ -40,37 +39,66 @@ class ManageResearchers extends Component {
         this.refreshUsers()
     }
 
-    downloadPaperTemplateClicked(fileName) {
-        if (!Authentication.isUserLoggedIn()) {
-            swal({
-                // title: "Oops!!!",
-                title: "First you have to Login",
-                icon: "warning",
-                buttons: true,
-              }).then((result) => {
-                  if ((result)) {
-                    return this.props.redirectToLogin()
-                  } 
-              })
-        } else {
-            this.setState({loading: true})
-            ManageResearchersDataService.downloadPaper(fileName)
-                .then(({ data }) => {
-                    this.setState({loading: false})
-                    const downloadUrl = window.URL.createObjectURL(new Blob([data]));
-                    const link = document.createElement('a');
-                    link.href = downloadUrl;
-                    link.setAttribute('download', fileName);
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                    swal({
-                        title: "Research Paper Downloaded",
-                        icon: "success",
-                        button: "Ok",
-                      })
-                });
-        }
+    deleteUser(email, name) {
+        swal({
+            title: "You are about to delete,",
+            text: name,
+            icon: "warning",
+            buttons: true
+        }).then((result) => {
+            if ((result)) {
+                this.setState({loading: true})
+                if (this.props.role === "attendee") {
+                    ManageUsersDataService.deleteAttendee(email)
+                        .then( response => {
+                            this.setState({loading: false})
+                            swal({
+                                title: "User Deleted Successfully!",
+                                icon: "success",
+                                button: "Ok",
+                            }).then(result => {
+                                return this.refreshUsers()
+                            })
+                        })
+                } else if (this.props.role === "researcher") {
+                    ManageUsersDataService.deleteResearcher(email)
+                        .then( response => {
+                            this.setState({loading: false})
+                            swal({
+                                title: "User Deleted Successfully!",
+                                icon: "success",
+                                button: "Ok",
+                            }).then(result => {
+                                return this.refreshUsers()
+                            })
+                        })
+                } else if (this.props.role === "workshopConductor") {
+                    ManageUsersDataService.deleteWorkshopConductor(email)
+                        .then( response => {
+                            this.setState({loading: false})
+                            swal({
+                                title: "User Deleted Successfully!",
+                                icon: "success",
+                                button: "Ok",
+                            }).then(result => {
+                                return this.refreshUsers()
+                            })
+                        })
+                } else {
+                    ManageUsersDataService.deleteUser(email)
+                        .then( response => {
+                            this.setState({loading: false})
+                            swal({
+                                title: "User Deleted Successfully!",
+                                icon: "success",
+                                button: "Ok",
+                            }).then(result => {
+                                return this.refreshUsers()
+                            })
+                        })
+                }
+            } 
+        })
     }
 
     firstPage = () => {
@@ -142,7 +170,7 @@ class ManageResearchers extends Component {
                     <Card className={""} style={{backgroundColor: "white"}}>
                         <Card.Header style={{backgroundColor: "white"}}>
                             <div style={{float:"left", fontSize: "20px", fontWeight: "600"}}>
-                            <FontAwesomeIcon icon={faUserGraduate} />&nbsp; Registered Researchers
+                            <FontAwesomeIcon icon={faUsersCog} />&nbsp; Role of the Users: {this.props.role}
                             </div>
                             <div style={{float:"right"}}>
                                 <InputGroup size="sm">
@@ -159,12 +187,13 @@ class ManageResearchers extends Component {
                                         <td colSpan="2" >No Records Found</td>
                                     </tr> :
 
-                                    currentEntries.map((paper) => ( 
-                                    <tr key={paper.email}>
+                                    currentEntries.map((user) => ( 
+                                    <tr key={user.email}>
                                     <td style={{padding:"20px"}}>
-                                        <h5>{paper.title}</h5>
+                                        <h5>{user.name}</h5>
+                                        <p style={{padding: "0px", margin: "0px"}}>Email: {user.email}</p>
                                     </td>
-                                    <td style={{width: "15%", textAlign: "center", padding:"20px 0px"}}><Button onClick={() => this.downloadPaperTemplateClicked(paper.fileName)} variant="outline-danger"><FontAwesomeIcon icon={faTrash} /></Button></td>
+                                    <td style={{width: "15%", textAlign: "center", padding:"30px 0px"}}><Button onClick={() => this.deleteUser(user.email, user.name)} variant="outline-danger"><FontAwesomeIcon icon={faTrash} /></Button></td>
                                     </tr>)) 
                                     }
                                     
@@ -203,7 +232,7 @@ class ManageResearchers extends Component {
 
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
-                    <Modal.Title><Spinner animation="border" /> Downloading...</Modal.Title>
+                    <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
                     </Modal.Header>
                 </Modal>
             </div>
@@ -211,4 +240,4 @@ class ManageResearchers extends Component {
     }
 }
  
-export default ManageResearchers;
+export default ManageUsers;

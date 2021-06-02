@@ -17,7 +17,7 @@ class NotFoundError extends Component {
                 <div className="NotFoundError-title">Oops !!!</div>
                 <div className="NotFoundError-sub">Page Not Found !</div>
 
-                <NavLink style={{textDecoration: "none"}} to="/"><FontAwesomeIcon icon={faHome} />&nbsp; Go to Home</NavLink>
+                <NavLink style={{textDecoration: "none"}} to="/"><FontAwesomeIcon icon={faHome} />&nbsp; Visit Home</NavLink>
             </div>
          );
     }
