@@ -53,11 +53,11 @@ class Login extends Component {
                     } else if (Authentication.loggedAsAttendee()) {
                         this.props.history.push('/program');
                     } else if (Authentication.loggedAsReviewer()) {
-
+                        this.props.history.push('/reviewer');
                     } else if (Authentication.loggedAsEditor()) {
 
                     } else if (Authentication.loggedAsAdmin()) {
-
+                        this.props.history.push('/admin');
                     } else {
                         this.errorOccured("Invalid Email or Password")
                     }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Tab, Tabs } from 'react-bootstrap';
+import AdminStatistics from '../AdminStatistics/AdminStatistics';
 import ManageUsers from '../ManageUsers/ManageUsers';
+import './AdminDashboard.css'
 
 class AdminDashboard extends Component {
     state = {  }
@@ -11,8 +13,10 @@ class AdminDashboard extends Component {
                     ADMIN PORTAL
                 </div>
 
+                <AdminStatistics />
+
                 <div>
-                    <Container className="program-container">
+                    <Container className="admindash-container">
 
                         <div className="program-topics">
                             <Tabs style={{textAlign: "center"}} variant="tabs" defaultActiveKey="a" unmountOnExit={true} >

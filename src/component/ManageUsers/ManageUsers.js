@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ManageUsers.css'
 import ManageUsersDataService from './ManageUsersDataService'
 import Authentication from '../../authentication/Authentication';
-import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner } from 'react-bootstrap';
+import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faFastBackward, faFastForward, faFilePdf, faSearch, faStepBackward, faStepForward, faTrash, faUserGraduate, faUserMd, faUsersCog } from '@fortawesome/free-solid-svg-icons'
 import { faResearchgate } from '@fortawesome/free-brands-svg-icons';
@@ -170,7 +170,7 @@ class ManageUsers extends Component {
                     <Card className={""} style={{backgroundColor: "white"}}>
                         <Card.Header style={{backgroundColor: "white"}}>
                             <div style={{float:"left", fontSize: "20px", fontWeight: "600"}}>
-                            <FontAwesomeIcon icon={faUsersCog} />&nbsp; Role of the Users: {this.props.role}
+                            <FontAwesomeIcon icon={faUsersCog} />&nbsp; User role: <Badge variant="primary">{this.props.role}</Badge>
                             </div>
                             <div style={{float:"right"}}>
                                 <InputGroup size="sm">

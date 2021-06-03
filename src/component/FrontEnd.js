@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AdminDashboard from './AdminDashboard/AdminDashboard';
+import AdminStatistics from './AdminStatistics/AdminStatistics';
 import AttendeeRegistration from './AttendeeRegistration/AttendeeRegistration';
 import CommitteeRegistration from './CommitteeRegistration/CommitteeRegistration';
 import Footer from './Header-Footer/Footer';
@@ -46,7 +47,8 @@ class FrontEnd extends Component {
                             <Route path="/review/" component={ReviewPapers}/>
                             <Route path="/reviewer" component={ReviewerDashboard}/>
                             <Route path="/researcherprofile" component={ResearcherDashboard}/>
-                            <Route path="/test" component={AdminDashboard}/>
+                            <Route path="/admin" component={AdminDashboard}/>
+                            <Route path="/test" component={AdminStatistics}/>
 
                             <Route component={NotFoundError}/>
                         </Switch>

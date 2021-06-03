@@ -1,4 +1,8 @@
 
+.admindash-container {
+    margin-top: 50px;
+    margin-bottom: 95px;
+}
 .attendeeregistration-title {
     font-family: 'Bebas Neue', cursive;
     color: white;
