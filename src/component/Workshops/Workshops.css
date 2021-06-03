@@ -1,41 +1,45 @@
 .workshops-title {
-    font-family: 'Bebas Neue', cursive;
-    color: white;
-    font-size: 80px;
-    height: 200px;
-    background: black;
-    text-align: center;
-    padding: 28px 0px;
+  font-family: "Bebas Neue", cursive;
+  color: white;
+  font-size: 80px;
+  height: 200px;
+  background: black;
+  text-align: center;
+  padding: 28px 0px;
 }
 
 .workshops-container {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .workshops-description {
-    text-align: justify;
+  text-align: justify;
 }
 
 .workshops-topics {
-    margin-top: 50px;
-    text-align: justify;
+  margin-top: 450px;
+  text-align: justify;
 }
 
 .workshops-button {
-    background-color: black !important;
-    width: 30%;
-    /* border-radius: 20px !important; */
-    margin-right: 20px;
-    margin-bottom: 50px;
+  background-color: black !important;
+  width: 30%;
+  /* border-radius: 20px !important; */
+  margin-right: 20px;
+  margin-bottom: 50px;
 }
 
 .workshops-email {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 100px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 100px;
 }
 
 .workshops-row {
-    padding-top: 20px;
-    color: black !important;
+  padding-top: 20px;
+  color: black !important;
+}
+
+.workshops-subcontainer {
+  margin-top: 100px;
 }

@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Row, Col, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faEdit, faEye, faFastBackward, faFastForward, faFilePdf, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert';
-import './ReviewPapers.css'
-import ReviewPapersDataService from './ReviewPapersDataService';
-
-class ReviewPapers extends Component {
+import ReviewWorkshopDataService from './ReviewWorkshopDataService';
+class ReviewWorkshop extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            papers: [],
+            proposals: [],
             rComment: '',
             status: '',
             currentPage: 1,
@@ -20,54 +18,44 @@ class ReviewPapers extends Component {
             searchMessage: null,
             loading: false
         }
-        this.refreshPapers = this.refreshPapers.bind(this);
-        this.submitBtnClicked = this.submitBtnClicked.bind(this);
+        this.refreshProposal = this.refreshProposal.bind(this);
+        // this.submitClicked = this.submitClicked.bind(this);
+
+        this.pushtoDetails = this.pushtoDetails.bind(this)
     }
 
-    refreshPapers() {
+    refreshProposal() {
         let example = {
-            title: this.state.search,
-            status: 'pending'
+            workshopTitle: this.state.search,
+            status: "pending",
+            workshopDescription: this.state.search
         }
-        ReviewPapersDataService.getResearchPapers(example)
+        ReviewWorkshopDataService.getProposal(example)
             .then(response => {
-                this.setState({ papers: response.data })
+                this.setState({ proposals: response.data })
             })
     }
 
     componentDidMount() {
-        this.refreshPapers()
+        this.refreshProposal()
     }
 
-    downloadPaperTemplateClicked(fileName) {
-        this.setState({ loading: true })
-        ReviewPapersDataService.downloadPaper(fileName)
-            .then(({ data }) => {
-                this.setState({ loading: false })
-                const downloadUrl = window.URL.createObjectURL(new Blob([data]));
-                const link = document.createElement('a');
-                link.href = downloadUrl;
-                link.setAttribute('download', fileName);
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
-                swal({
-                    title: "Research Paper Downloaded",
-                    icon: "success",
-                    button: "Ok",
-                })
-            });
-    }
 
-    formChange = event => {
+
+    handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
-        }, () => console.log('form changed'));
+        });
 
     };
 
     submitBtnClicked(email) {
         return this.props.submitBtnClicked(email)
+    }
+
+    pushtoDetails(id) {
+        const { shifttoDetails } = this.props
+        shifttoDetails(id)
     }
 
     firstPage = () => {
@@ -87,15 +75,15 @@ class ReviewPapers extends Component {
     };
 
     lastPage = () => {
-        if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
+        if (this.state.currentPage < Math.ceil(this.state.proposals.length / this.state.entriesPerPage)) {
             this.setState({
-                currentPage: Math.ceil(this.state.papers.length / this.state.entriesPerPage)
+                currentPage: Math.ceil(this.state.proposals.length / this.state.entriesPerPage)
             });
         }
     };
 
     nextPage = () => {
-        if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
+        if (this.state.currentPage < Math.ceil(this.state.proposals.length / this.state.entriesPerPage)) {
             this.setState({
                 currentPage: this.state.currentPage + 1
             });
@@ -105,20 +93,16 @@ class ReviewPapers extends Component {
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
-        }, () => this.refreshPapers());
+        }, () => this.refreshProposal());
 
     };
 
-
-
-
     render() {
-
-        const { currentPage, entriesPerPage, papers, search } = this.state;
+        const { currentPage, entriesPerPage, proposals, search } = this.state;
         const lastIndex = currentPage * entriesPerPage;
         const firstIndex = lastIndex - entriesPerPage;
-        const currentEntries = papers.slice(firstIndex, lastIndex);
-        const totalPages = papers.length / entriesPerPage;
+        const currentEntries = proposals.slice(firstIndex, lastIndex);
+        const totalPages = proposals.length / entriesPerPage;
 
         const pageNumCss = {
             width: "45px",
@@ -138,19 +122,16 @@ class ReviewPapers extends Component {
 
         return (
             <div>
-                {/* <div className="attendeeregistration-title">
-                    Pending Papers
-                </div> */}
 
                 <Container className="paperlist-container">
                     <Card className={""} style={{ backgroundColor: "white" }}>
                         <Card.Header style={{ backgroundColor: "white" }}>
                             <div style={{ float: "left", fontSize: "20px", fontWeight: "600" }}>
-                                <FontAwesomeIcon icon={faFilePdf} />&nbsp; Research Papers
+                                <FontAwesomeIcon icon={faFilePdf} />&nbsp; Workshop Proposals
                             </div>
                             <div style={{ float: "right" }}>
                                 <InputGroup size="sm">
-                                    <FontAwesomeIcon style={{ marginTop: "8px" }} icon={faSearch} />&nbsp; <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="start typing..." name="search" value={this.state.search} className="" />&nbsp;
+                                    <FontAwesomeIcon style={{ marginTop: "8px" }} icon={faSearch} />&nbsp; <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="start typing..." name="search" value={search} className="" />&nbsp;
                                 </InputGroup>
                             </div>
                         </Card.Header>
@@ -159,45 +140,23 @@ class ReviewPapers extends Component {
                             <Table hover style={{ backgroundColor: "white" }} variant="">
                                 <tbody>
 
-                                    {this.state.papers.length === 0 ? <tr align="center">
+                                    {this.state.proposals.length === 0 ? <tr align="center">
                                         <td colSpan="2" >No Records Found</td>
                                     </tr> :
+                                        currentEntries.map((proposal) => (
+                                            <tr key={proposal.workshopID} >
+                                                <td>
+                                                    <Button style={{ fontSize: 10 }} variant="dark">{proposal.workshopID}</Button>
 
-                                        currentEntries.map((paper) => (
-                                            <tr key={paper.email}>
-                                                <td style={{ padding: "30px" }}>
-                                                    <h5>{paper.title}</h5>
-                                                    <p style={{ margin: "5px 0px" }}>By: {paper.author}</p>
-                                                    {/* <p style={{margin: "0px"}}>{paper.paperAbstract}</p>
-                                        <br/>
-                                        <Row>
-                                            <Col>Name: {paper.name}</Col>
-                                            <Col>Email: {paper.email}</Col>
-                                        </Row>
-                                        <Row>
-                                            <Col>Contact: {paper.contact}</Col>
-                                        </Row>
-                                        <Button style={{background: "transparent", color: "blue", border: "none", margin: "0px", padding: "0px"}} onClick={() => this.downloadPaperTemplateClicked(paper.fileName)}><FontAwesomeIcon size="sm" icon={faDownload} />&nbsp; {paper.fileName}</Button> */}
                                                 </td>
-                                                <td style={{ width: "15%", textAlign: "center", padding: "40px 10px" }}>
+                                                <td >
+                                                    <h5>{proposal.workshopTitle}</h5>
+                                                    <h6>By: {proposal.conductor}</h6>
+                                                </td>
+                                                <td>{proposal.workshopDescription}</td>
+                                                <td style={{}}>
                                                     <Form autoComplete="off" >
-                                                        {/* <Form.Control
-                                                    as="select"
-                                                    className="my-1 mr-sm-2"
-                                                    custom
-                                                    onChange={this.formChange}
-                                                    name="status"
-                                                    value={this.state.status}
-                                                    required
-                                                >
-                                                    <option value="">Choose...</option>
-                                                    <option value="approved">Approve</option>
-                                                    <option value="rejected">Reject</option>
-                                                </Form.Control>
-                                                <Form.Group>
-                                                    <Form.Control onChange={this.formChange} name="rComment" value={this.state.rComment} maxLength="100"  as="textarea" rows={3} placeholder="your comment" required />
-                                                </Form.Group> */}
-                                                        <Button onClick={() => this.submitBtnClicked(paper.email)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
+                                                        <Button variant="outline-dark" onClick={() => this.pushtoDetails(proposal.workshopID)}><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
                                                     </Form>
                                                 </td>
                                             </tr>))
@@ -241,9 +200,8 @@ class ReviewPapers extends Component {
                         <Modal.Title><Spinner animation="border" /> Downloading...</Modal.Title>
                     </Modal.Header>
                 </Modal>
-            </div>
+            </div >
         );
     }
 }
-
-export default ReviewPapers;
+export default ReviewWorkshop
