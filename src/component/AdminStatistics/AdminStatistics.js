@@ -1,3 +1,5 @@
+import { faUserCog, faUserGraduate, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { Card, Col, Container, Jumbotron, Row } from 'react-bootstrap';
 import { Pie, Doughnut } from 'react-chartjs-2'
@@ -44,13 +46,13 @@ class AdminStatistics extends Component {
                             <Jumbotron style={{paddingTop: "20px", paddingBottom: "20px", borderRadius: "10px", marginTop: "40px", marginBottom: "40px"}} fluid>
                                 <Container>
                                     <Card body style={{margin: "5px"}}>
-                                        <Row><Col style={{fontWeight: "600"}}>Attendees</Col><Col style={{textAlign: "center"}}>{this.state.attendees}</Col></Row>
+                                        <Row><Col style={{fontWeight: "600"}}><FontAwesomeIcon style={{marginTop: "8px"}} icon={faUsers} /> Attendees</Col><Col style={{textAlign: "center"}}>{this.state.attendees}</Col></Row>
                                     </Card>
                                     <Card body style={{margin: "5px"}}>
-                                        <Row><Col style={{fontWeight: "600"}}>Published Papers</Col><Col style={{textAlign: "center"}}>{this.state.publishedPapers} out of {this.state.allResearchers}</Col></Row>
+                                        <Row><Col style={{fontWeight: "600"}}><FontAwesomeIcon style={{marginTop: "8px"}} icon={faUserGraduate} /> Published Papers</Col><Col style={{textAlign: "center"}}>{this.state.publishedPapers} out of {this.state.allResearchers}</Col></Row>
                                     </Card>
                                     <Card body style={{margin: "5px"}}>
-                                        <Row><Col style={{fontWeight: "600"}}>Published Workshops</Col><Col style={{textAlign: "center"}}>{this.state.publishedWorkshops} out of {this.state.allWorkshops}</Col></Row>
+                                        <Row><Col style={{fontWeight: "600"}}><FontAwesomeIcon style={{marginTop: "8px"}} icon={faUserCog} /> Published Workshops</Col><Col style={{textAlign: "center"}}>{this.state.publishedWorkshops} out of {this.state.allWorkshops}</Col></Row>
                                     </Card>
                                 </Container>
                             </Jumbotron>
