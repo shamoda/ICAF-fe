@@ -48,7 +48,7 @@ class FrontEnd extends Component {
                             <Route path="/reviewer" component={ReviewerDashboard}/>
                             <Route path="/researcherprofile" component={ResearcherDashboard}/>
                             <Route path="/admin" component={AdminDashboard}/>
-                            <Route path="/test" component={AdminStatistics}/>
+                            <Route path="/test" component={ReviewPapers}/>
 
                             <Route component={NotFoundError}/>
                         </Switch>

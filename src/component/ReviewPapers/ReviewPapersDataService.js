@@ -15,6 +15,10 @@ class PapersListDataService{
         return axios.post('http://localhost:8080/api/v1/researcher/review', obj);
     }
 
+    retrieveAllPapersForAdmin() {
+        return axios.get('http://localhost:8080/api/v1/researcher');
+    }
+
 }
 
 export default new PapersListDataService();

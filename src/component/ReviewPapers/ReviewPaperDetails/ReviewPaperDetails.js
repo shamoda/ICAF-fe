@@ -1,10 +1,10 @@
-import { faDownload, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
-import { Button, Col, Container, Form, Modal, Row, Spinner } from 'react-bootstrap';
+import { Badge, Button, Col, Container, Form, Modal, Row, Spinner } from 'react-bootstrap';
 import swal from 'sweetalert';
 import './ReviewPaperDetails.css'
-import ReviewDataService from './ReviewPaperDetailsDataService'
+import ReviewPaperDetailsDataService from './ReviewPaperDetailsDataService'
 
 class ReviewPaperDetails extends Component {
     constructor(props){
@@ -20,16 +20,17 @@ class ReviewPaperDetails extends Component {
             rComment: '',
             fileName: '',
             error: null,
-            loading: false
+            loading: false,
+            role: sessionStorage.getItem('authenticatedUserRole')
          }
 
         this.downloadPaperTemplateClicked = this.downloadPaperTemplateClicked.bind(this);
         this.submitBtnClicked = this.submitBtnClicked.bind(this);
-        // this.onFileChange = this.onFileChange.bind(this);
+        this.deleteBtnClicked = this.deleteBtnClicked.bind(this);
     }
 
     componentDidMount() {
-        ReviewDataService.getResearchPaper(this.props.match.params.email)
+        ReviewPaperDetailsDataService.getResearchPaper(this.props.match.params.email)
             .then(res => {
                 this.setState({
                     title: res.data.title,
@@ -49,7 +50,7 @@ class ReviewPaperDetails extends Component {
 
     downloadPaperTemplateClicked() {
         this.setState({loading: true})
-        ReviewDataService.downloadPaper(this.state.fileName)
+        ReviewPaperDetailsDataService.downloadPaper(this.state.fileName)
             .then(({ data }) => {
                 this.setState({loading: false})
                 const downloadUrl = window.URL.createObjectURL(new Blob([data]));
@@ -79,11 +80,33 @@ class ReviewPaperDetails extends Component {
         formData.append('status', this.state.status);
         formData.append('rComment', this.state.rComment);
 
-        ReviewDataService.reviewPaper(formData)
+        ReviewPaperDetailsDataService.reviewPaper(formData)
             .then(res => {
                 this.setState({loading: false})
-                return this.props.history.push('/reviewer');
+                if (this.state.role === 'admin') {
+                    return this.props.history.push('/admin');
+                } else {
+                    return this.props.history.push('/reviewer');
+                }
             })
+    }
+
+    deleteBtnClicked() {
+        swal({
+            title: "You are about to delete,",
+            text: this.state.title,
+            icon: "warning",
+            buttons: true
+        }).then((result) => {
+            if ((result)) {
+                this.setState({loading: true})
+                ReviewPaperDetailsDataService.deleteResearcher(this.state.email)
+                    .then(res => {
+                        this.setState({loading: false})
+                        return this.props.history.push('/admin');
+                })
+            }
+        })
     }
 
     formChange = event =>{
@@ -136,6 +159,11 @@ class ReviewPaperDetails extends Component {
                                     <option value="approved">Approve</option>
                                     <option value="rejected">Reject</option>
                                 </Form.Control>
+                                <p style={{margin: "5px 0px"}}>
+                                    {this.state.status === "pending" && <Badge variant="warning">{this.state.status}</Badge>}
+                                    {this.state.status === "approved" && <Badge variant="success">{this.state.status}</Badge>}
+                                    {this.state.status === "rejected" && <Badge variant="danger">{this.state.status}</Badge>}
+                                </p>
                             </Col>
                             <Col>
                                 <Form.Group>
@@ -144,6 +172,7 @@ class ReviewPaperDetails extends Component {
                             </Col>
                             <Col>
                                 <Button className="my-1 mr-sm-2" onClick={this.submitBtnClicked} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                {this.state.role == "admin" ? <Button className="my-1 mr-sm-2" onClick={this.deleteBtnClicked} variant="outline-danger"><FontAwesomeIcon size="sm" icon={faTrash} /></Button> : ''}
                             </Col>
                         </Row>
                         </Form>

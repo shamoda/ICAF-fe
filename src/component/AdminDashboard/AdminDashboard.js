@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { Container, Tab, Tabs } from 'react-bootstrap';
 import AdminStatistics from '../AdminStatistics/AdminStatistics';
 import ManageUsers from '../ManageUsers/ManageUsers';
+import ReviewPapers from '../ReviewPapers/ReviewPapers';
 import './AdminDashboard.css'
 
 class AdminDashboard extends Component {
-    state = {  }
+    
+    submitBtnClicked = (email) => {
+        return this.props.history.push('/review/'+email);
+    }
+
     render() { 
         return ( 
             <div>
@@ -37,6 +42,19 @@ class AdminDashboard extends Component {
                                 </Tab>
                                 <Tab style={{textAlign: "left"}} eventKey="f" title="Admins">
                                     <ManageUsers role="admin" />
+                                </Tab>
+                            </Tabs>
+                        </div>
+
+                        {/* ========================================================================================== */}
+
+                        <div>
+                        <Tabs style={{textAlign: "center"}} variant="tabs" defaultActiveKey="a" unmountOnExit={true} >
+                                <Tab style={{textAlign: "left"}} eventKey="a" title="Papers">
+                                    <ReviewPapers submitBtnClicked={this.submitBtnClicked} />
+                                </Tab>
+                                <Tab style={{textAlign: "left"}} eventKey="b" title="Workshops">
+                                    re-render the same workshop list of reviewer with admin privilages
                                 </Tab>
                             </Tabs>
                         </div>

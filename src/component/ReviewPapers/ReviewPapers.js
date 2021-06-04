@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Row, Col, Form } from 'react-bootstrap';
+import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Row, Col, Form, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faEdit, faEye, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert';
@@ -19,7 +19,8 @@ class ReviewPapers extends Component {
             entriesPerPage : 5,
             search: '',
             searchMessage:null,
-            loading: false
+            loading: false,
+            role: sessionStorage.getItem('authenticatedUserRole')
         }
 
         this.refreshPapers = this.refreshPapers.bind(this);
@@ -31,6 +32,11 @@ class ReviewPapers extends Component {
             title: this.state.search,
             status: 'pending'
         }
+
+        if (this.state.role === 'admin') {
+            example.status = ''
+        }
+        
         ReviewPapersDataService.getResearchPapers(example)
             .then(response => {
                 this.setState({papers: response.data})
@@ -170,6 +176,11 @@ class ReviewPapers extends Component {
                                     <td style={{padding:"30px"}}>
                                         <h5>{paper.title}</h5>
                                         <p style={{margin: "5px 0px"}}>By: {paper.author}</p>
+                                        <p style={{margin: "5px 0px"}}>
+                                            {paper.status === "pending" && <Badge variant="warning">{paper.status}</Badge>}
+                                            {paper.status === "approved" && <Badge variant="success">{paper.status}</Badge>}
+                                            {paper.status === "rejected" && <Badge variant="danger">{paper.status}</Badge>}
+                                        </p>
                                         {/* <p style={{margin: "0px"}}>{paper.paperAbstract}</p>
                                         <br/>
                                         <Row>
@@ -181,7 +192,7 @@ class ReviewPapers extends Component {
                                         </Row>
                                         <Button style={{background: "transparent", color: "blue", border: "none", margin: "0px", padding: "0px"}} onClick={() => this.downloadPaperTemplateClicked(paper.fileName)}><FontAwesomeIcon size="sm" icon={faDownload} />&nbsp; {paper.fileName}</Button> */}
                                     </td>
-                                    <td style={{width: "15%", textAlign: "center", padding:"40px 10px"}}>
+                                    <td style={{width: "15%", textAlign: "center", padding:"55px 10px"}}>
                                         <Form autoComplete="off" >
                                                 {/* <Form.Control
                                                     as="select"

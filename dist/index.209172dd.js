@@ -26290,8 +26290,7 @@ try {
   var _reactRouterDom = require('react-router-dom');
   var _AdminDashboardAdminDashboard = require('./AdminDashboard/AdminDashboard');
   var _AdminDashboardAdminDashboardDefault = _parcelHelpers.interopDefault(_AdminDashboardAdminDashboard);
-  var _AdminStatisticsAdminStatistics = require('./AdminStatistics/AdminStatistics');
-  var _AdminStatisticsAdminStatisticsDefault = _parcelHelpers.interopDefault(_AdminStatisticsAdminStatistics);
+  require('./AdminStatistics/AdminStatistics');
   var _AttendeeRegistrationAttendeeRegistration = require('./AttendeeRegistration/AttendeeRegistration');
   var _AttendeeRegistrationAttendeeRegistrationDefault = _parcelHelpers.interopDefault(_AttendeeRegistrationAttendeeRegistration);
   var _CommitteeRegistrationCommitteeRegistration = require('./CommitteeRegistration/CommitteeRegistration');
@@ -26510,7 +26509,7 @@ try {
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
           path: "/test",
-          component: _AdminStatisticsAdminStatisticsDefault.default,
+          component: _ReviewPapersReviewPapersDefault.default,
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -30494,17 +30493,21 @@ try {
   var _AdminStatisticsAdminStatisticsDefault = _parcelHelpers.interopDefault(_AdminStatisticsAdminStatistics);
   var _ManageUsersManageUsers = require('../ManageUsers/ManageUsers');
   var _ManageUsersManageUsersDefault = _parcelHelpers.interopDefault(_ManageUsersManageUsers);
+  var _ReviewPapersReviewPapers = require('../ReviewPapers/ReviewPapers');
+  var _ReviewPapersReviewPapersDefault = _parcelHelpers.interopDefault(_ReviewPapersReviewPapers);
   require('./AdminDashboard.css');
   var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\AdminDashboard\\AdminDashboard.js";
   class AdminDashboard extends _react.Component {
-    state = {};
+    submitBtnClicked = email => {
+      return this.props.history.push('/review/' + email);
+    };
     render() {
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 11,
+            lineNumber: 16,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -30512,21 +30515,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 12,
+            lineNumber: 17,
             columnNumber: 17
           }
         }, "ADMIN PORTAL"), /*#__PURE__*/_reactDefault.default.createElement(_AdminStatisticsAdminStatisticsDefault.default, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 16,
+            lineNumber: 21,
             columnNumber: 17
           }
         }), /*#__PURE__*/_reactDefault.default.createElement("div", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18,
+            lineNumber: 23,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -30534,7 +30537,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19,
+            lineNumber: 24,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -30542,7 +30545,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 21,
+            lineNumber: 26,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tabs, {
@@ -30555,7 +30558,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22,
+            lineNumber: 27,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -30567,7 +30570,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23,
+            lineNumber: 28,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_ManageUsersManageUsersDefault.default, {
@@ -30575,7 +30578,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24,
+            lineNumber: 29,
             columnNumber: 33
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -30587,7 +30590,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 26,
+            lineNumber: 31,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_ManageUsersManageUsersDefault.default, {
@@ -30595,7 +30598,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27,
+            lineNumber: 32,
             columnNumber: 37
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -30607,7 +30610,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 29,
+            lineNumber: 34,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_ManageUsersManageUsersDefault.default, {
@@ -30615,7 +30618,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 30,
+            lineNumber: 35,
             columnNumber: 37
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -30627,7 +30630,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 32,
+            lineNumber: 37,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_ManageUsersManageUsersDefault.default, {
@@ -30635,7 +30638,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 33,
+            lineNumber: 38,
             columnNumber: 37
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -30647,7 +30650,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35,
+            lineNumber: 40,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_ManageUsersManageUsersDefault.default, {
@@ -30655,7 +30658,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36,
+            lineNumber: 41,
             columnNumber: 37
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
@@ -30667,7 +30670,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38,
+            lineNumber: 43,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_ManageUsersManageUsersDefault.default, {
@@ -30675,10 +30678,62 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39,
+            lineNumber: 44,
             columnNumber: 37
           }
-        })))))))
+        })))), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tabs, {
+          style: {
+            textAlign: "center"
+          },
+          variant: "tabs",
+          defaultActiveKey: "a",
+          unmountOnExit: true,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 52,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
+          style: {
+            textAlign: "left"
+          },
+          eventKey: "a",
+          title: "Papers",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53,
+            columnNumber: 33
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_ReviewPapersReviewPapersDefault.default, {
+          submitBtnClicked: this.submitBtnClicked,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54,
+            columnNumber: 37
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Tab, {
+          style: {
+            textAlign: "left"
+          },
+          eventKey: "b",
+          title: "Workshops",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56,
+            columnNumber: 33
+          }
+        }, "re-render the same workshop list of reviewer with admin privilages"))))))
       );
     }
   }
@@ -30689,7 +30744,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","../AdminStatistics/AdminStatistics":"2gijG","../ManageUsers/ManageUsers":"6457Z","./AdminDashboard.css":"2RRqT","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4n7hB":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","../AdminStatistics/AdminStatistics":"2gijG","../ManageUsers/ManageUsers":"6457Z","./AdminDashboard.css":"2RRqT","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","../ReviewPapers/ReviewPapers":"10NoN"}],"4n7hB":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
@@ -77392,7 +77447,7 @@ var define;
   });
 });
 
-},{}],"2RRqT":[function() {},{}],"7J4Y4":[function(require,module,exports) {
+},{}],"2RRqT":[function() {},{}],"10NoN":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -77405,428 +77460,523 @@ try {
   var _reactBootstrap = require('react-bootstrap');
   var _fortawesomeReactFontawesome = require('@fortawesome/react-fontawesome');
   var _fortawesomeFreeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
-  var _reactPaypalButtonV = require("react-paypal-button-v2");
   var _sweetalert = require('sweetalert');
   var _sweetalertDefault = _parcelHelpers.interopDefault(_sweetalert);
-  require('./AttendeeRegistration.css');
-  var _AttendeeRegistrationDataService = require('./AttendeeRegistrationDataService');
-  var _AttendeeRegistrationDataServiceDefault = _parcelHelpers.interopDefault(_AttendeeRegistrationDataService);
-  var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\AttendeeRegistration\\AttendeeRegistration.js";
-  class AttendeeRegistration extends _react.Component {
+  require('./ReviewPapers.css');
+  var _ReviewPapersDataService = require('./ReviewPapersDataService');
+  var _ReviewPapersDataServiceDefault = _parcelHelpers.interopDefault(_ReviewPapersDataService);
+  var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\ReviewPapers\\ReviewPapers.js";
+  class ReviewPapers extends _react.Component {
     constructor(props) {
       super(props);
       this.state = {
-        name: '',
-        email: '',
-        contact: '',
-        password: '',
-        temppassword: '',
-        organization: '',
-        address: '',
-        error: null,
+        papers: [],
+        rComment: '',
+        status: '',
+        currentPage: 1,
+        entriesPerPage: 5,
+        search: '',
+        searchMessage: null,
         loading: false,
-        notPaid: true
+        role: sessionStorage.getItem('authenticatedUserRole')
       };
-      this.registerAttendee = this.registerAttendee.bind(this);
-      this.displayError = this.displayError.bind(this);
-      this.payBtnClicked = this.payBtnClicked.bind(this);
+      this.refreshPapers = this.refreshPapers.bind(this);
+      this.submitBtnClicked = this.submitBtnClicked.bind(this);
     }
-    payBtnClicked() {
-      this.setState({
-        notPaid: !this.state.notPaid
+    refreshPapers() {
+      let example = {
+        title: this.state.search,
+        status: 'pending'
+      };
+      if (this.state.role === 'admin') {
+        example.status = '';
+      }
+      _ReviewPapersDataServiceDefault.default.getResearchPapers(example).then(response => {
+        this.setState({
+          papers: response.data
+        });
       });
     }
-    registerAttendee(event) {
-      event.preventDefault();
-      if (this.state.name === '') {
-        this.displayError('Name cannot be empty');
-      } else if (this.state.email === '') {
-        this.displayError('Email cannot be empty');
-      } else if (this.state.contact === '') {
-        this.displayError('Contact number cannot be empty');
-      } else if (this.state.password === '') {
-        this.displayError('Password cannot be empty');
-      } else if (this.state.temppassword === '') {
-        this.displayError('Please re-enter password');
-      } else if (this.state.address === '') {
-        this.displayError('Address cannot be empty');
-      } else if (this.state.password != this.state.temppassword) {
-        this.displayError('The passwords you entered do not match. Please re-enter your password');
-      } else if (this.state.contact.length != 10) {
-        this.displayError('Invalid phone number');
-      } else {
+    componentDidMount() {
+      this.refreshPapers();
+    }
+    downloadPaperTemplateClicked(fileName) {
+      this.setState({
+        loading: true
+      });
+      _ReviewPapersDataServiceDefault.default.downloadPaper(fileName).then(({data}) => {
         this.setState({
-          loading: true
+          loading: false
         });
-        let formData = new FormData();
-        formData.append('name', this.state.name);
-        formData.append('email', this.state.email);
-        formData.append('contact', this.state.contact);
-        formData.append('password', this.state.password);
-        formData.append('organization', this.state.organization);
-        formData.append('address', this.state.address);
-        _AttendeeRegistrationDataServiceDefault.default.registerAttendee(formData).then(response => {
-          this.setState({
-            loading: false
-          });
-          _sweetalertDefault.default({
-            title: "Registration Successful!",
-            text: "Log in to your profile to stay up to date",
-            icon: "success",
-            button: "Login"
-          }).then(result => {
-            return this.props.history.push('/login');
-          });
-        }).catch(error => {
-          this.setState({
-            loading: false
-          });
-          _sweetalertDefault.default({
-            title: "Oops!",
-            text: "Something went wrong, please try again.",
-            icon: "error",
-            button: "Ok"
-          });
+        const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', fileName);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        _sweetalertDefault.default({
+          title: "Research Paper Downloaded",
+          icon: "success",
+          button: "Ok"
+        });
+      });
+    }
+    formChange = event => {
+      this.setState({
+        [event.target.name]: event.target.value
+      }, () => console.log('form changed'));
+    };
+    submitBtnClicked(email) {
+      return this.props.submitBtnClicked(email);
+    }
+    firstPage = () => {
+      if (this.state.currentPage > 1) {
+        this.setState({
+          currentPage: 1
         });
       }
-    }
-    displayError(msg) {
-      this.setState({
-        error: msg
-      });
-    }
+    };
+    prevPage = () => {
+      if (this.state.currentPage > 1) {
+        this.setState({
+          currentPage: this.state.currentPage - 1
+        });
+      }
+    };
+    lastPage = () => {
+      if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
+        this.setState({
+          currentPage: Math.ceil(this.state.papers.length / this.state.entriesPerPage)
+        });
+      }
+    };
+    nextPage = () => {
+      if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
+        this.setState({
+          currentPage: this.state.currentPage + 1
+        });
+      }
+    };
     handleChange = event => {
       this.setState({
-        [event.target.name]: event.target.value,
-        error: null
-      }, () => console.log(this.state));
+        [event.target.name]: event.target.value
+      }, () => this.refreshPapers());
     };
     render() {
+      const {currentPage, entriesPerPage, papers, search} = this.state;
+      const lastIndex = currentPage * entriesPerPage;
+      const firstIndex = lastIndex - entriesPerPage;
+      const currentEntries = papers.slice(firstIndex, lastIndex);
+      const totalPages = papers.length / entriesPerPage;
+      const pageNumCss = {
+        width: "45px",
+        color: "black",
+        textAlign: "center",
+        fontWeight: "bold",
+        backgroundColor: "white",
+        borderColor: "black"
+      };
+      const searchBox = {
+        width: "250px",
+        fontWeight: "bold",
+        border: "none",
+        borderColor: "#24a0ed"
+      };
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107,
+            lineNumber: 148,
             columnNumber: 13
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
-          className: "attendeeregistration-title",
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
+          className: "paperlist-container",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 108,
+            lineNumber: 153,
             columnNumber: 17
           }
-        }, "CONFERENECE REGISTRATION"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
-          className: "attendeeregistration-container",
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card, {
+          className: "",
+          style: {
+            backgroundColor: "white"
+          },
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112,
-            columnNumber: 17
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
-          autoComplete: "off",
-          onSubmit: this.registerAttendee,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 113,
+            lineNumber: 154,
             columnNumber: 21
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-          controlId: "name",
-          className: "attendeeregistration-form-group",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 114,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 115,
-            columnNumber: 29
-          }
-        }, "Name"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-          onChange: this.handleChange,
-          name: "name",
-          value: this.state.name,
-          type: "text",
-          placeholder: "your name",
-          className: "paperregistration-form-input",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 116,
-            columnNumber: 29
-          }
-        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-          controlId: "email",
-          className: "attendeeregistration-form-group",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 118,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 119,
-            columnNumber: 29
-          }
-        }, "Email"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-          onChange: this.handleChange,
-          name: "email",
-          value: this.state.email,
-          type: "email",
-          placeholder: "we will contact you via this email",
-          className: "attendeeregistration-form-input",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 120,
-            columnNumber: 29
-          }
-        }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Text, {
-          className: "text-muted",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 121,
-            columnNumber: 29
-          }
-        }, "Use this email to login to your profile")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-          controlId: "organization",
-          className: "attendeeregistration-form-group",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 125,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 126,
-            columnNumber: 29
-          }
-        }, "Organization (optional)"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-          onChange: this.handleChange,
-          name: "organization",
-          value: this.state.organization,
-          type: "text",
-          placeholder: "organization you are representing",
-          className: "paperregistration-form-input",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 127,
-            columnNumber: 29
-          }
-        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-          controlId: "contact",
-          className: "attendeeregistration-form-group",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 129,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 130,
-            columnNumber: 29
-          }
-        }, "Contact No"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-          onChange: this.handleChange,
-          name: "contact",
-          value: this.state.contact,
-          type: "number",
-          placeholder: "we will contact you via this number",
-          className: "attendeeregistration-form-input",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 131,
-            columnNumber: 29
-          }
-        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-          controlId: "address",
-          className: "attendeeregistration-form-group",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 133,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 134,
-            columnNumber: 29
-          }
-        }, "Address"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-          onChange: this.handleChange,
-          name: "address",
-          value: this.state.address,
-          type: "text",
-          placeholder: "contact person name",
-          className: "paperregistration-form-input",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 135,
-            columnNumber: 29
-          }
-        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-          controlId: "password",
-          className: "attendeeregistration-form-group",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 137,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 138,
-            columnNumber: 29
-          }
-        }, "Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-          onChange: this.handleChange,
-          name: "password",
-          value: this.state.password,
-          type: "password",
-          placeholder: "password",
-          className: "attendeeregistration-form-input",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 139,
-            columnNumber: 29
-          }
-        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-          controlId: "temppassword",
-          className: "attendeeregistration-form-group",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 141,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 142,
-            columnNumber: 29
-          }
-        }, "Re-Enter Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-          onChange: this.handleChange,
-          name: "temppassword",
-          value: this.state.temppassword,
-          type: "password",
-          placeholder: "re-enter password",
-          className: "attendeeregistration-form-input",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 143,
-            columnNumber: 29
-          }
-        })), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Header, {
           style: {
-            color: "black",
+            backgroundColor: "white"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 155,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          style: {
+            float: "left",
+            fontSize: "20px",
             fontWeight: "600"
           },
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 145,
-            columnNumber: 25
-          }
-        }, "Registration Fee: $25.00"), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          className: "attendeeregistration-paypal",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 146,
-            columnNumber: 25
-          }
-        }, this.state.notPaid ? /*#__PURE__*/_reactDefault.default.createElement(_reactPaypalButtonV.PayPalButton, {
-          style: {
-            layout: "horizontal",
-            color: "gold",
-            height: 40,
-            tagline: "true",
-            label: "pay"
-          },
-          amount: "25.00",
-          shippingPreference: "NO_SHIPPING",
-          /*default is "GET_FROM_FILE"*/
-          onSuccess: details => {
-            // alert("Transaction completed by " + details.payer.name.given_name);
-            this.setState({
-              notPaid: !this.state.notPaid
-            });
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 147,
-            columnNumber: 51
-          }
-        }) : /*#__PURE__*/_reactDefault.default.createElement("p", {
-          style: {
-            color: "green",
-            fontWeight: "600",
-            textAlign: "left"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 162,
-            columnNumber: 34
+            lineNumber: 156,
+            columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          icon: _fortawesomeFreeSolidSvgIcons.faCheckCircle,
+          icon: _fortawesomeFreeSolidSvgIcons.faFilePdf,
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 162,
-            columnNumber: 100
+            lineNumber: 157,
+            columnNumber: 29
           }
-        }), " Paid")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-          type: "submit",
-          className: "attendeeregistration-button",
-          disabled: this.state.notPaid,
+        }), "  Research Papers"), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          style: {
+            float: "right"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 159,
+            columnNumber: 29
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup, {
+          size: "sm",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 160,
+            columnNumber: 33
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          style: {
+            marginTop: "8px"
+          },
+          icon: _fortawesomeFreeSolidSvgIcons.faSearch,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 161,
+            columnNumber: 37
+          }
+        }), "  ", /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.FormControl, {
+          onChange: this.handleChange,
+          style: searchBox,
+          autoComplete: "off",
+          placeholder: "start typing...",
+          name: "search",
+          value: this.state.search,
+          className: "",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 161,
+            columnNumber: 106
+          }
+        }), " "))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Body, {
+          style: {
+            backgroundColor: "white"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 166,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Table, {
+          hover: true,
+          style: {
+            backgroundColor: "white"
+          },
+          variant: "",
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 167,
             columnNumber: 29
           }
-        }, "Register"), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
-          className: "attendeeregistration-error",
+        }, /*#__PURE__*/_reactDefault.default.createElement("tbody", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 168,
+            columnNumber: 33
+          }
+        }, this.state.papers.length === 0 ? /*#__PURE__*/_reactDefault.default.createElement("tr", {
+          align: "center",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 170,
+            columnNumber: 71
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("td", {
+          colSpan: "2",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 171,
+            columnNumber: 41
+          }
+        }, "No Records Found")) : currentEntries.map(paper => /*#__PURE__*/_reactDefault.default.createElement("tr", {
+          key: paper.email,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 175,
+            columnNumber: 37
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("td", {
+          style: {
+            padding: "30px"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 176,
+            columnNumber: 37
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("h5", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 177,
+            columnNumber: 41
+          }
+        }, paper.title), /*#__PURE__*/_reactDefault.default.createElement("p", {
+          style: {
+            margin: "5px 0px"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 178,
+            columnNumber: 41
+          }
+        }, "By: ", paper.author), /*#__PURE__*/_reactDefault.default.createElement("p", {
+          style: {
+            margin: "5px 0px"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 179,
+            columnNumber: 41
+          }
+        }, paper.status === "pending" && /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Badge, {
+          variant: "warning",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 180,
+            columnNumber: 76
+          }
+        }, paper.status), paper.status === "approved" && /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Badge, {
+          variant: "success",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 181,
+            columnNumber: 77
+          }
+        }, paper.status), paper.status === "rejected" && /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Badge, {
+          variant: "danger",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 182,
+            columnNumber: 77
+          }
+        }, paper.status))), /*#__PURE__*/_reactDefault.default.createElement("td", {
+          style: {
+            width: "15%",
+            textAlign: "center",
+            padding: "55px 10px"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 195,
+            columnNumber: 37
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
+          autoComplete: "off",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 196,
+            columnNumber: 41
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          onClick: () => this.submitBtnClicked(paper.email),
+          variant: "outline-dark",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 213,
+            columnNumber: 45
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          size: "sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faEye,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 213,
+            columnNumber: 127
+          }
+        }), "  View")))))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Footer, {
+          style: {
+            backgroundColor: "white",
+            color: "black"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 223,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          style: {
+            float: "left"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 224,
+            columnNumber: 29
+          }
+        }, "Showing Page ", currentPage, " of ", Math.ceil(totalPages)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          style: {
+            float: "right"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 227,
+            columnNumber: 29
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup, {
+          size: "sm",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 228,
+            columnNumber: 33
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup.Prepend, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 229,
+            columnNumber: 37
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          type: "button",
+          variant: "outline-dark",
+          disabled: currentPage === 1 ? true : false,
+          onClick: this.firstPage,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 230,
+            columnNumber: 41
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          icon: _fortawesomeFreeSolidSvgIcons.faFastBackward,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 231,
+            columnNumber: 41
+          }
+        }), " First"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          type: "button",
+          variant: "outline-dark",
+          disabled: currentPage === 1 ? true : false,
+          onClick: this.prevPage,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 233,
+            columnNumber: 41
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          icon: _fortawesomeFreeSolidSvgIcons.faStepBackward,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 234,
+            columnNumber: 41
+          }
+        }), " Prev")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.FormControl, {
+          style: pageNumCss,
+          className: "",
+          name: "currentPage",
+          value: currentPage,
+          disabled: true,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 237,
+            columnNumber: 37
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup.Append, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 238,
+            columnNumber: 37
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          type: "button",
+          variant: "outline-dark",
+          disabled: currentPage === totalPages ? true : false,
+          onClick: this.nextPage,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 239,
+            columnNumber: 41
+          }
+        }, "Next ", /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          icon: _fortawesomeFreeSolidSvgIcons.faStepForward,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 240,
             columnNumber: 50
           }
-        }, this.state.error))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          type: "button",
+          variant: "outline-dark",
+          disabled: currentPage === totalPages ? true : false,
+          onClick: this.lastPage,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 242,
+            columnNumber: 41
+          }
+        }, "Last ", /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          icon: _fortawesomeFreeSolidSvgIcons.faFastForward,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 243,
+            columnNumber: 50
+          }
+        })))))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
           centered: true,
           size: "sm",
           show: this.state.loading,
@@ -77834,21 +77984,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 173,
+            lineNumber: 252,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 174,
+            lineNumber: 253,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 175,
+            lineNumber: 254,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
@@ -77856,238 +78006,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 175,
+            lineNumber: 254,
             columnNumber: 34
           }
-        }), " Please wait..."))))
+        }), " Downloading..."))))
       );
     }
   }
-  exports.default = AttendeeRegistration;
+  exports.default = ReviewPapers;
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","react-paypal-button-v2":"3Wd1q","sweetalert":"4nmcs","./AttendeeRegistration.css":"4eLl2","./AttendeeRegistrationDataService":"5P6Da","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3Wd1q":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.PayPalButton = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var PayPalButton =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(PayPalButton, _React$Component);
-
-  function PayPalButton(props) {
-    var _this;
-
-    _classCallCheck(this, PayPalButton);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(PayPalButton).call(this, props));
-    _this.state = {
-      isSdkReady: false
-    };
-    return _this;
-  }
-
-  _createClass(PayPalButton, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      if (typeof window !== "undefined" && window !== undefined && window.paypal === undefined) {
-        this.addPaypalSdk();
-      } else if (typeof window !== "undefined" && window !== undefined && window.paypal !== undefined && this.props.onButtonReady) {
-        this.props.onButtonReady();
-      }
-    }
-  }, {
-    key: "createOrder",
-    value: function createOrder(data, actions) {
-      var _this$props = this.props,
-          currency = _this$props.currency,
-          options = _this$props.options,
-          amount = _this$props.amount,
-          shippingPreference = _this$props.shippingPreference;
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            currency_code: currency ? currency : options && options.currency ? options.currency : "USD",
-            value: amount.toString()
-          }
-        }],
-        application_context: {
-          shipping_preference: shippingPreference
-        }
-      });
-    }
-  }, {
-    key: "onApprove",
-    value: function onApprove(data, actions) {
-      var _this2 = this;
-
-      return actions.order.capture().then(function (details) {
-        if (_this2.props.onSuccess) {
-          return _this2.props.onSuccess(details, data);
-        }
-      })["catch"](function (err) {
-        if (_this2.props.catchError) {
-          return _this2.props.catchError(err);
-        }
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var _this$props2 = this.props,
-          amount = _this$props2.amount,
-          onSuccess = _this$props2.onSuccess,
-          createOrder = _this$props2.createOrder,
-          createSubscription = _this$props2.createSubscription,
-          onApprove = _this$props2.onApprove,
-          style = _this$props2.style;
-      var isSdkReady = this.state.isSdkReady;
-
-      if (!isSdkReady && (typeof window === "undefined" || window.paypal === undefined)) {
-        return null;
-      }
-
-      var Button = window.paypal.Buttons.driver("react", {
-        React: _react["default"],
-        ReactDOM: _reactDom["default"]
-      });
-      var createOrderFn = amount && !createOrder ? function (data, actions) {
-        return _this3.createOrder(data, actions);
-      } : function (data, actions) {
-        return createOrder(data, actions);
-      };
-      return _react["default"].createElement(Button, _extends({}, this.props, {
-        createOrder: createSubscription ? undefined : createOrderFn,
-        createSubscription: createSubscription,
-        onApprove: onSuccess ? function (data, actions) {
-          return _this3.onApprove(data, actions);
-        } : function (data, actions) {
-          return onApprove(data, actions);
-        },
-        style: style
-      }));
-    }
-  }, {
-    key: "addPaypalSdk",
-    value: function addPaypalSdk() {
-      var _this4 = this;
-
-      var _this$props3 = this.props,
-          options = _this$props3.options,
-          onButtonReady = _this$props3.onButtonReady;
-      var queryParams = []; // replacing camelCase with dashes
-
-      Object.keys(options).forEach(function (k) {
-        var name = k.split(/(?=[A-Z])/).join("-").toLowerCase();
-        queryParams.push("".concat(name, "=").concat(options[k]));
-      });
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://www.paypal.com/sdk/js?".concat(queryParams.join("&"));
-      script.async = true;
-
-      script.onload = function () {
-        _this4.setState({
-          isSdkReady: true
-        });
-
-        if (onButtonReady) {
-          onButtonReady();
-        }
-      };
-
-      script.onerror = function () {
-        throw new Error("Paypal SDK could not be loaded.");
-      };
-
-      document.body.appendChild(script);
-    }
-  }]);
-
-  return PayPalButton;
-}(_react["default"].Component);
-
-exports.PayPalButton = PayPalButton;
-
-_defineProperty(PayPalButton, "propTypes", {
-  amount: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
-  currency: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
-  shippingPreference: _propTypes["default"].string,
-  onSuccess: _propTypes["default"].func,
-  catchError: _propTypes["default"].func,
-  onError: _propTypes["default"].func,
-  createOrder: _propTypes["default"].func,
-  createSubscription: _propTypes["default"].func,
-  onApprove: _propTypes["default"].func,
-  style: _propTypes["default"].object,
-  options: _propTypes["default"].shape({
-    clientId: _propTypes["default"].string,
-    merchantId: _propTypes["default"].string,
-    currency: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
-    intent: _propTypes["default"].string,
-    commit: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].string]),
-    vault: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].string]),
-    component: _propTypes["default"].string,
-    disableFunding: _propTypes["default"].string,
-    disableCard: _propTypes["default"].string,
-    integrationDate: _propTypes["default"].string,
-    locale: _propTypes["default"].string,
-    buyerCountry: _propTypes["default"].string,
-    debug: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].string])
-  }),
-  onButtonReady: _propTypes["default"].func
-});
-
-_defineProperty(PayPalButton, "defaultProps", {
-  style: {},
-  options: {
-    clientId: "sb",
-    currency: "USD"
-  },
-  shippingPreference: "GET_FROM_FILE"
-});
-
-},{"react":"3b2NM","react-dom":"2sg1U","prop-types":"4dfy5"}],"4nmcs":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","sweetalert":"4nmcs","./ReviewPapers.css":"SDSnk","./ReviewPapersDataService":"qNUqu","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4nmcs":[function(require,module,exports) {
 var define;
 !(function (t, e) {
   "object" == typeof exports && "object" == typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define([], e) : "object" == typeof exports ? exports.swal = e() : t.swal = e();
@@ -79355,7 +79288,725 @@ var define;
   }]);
 });
 
-},{}],"4eLl2":[function() {},{}],"5P6Da":[function(require,module,exports) {
+},{}],"SDSnk":[function() {},{}],"qNUqu":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _axios = require('axios');
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+class PapersListDataService {
+  getResearchPapers(example) {
+    return _axiosDefault.default.post('http://localhost:8080/api/v1/researcher/filter', example);
+  }
+  downloadPaper(fileName) {
+    return _axiosDefault.default.get(`http://localhost:8080/api/v1/download/paper/${fileName}`, {
+      responseType: 'blob'
+    });
+  }
+  reviewPaper(obj) {
+    return _axiosDefault.default.post('http://localhost:8080/api/v1/researcher/review', obj);
+  }
+  retrieveAllPapersForAdmin() {
+    return _axiosDefault.default.get('http://localhost:8080/api/v1/researcher');
+  }
+}
+exports.default = new PapersListDataService();
+
+},{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"7J4Y4":[function(require,module,exports) {
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactBootstrap = require('react-bootstrap');
+  var _fortawesomeReactFontawesome = require('@fortawesome/react-fontawesome');
+  var _fortawesomeFreeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+  var _reactPaypalButtonV = require("react-paypal-button-v2");
+  var _sweetalert = require('sweetalert');
+  var _sweetalertDefault = _parcelHelpers.interopDefault(_sweetalert);
+  require('./AttendeeRegistration.css');
+  var _AttendeeRegistrationDataService = require('./AttendeeRegistrationDataService');
+  var _AttendeeRegistrationDataServiceDefault = _parcelHelpers.interopDefault(_AttendeeRegistrationDataService);
+  var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\AttendeeRegistration\\AttendeeRegistration.js";
+  class AttendeeRegistration extends _react.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: '',
+        email: '',
+        contact: '',
+        password: '',
+        temppassword: '',
+        organization: '',
+        address: '',
+        error: null,
+        loading: false,
+        notPaid: true
+      };
+      this.registerAttendee = this.registerAttendee.bind(this);
+      this.displayError = this.displayError.bind(this);
+      this.payBtnClicked = this.payBtnClicked.bind(this);
+    }
+    payBtnClicked() {
+      this.setState({
+        notPaid: !this.state.notPaid
+      });
+    }
+    registerAttendee(event) {
+      event.preventDefault();
+      if (this.state.name === '') {
+        this.displayError('Name cannot be empty');
+      } else if (this.state.email === '') {
+        this.displayError('Email cannot be empty');
+      } else if (this.state.contact === '') {
+        this.displayError('Contact number cannot be empty');
+      } else if (this.state.password === '') {
+        this.displayError('Password cannot be empty');
+      } else if (this.state.temppassword === '') {
+        this.displayError('Please re-enter password');
+      } else if (this.state.address === '') {
+        this.displayError('Address cannot be empty');
+      } else if (this.state.password != this.state.temppassword) {
+        this.displayError('The passwords you entered do not match. Please re-enter your password');
+      } else if (this.state.contact.length != 10) {
+        this.displayError('Invalid phone number');
+      } else {
+        this.setState({
+          loading: true
+        });
+        let formData = new FormData();
+        formData.append('name', this.state.name);
+        formData.append('email', this.state.email);
+        formData.append('contact', this.state.contact);
+        formData.append('password', this.state.password);
+        formData.append('organization', this.state.organization);
+        formData.append('address', this.state.address);
+        _AttendeeRegistrationDataServiceDefault.default.registerAttendee(formData).then(response => {
+          this.setState({
+            loading: false
+          });
+          _sweetalertDefault.default({
+            title: "Registration Successful!",
+            text: "Log in to your profile to stay up to date",
+            icon: "success",
+            button: "Login"
+          }).then(result => {
+            return this.props.history.push('/login');
+          });
+        }).catch(error => {
+          this.setState({
+            loading: false
+          });
+          _sweetalertDefault.default({
+            title: "Oops!",
+            text: "Something went wrong, please try again.",
+            icon: "error",
+            button: "Ok"
+          });
+        });
+      }
+    }
+    displayError(msg) {
+      this.setState({
+        error: msg
+      });
+    }
+    handleChange = event => {
+      this.setState({
+        [event.target.name]: event.target.value,
+        error: null
+      }, () => console.log(this.state));
+    };
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 107,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "attendeeregistration-title",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 108,
+            columnNumber: 17
+          }
+        }, "CONFERENECE REGISTRATION"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
+          className: "attendeeregistration-container",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112,
+            columnNumber: 17
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
+          autoComplete: "off",
+          onSubmit: this.registerAttendee,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 113,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "name",
+          className: "attendeeregistration-form-group",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 114,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 115,
+            columnNumber: 29
+          }
+        }, "Name"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
+          onChange: this.handleChange,
+          name: "name",
+          value: this.state.name,
+          type: "text",
+          placeholder: "your name",
+          className: "paperregistration-form-input",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 116,
+            columnNumber: 29
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "email",
+          className: "attendeeregistration-form-group",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 118,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 119,
+            columnNumber: 29
+          }
+        }, "Email"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
+          onChange: this.handleChange,
+          name: "email",
+          value: this.state.email,
+          type: "email",
+          placeholder: "we will contact you via this email",
+          className: "attendeeregistration-form-input",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120,
+            columnNumber: 29
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Text, {
+          className: "text-muted",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 121,
+            columnNumber: 29
+          }
+        }, "Use this email to login to your profile")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "organization",
+          className: "attendeeregistration-form-group",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 125,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 126,
+            columnNumber: 29
+          }
+        }, "Organization (optional)"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
+          onChange: this.handleChange,
+          name: "organization",
+          value: this.state.organization,
+          type: "text",
+          placeholder: "organization you are representing",
+          className: "paperregistration-form-input",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 127,
+            columnNumber: 29
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "contact",
+          className: "attendeeregistration-form-group",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 129,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 130,
+            columnNumber: 29
+          }
+        }, "Contact No"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
+          onChange: this.handleChange,
+          name: "contact",
+          value: this.state.contact,
+          type: "number",
+          placeholder: "we will contact you via this number",
+          className: "attendeeregistration-form-input",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 131,
+            columnNumber: 29
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "address",
+          className: "attendeeregistration-form-group",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 133,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 134,
+            columnNumber: 29
+          }
+        }, "Address"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
+          onChange: this.handleChange,
+          name: "address",
+          value: this.state.address,
+          type: "text",
+          placeholder: "contact person name",
+          className: "paperregistration-form-input",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 135,
+            columnNumber: 29
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "password",
+          className: "attendeeregistration-form-group",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 137,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 138,
+            columnNumber: 29
+          }
+        }, "Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
+          onChange: this.handleChange,
+          name: "password",
+          value: this.state.password,
+          type: "password",
+          placeholder: "password",
+          className: "attendeeregistration-form-input",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 139,
+            columnNumber: 29
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "temppassword",
+          className: "attendeeregistration-form-group",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 141,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 142,
+            columnNumber: 29
+          }
+        }, "Re-Enter Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
+          onChange: this.handleChange,
+          name: "temppassword",
+          value: this.state.temppassword,
+          type: "password",
+          placeholder: "re-enter password",
+          className: "attendeeregistration-form-input",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 143,
+            columnNumber: 29
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement("p", {
+          style: {
+            color: "black",
+            fontWeight: "600"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 145,
+            columnNumber: 25
+          }
+        }, "Registration Fee: $25.00"), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "attendeeregistration-paypal",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 146,
+            columnNumber: 25
+          }
+        }, this.state.notPaid ? /*#__PURE__*/_reactDefault.default.createElement(_reactPaypalButtonV.PayPalButton, {
+          style: {
+            layout: "horizontal",
+            color: "gold",
+            height: 40,
+            tagline: "true",
+            label: "pay"
+          },
+          amount: "25.00",
+          shippingPreference: "NO_SHIPPING",
+          /*default is "GET_FROM_FILE"*/
+          onSuccess: details => {
+            // alert("Transaction completed by " + details.payer.name.given_name);
+            this.setState({
+              notPaid: !this.state.notPaid
+            });
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 147,
+            columnNumber: 51
+          }
+        }) : /*#__PURE__*/_reactDefault.default.createElement("p", {
+          style: {
+            color: "green",
+            fontWeight: "600",
+            textAlign: "left"
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 162,
+            columnNumber: 34
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          icon: _fortawesomeFreeSolidSvgIcons.faCheckCircle,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 162,
+            columnNumber: 100
+          }
+        }), " Paid")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          type: "submit",
+          className: "attendeeregistration-button",
+          disabled: this.state.notPaid,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 167,
+            columnNumber: 29
+          }
+        }, "Register"), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
+          className: "attendeeregistration-error",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 168,
+            columnNumber: 50
+          }
+        }, this.state.error))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
+          centered: true,
+          size: "sm",
+          show: this.state.loading,
+          onHide: () => console.log('please wait...'),
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 173,
+            columnNumber: 17
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 174,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 175,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
+          animation: "border",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 175,
+            columnNumber: 34
+          }
+        }), " Please wait..."))))
+      );
+    }
+  }
+  exports.default = AttendeeRegistration;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","react-paypal-button-v2":"3Wd1q","sweetalert":"4nmcs","./AttendeeRegistration.css":"4eLl2","./AttendeeRegistrationDataService":"5P6Da","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3Wd1q":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PayPalButton = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var PayPalButton =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PayPalButton, _React$Component);
+
+  function PayPalButton(props) {
+    var _this;
+
+    _classCallCheck(this, PayPalButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PayPalButton).call(this, props));
+    _this.state = {
+      isSdkReady: false
+    };
+    return _this;
+  }
+
+  _createClass(PayPalButton, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (typeof window !== "undefined" && window !== undefined && window.paypal === undefined) {
+        this.addPaypalSdk();
+      } else if (typeof window !== "undefined" && window !== undefined && window.paypal !== undefined && this.props.onButtonReady) {
+        this.props.onButtonReady();
+      }
+    }
+  }, {
+    key: "createOrder",
+    value: function createOrder(data, actions) {
+      var _this$props = this.props,
+          currency = _this$props.currency,
+          options = _this$props.options,
+          amount = _this$props.amount,
+          shippingPreference = _this$props.shippingPreference;
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            currency_code: currency ? currency : options && options.currency ? options.currency : "USD",
+            value: amount.toString()
+          }
+        }],
+        application_context: {
+          shipping_preference: shippingPreference
+        }
+      });
+    }
+  }, {
+    key: "onApprove",
+    value: function onApprove(data, actions) {
+      var _this2 = this;
+
+      return actions.order.capture().then(function (details) {
+        if (_this2.props.onSuccess) {
+          return _this2.props.onSuccess(details, data);
+        }
+      })["catch"](function (err) {
+        if (_this2.props.catchError) {
+          return _this2.props.catchError(err);
+        }
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var _this$props2 = this.props,
+          amount = _this$props2.amount,
+          onSuccess = _this$props2.onSuccess,
+          createOrder = _this$props2.createOrder,
+          createSubscription = _this$props2.createSubscription,
+          onApprove = _this$props2.onApprove,
+          style = _this$props2.style;
+      var isSdkReady = this.state.isSdkReady;
+
+      if (!isSdkReady && (typeof window === "undefined" || window.paypal === undefined)) {
+        return null;
+      }
+
+      var Button = window.paypal.Buttons.driver("react", {
+        React: _react["default"],
+        ReactDOM: _reactDom["default"]
+      });
+      var createOrderFn = amount && !createOrder ? function (data, actions) {
+        return _this3.createOrder(data, actions);
+      } : function (data, actions) {
+        return createOrder(data, actions);
+      };
+      return _react["default"].createElement(Button, _extends({}, this.props, {
+        createOrder: createSubscription ? undefined : createOrderFn,
+        createSubscription: createSubscription,
+        onApprove: onSuccess ? function (data, actions) {
+          return _this3.onApprove(data, actions);
+        } : function (data, actions) {
+          return onApprove(data, actions);
+        },
+        style: style
+      }));
+    }
+  }, {
+    key: "addPaypalSdk",
+    value: function addPaypalSdk() {
+      var _this4 = this;
+
+      var _this$props3 = this.props,
+          options = _this$props3.options,
+          onButtonReady = _this$props3.onButtonReady;
+      var queryParams = []; // replacing camelCase with dashes
+
+      Object.keys(options).forEach(function (k) {
+        var name = k.split(/(?=[A-Z])/).join("-").toLowerCase();
+        queryParams.push("".concat(name, "=").concat(options[k]));
+      });
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://www.paypal.com/sdk/js?".concat(queryParams.join("&"));
+      script.async = true;
+
+      script.onload = function () {
+        _this4.setState({
+          isSdkReady: true
+        });
+
+        if (onButtonReady) {
+          onButtonReady();
+        }
+      };
+
+      script.onerror = function () {
+        throw new Error("Paypal SDK could not be loaded.");
+      };
+
+      document.body.appendChild(script);
+    }
+  }]);
+
+  return PayPalButton;
+}(_react["default"].Component);
+
+exports.PayPalButton = PayPalButton;
+
+_defineProperty(PayPalButton, "propTypes", {
+  amount: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
+  currency: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
+  shippingPreference: _propTypes["default"].string,
+  onSuccess: _propTypes["default"].func,
+  catchError: _propTypes["default"].func,
+  onError: _propTypes["default"].func,
+  createOrder: _propTypes["default"].func,
+  createSubscription: _propTypes["default"].func,
+  onApprove: _propTypes["default"].func,
+  style: _propTypes["default"].object,
+  options: _propTypes["default"].shape({
+    clientId: _propTypes["default"].string,
+    merchantId: _propTypes["default"].string,
+    currency: _propTypes["default"].oneOfType([_propTypes["default"].number, _propTypes["default"].string]),
+    intent: _propTypes["default"].string,
+    commit: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].string]),
+    vault: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].string]),
+    component: _propTypes["default"].string,
+    disableFunding: _propTypes["default"].string,
+    disableCard: _propTypes["default"].string,
+    integrationDate: _propTypes["default"].string,
+    locale: _propTypes["default"].string,
+    buyerCountry: _propTypes["default"].string,
+    debug: _propTypes["default"].oneOfType([_propTypes["default"].bool, _propTypes["default"].string])
+  }),
+  onButtonReady: _propTypes["default"].func
+});
+
+_defineProperty(PayPalButton, "defaultProps", {
+  style: {},
+  options: {
+    clientId: "sb",
+    currency: "USD"
+  },
+  shippingPreference: "GET_FROM_FILE"
+});
+
+},{"react":"3b2NM","react-dom":"2sg1U","prop-types":"4dfy5"}],"4eLl2":[function() {},{}],"5P6Da":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 var _axios = require('axios');
@@ -83401,10 +84052,12 @@ try {
         rComment: '',
         fileName: '',
         error: null,
-        loading: false
+        loading: false,
+        role: sessionStorage.getItem('authenticatedUserRole')
       };
       this.downloadPaperTemplateClicked = this.downloadPaperTemplateClicked.bind(this);
       this.submitBtnClicked = this.submitBtnClicked.bind(this);
+      this.deleteBtnClicked = this.deleteBtnClicked.bind(this);
     }
     componentDidMount() {
       _ReviewPaperDetailsDataServiceDefault.default.getResearchPaper(this.props.match.params.email).then(res => {
@@ -83461,7 +84114,31 @@ try {
         this.setState({
           loading: false
         });
-        return this.props.history.push('/reviewer');
+        if (this.state.role === 'admin') {
+          return this.props.history.push('/admin');
+        } else {
+          return this.props.history.push('/reviewer');
+        }
+      });
+    }
+    deleteBtnClicked() {
+      _sweetalertDefault.default({
+        title: "You are about to delete,",
+        text: this.state.title,
+        icon: "warning",
+        buttons: true
+      }).then(result => {
+        if (result) {
+          this.setState({
+            loading: true
+          });
+          _ReviewPaperDetailsDataServiceDefault.default.deleteResearcher(this.state.email).then(res => {
+            this.setState({
+              loading: false
+            });
+            return this.props.history.push('/admin');
+          });
+        }
       });
     }
     formChange = event => {
@@ -83476,7 +84153,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 99,
+            lineNumber: 122,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -83484,7 +84161,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 100,
+            lineNumber: 123,
             columnNumber: 17
           }
         }, "REVIEW PAPER"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
@@ -83495,28 +84172,28 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 103,
+            lineNumber: 126,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 104,
+            lineNumber: 127,
             columnNumber: 21
           }
         }, this.state.title), /*#__PURE__*/_reactDefault.default.createElement("h4", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105,
+            lineNumber: 128,
             columnNumber: 21
           }
         }, "Author(s): ", this.state.author), /*#__PURE__*/_reactDefault.default.createElement("p", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106,
+            lineNumber: 129,
             columnNumber: 21
           }
         }, this.state.paperAbstract), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -83531,7 +84208,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107,
+            lineNumber: 130,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -83540,49 +84217,49 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107,
+            lineNumber: 130,
             columnNumber: 178
           }
         }), "  Download"), /*#__PURE__*/_reactDefault.default.createElement("p", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 108,
+            lineNumber: 131,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("b", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 108,
+            lineNumber: 131,
             columnNumber: 24
           }
         }, "Contact Information")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 109,
+            lineNumber: 132,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110,
+            lineNumber: 133,
             columnNumber: 25
           }
         }, "Name: ", this.state.name), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113,
+            lineNumber: 136,
             columnNumber: 25
           }
         }, "Contact: ", this.state.contact), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116,
+            lineNumber: 139,
             columnNumber: 25
           }
         }, "Email: ", this.state.email)), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -83592,21 +84269,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121,
+            lineNumber: 144,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("p", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122,
+            lineNumber: 145,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("b", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122,
+            lineNumber: 145,
             columnNumber: 24
           }
         }, "Submit Your Review")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
@@ -83614,21 +84291,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123,
+            lineNumber: 146,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 124,
+            lineNumber: 147,
             columnNumber: 25
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125,
+            lineNumber: 148,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -83642,7 +84319,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 126,
+            lineNumber: 149,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("option", {
@@ -83650,7 +84327,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135,
+            lineNumber: 158,
             columnNumber: 37
           }
         }, "Choose..."), /*#__PURE__*/_reactDefault.default.createElement("option", {
@@ -83658,7 +84335,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136,
+            lineNumber: 159,
             columnNumber: 37
           }
         }, "Approve"), /*#__PURE__*/_reactDefault.default.createElement("option", {
@@ -83666,21 +84343,55 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 137,
+            lineNumber: 160,
             columnNumber: 37
           }
-        }, "Reject"))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
+        }, "Reject")), /*#__PURE__*/_reactDefault.default.createElement("p", {
+          style: {
+            margin: "5px 0px"
+          },
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 140,
+            lineNumber: 162,
+            columnNumber: 33
+          }
+        }, this.state.status === "pending" && /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Badge, {
+          variant: "warning",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 163,
+            columnNumber: 73
+          }
+        }, this.state.status), this.state.status === "approved" && /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Badge, {
+          variant: "success",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 164,
+            columnNumber: 74
+          }
+        }, this.state.status), this.state.status === "rejected" && /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Badge, {
+          variant: "danger",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 165,
+            columnNumber: 74
+          }
+        }, this.state.status))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 168,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 141,
+            lineNumber: 169,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
@@ -83693,14 +84404,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 142,
+            lineNumber: 170,
             columnNumber: 37
           }
         }))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 145,
+            lineNumber: 173,
             columnNumber: 29
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -83710,7 +84421,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 146,
+            lineNumber: 174,
             columnNumber: 33
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
@@ -83719,10 +84430,29 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 146,
+            lineNumber: 174,
             columnNumber: 121
           }
-        }), "  Submit"))))), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
+        }), "  Submit"), this.state.role == "admin" ? /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+          className: "my-1 mr-sm-2",
+          onClick: this.deleteBtnClicked,
+          variant: "outline-danger",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 175,
+            columnNumber: 63
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
+          size: "sm",
+          icon: _fortawesomeFreeSolidSvgIcons.faTrash,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 175,
+            columnNumber: 153
+          }
+        })) : '')))), this.state.error && /*#__PURE__*/_reactDefault.default.createElement("p", {
           style: {
             color: "red",
             fontWeight: "600",
@@ -83731,7 +84461,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 151,
+            lineNumber: 180,
             columnNumber: 42
           }
         }, "Please approve or reject research paper")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
@@ -83742,21 +84472,21 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 154,
+            lineNumber: 183,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 155,
+            lineNumber: 184,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156,
+            lineNumber: 185,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
@@ -83764,7 +84494,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156,
+            lineNumber: 185,
             columnNumber: 34
           }
         }), " Please wait..."))))
@@ -83795,563 +84525,11 @@ class ReviewPaperDetailsDataService {
       responseType: 'blob'
     });
   }
+  deleteResearcher(email) {
+    return _axiosDefault.default.delete(`http://localhost:8080/api/v1/researcher/${email}`);
+  }
 }
 exports.default = new ReviewPaperDetailsDataService();
-
-},{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"10NoN":[function(require,module,exports) {
-var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-try {
-  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-  _parcelHelpers.defineInteropFlag(exports);
-  var _react = require('react');
-  var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _reactBootstrap = require('react-bootstrap');
-  var _fortawesomeReactFontawesome = require('@fortawesome/react-fontawesome');
-  var _fortawesomeFreeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
-  var _sweetalert = require('sweetalert');
-  var _sweetalertDefault = _parcelHelpers.interopDefault(_sweetalert);
-  require('./ReviewPapers.css');
-  var _ReviewPapersDataService = require('./ReviewPapersDataService');
-  var _ReviewPapersDataServiceDefault = _parcelHelpers.interopDefault(_ReviewPapersDataService);
-  var _jsxFileName = "D:\\SLIIT Lec\\3rd Year\\1st sem\\AF\\Group Project\\ICAF-fe\\src\\component\\ReviewPapers\\ReviewPapers.js";
-  class ReviewPapers extends _react.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        papers: [],
-        rComment: '',
-        status: '',
-        currentPage: 1,
-        entriesPerPage: 5,
-        search: '',
-        searchMessage: null,
-        loading: false
-      };
-      this.refreshPapers = this.refreshPapers.bind(this);
-      this.submitBtnClicked = this.submitBtnClicked.bind(this);
-    }
-    refreshPapers() {
-      let example = {
-        title: this.state.search,
-        status: 'pending'
-      };
-      _ReviewPapersDataServiceDefault.default.getResearchPapers(example).then(response => {
-        this.setState({
-          papers: response.data
-        });
-      });
-    }
-    componentDidMount() {
-      this.refreshPapers();
-    }
-    downloadPaperTemplateClicked(fileName) {
-      this.setState({
-        loading: true
-      });
-      _ReviewPapersDataServiceDefault.default.downloadPaper(fileName).then(({data}) => {
-        this.setState({
-          loading: false
-        });
-        const downloadUrl = window.URL.createObjectURL(new Blob([data]));
-        const link = document.createElement('a');
-        link.href = downloadUrl;
-        link.setAttribute('download', fileName);
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        _sweetalertDefault.default({
-          title: "Research Paper Downloaded",
-          icon: "success",
-          button: "Ok"
-        });
-      });
-    }
-    formChange = event => {
-      this.setState({
-        [event.target.name]: event.target.value
-      }, () => console.log('form changed'));
-    };
-    submitBtnClicked(email) {
-      return this.props.submitBtnClicked(email);
-    }
-    firstPage = () => {
-      if (this.state.currentPage > 1) {
-        this.setState({
-          currentPage: 1
-        });
-      }
-    };
-    prevPage = () => {
-      if (this.state.currentPage > 1) {
-        this.setState({
-          currentPage: this.state.currentPage - 1
-        });
-      }
-    };
-    lastPage = () => {
-      if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
-        this.setState({
-          currentPage: Math.ceil(this.state.papers.length / this.state.entriesPerPage)
-        });
-      }
-    };
-    nextPage = () => {
-      if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
-        this.setState({
-          currentPage: this.state.currentPage + 1
-        });
-      }
-    };
-    handleChange = event => {
-      this.setState({
-        [event.target.name]: event.target.value
-      }, () => this.refreshPapers());
-    };
-    render() {
-      const {currentPage, entriesPerPage, papers, search} = this.state;
-      const lastIndex = currentPage * entriesPerPage;
-      const firstIndex = lastIndex - entriesPerPage;
-      const currentEntries = papers.slice(firstIndex, lastIndex);
-      const totalPages = papers.length / entriesPerPage;
-      const pageNumCss = {
-        width: "45px",
-        color: "black",
-        textAlign: "center",
-        fontWeight: "bold",
-        backgroundColor: "white",
-        borderColor: "black"
-      };
-      const searchBox = {
-        width: "250px",
-        fontWeight: "bold",
-        border: "none",
-        borderColor: "#24a0ed"
-      };
-      return (
-        /*#__PURE__*/_reactDefault.default.createElement("div", {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 142,
-            columnNumber: 13
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
-          className: "paperlist-container",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 147,
-            columnNumber: 17
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card, {
-          className: "",
-          style: {
-            backgroundColor: "white"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 148,
-            columnNumber: 21
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Header, {
-          style: {
-            backgroundColor: "white"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 149,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
-          style: {
-            float: "left",
-            fontSize: "20px",
-            fontWeight: "600"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 150,
-            columnNumber: 29
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          icon: _fortawesomeFreeSolidSvgIcons.faFilePdf,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 151,
-            columnNumber: 29
-          }
-        }), "  Research Papers"), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          style: {
-            float: "right"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 153,
-            columnNumber: 29
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup, {
-          size: "sm",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 154,
-            columnNumber: 33
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          style: {
-            marginTop: "8px"
-          },
-          icon: _fortawesomeFreeSolidSvgIcons.faSearch,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 155,
-            columnNumber: 37
-          }
-        }), "  ", /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.FormControl, {
-          onChange: this.handleChange,
-          style: searchBox,
-          autoComplete: "off",
-          placeholder: "start typing...",
-          name: "search",
-          value: this.state.search,
-          className: "",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 155,
-            columnNumber: 106
-          }
-        }), " "))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Body, {
-          style: {
-            backgroundColor: "white"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 160,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Table, {
-          hover: true,
-          style: {
-            backgroundColor: "white"
-          },
-          variant: "",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 161,
-            columnNumber: 29
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("tbody", {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 162,
-            columnNumber: 33
-          }
-        }, this.state.papers.length === 0 ? /*#__PURE__*/_reactDefault.default.createElement("tr", {
-          align: "center",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 164,
-            columnNumber: 71
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("td", {
-          colSpan: "2",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 165,
-            columnNumber: 41
-          }
-        }, "No Records Found")) : currentEntries.map(paper => /*#__PURE__*/_reactDefault.default.createElement("tr", {
-          key: paper.email,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 169,
-            columnNumber: 37
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("td", {
-          style: {
-            padding: "30px"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 170,
-            columnNumber: 37
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("h5", {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 171,
-            columnNumber: 41
-          }
-        }, paper.title), /*#__PURE__*/_reactDefault.default.createElement("p", {
-          style: {
-            margin: "5px 0px"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 172,
-            columnNumber: 41
-          }
-        }, "By: ", paper.author)), /*#__PURE__*/_reactDefault.default.createElement("td", {
-          style: {
-            width: "15%",
-            textAlign: "center",
-            padding: "40px 10px"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 184,
-            columnNumber: 37
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
-          autoComplete: "off",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 185,
-            columnNumber: 41
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-          onClick: () => this.submitBtnClicked(paper.email),
-          variant: "outline-dark",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 202,
-            columnNumber: 45
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          size: "sm",
-          icon: _fortawesomeFreeSolidSvgIcons.faEye,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 202,
-            columnNumber: 127
-          }
-        }), "  View")))))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Footer, {
-          style: {
-            backgroundColor: "white",
-            color: "black"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 212,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
-          style: {
-            float: "left"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 213,
-            columnNumber: 29
-          }
-        }, "Showing Page ", currentPage, " of ", Math.ceil(totalPages)), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          style: {
-            float: "right"
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 216,
-            columnNumber: 29
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup, {
-          size: "sm",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 217,
-            columnNumber: 33
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup.Prepend, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 218,
-            columnNumber: 37
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-          type: "button",
-          variant: "outline-dark",
-          disabled: currentPage === 1 ? true : false,
-          onClick: this.firstPage,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 219,
-            columnNumber: 41
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          icon: _fortawesomeFreeSolidSvgIcons.faFastBackward,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 220,
-            columnNumber: 41
-          }
-        }), " First"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-          type: "button",
-          variant: "outline-dark",
-          disabled: currentPage === 1 ? true : false,
-          onClick: this.prevPage,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 222,
-            columnNumber: 41
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          icon: _fortawesomeFreeSolidSvgIcons.faStepBackward,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 223,
-            columnNumber: 41
-          }
-        }), " Prev")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.FormControl, {
-          style: pageNumCss,
-          className: "",
-          name: "currentPage",
-          value: currentPage,
-          disabled: true,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 226,
-            columnNumber: 37
-          }
-        }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.InputGroup.Append, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 227,
-            columnNumber: 37
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-          type: "button",
-          variant: "outline-dark",
-          disabled: currentPage === totalPages ? true : false,
-          onClick: this.nextPage,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 228,
-            columnNumber: 41
-          }
-        }, "Next ", /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          icon: _fortawesomeFreeSolidSvgIcons.faStepForward,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 229,
-            columnNumber: 50
-          }
-        })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-          type: "button",
-          variant: "outline-dark",
-          disabled: currentPage === totalPages ? true : false,
-          onClick: this.lastPage,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 231,
-            columnNumber: 41
-          }
-        }, "Last ", /*#__PURE__*/_reactDefault.default.createElement(_fortawesomeReactFontawesome.FontAwesomeIcon, {
-          icon: _fortawesomeFreeSolidSvgIcons.faFastForward,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 232,
-            columnNumber: 50
-          }
-        })))))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal, {
-          centered: true,
-          size: "sm",
-          show: this.state.loading,
-          onHide: () => console.log('please wait...'),
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 241,
-            columnNumber: 17
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Header, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 242,
-            columnNumber: 21
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Modal.Title, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 243,
-            columnNumber: 21
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Spinner, {
-          animation: "border",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 243,
-            columnNumber: 34
-          }
-        }), " Downloading..."))))
-      );
-    }
-  }
-  exports.default = ReviewPapers;
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-
-},{"react":"3b2NM","react-bootstrap":"4n7hB","@fortawesome/react-fontawesome":"6F8xf","@fortawesome/free-solid-svg-icons":"N79PA","sweetalert":"4nmcs","./ReviewPapers.css":"SDSnk","./ReviewPapersDataService":"qNUqu","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"SDSnk":[function() {},{}],"qNUqu":[function(require,module,exports) {
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-_parcelHelpers.defineInteropFlag(exports);
-var _axios = require('axios');
-var _axiosDefault = _parcelHelpers.interopDefault(_axios);
-class PapersListDataService {
-  getResearchPapers(example) {
-    return _axiosDefault.default.post('http://localhost:8080/api/v1/researcher/filter', example);
-  }
-  downloadPaper(fileName) {
-    return _axiosDefault.default.get(`http://localhost:8080/api/v1/download/paper/${fileName}`, {
-      responseType: 'blob'
-    });
-  }
-  reviewPaper(obj) {
-    return _axiosDefault.default.post('http://localhost:8080/api/v1/researcher/review', obj);
-  }
-}
-exports.default = new PapersListDataService();
 
 },{"axios":"7rA65","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"244jY":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
