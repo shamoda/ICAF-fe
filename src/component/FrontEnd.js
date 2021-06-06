@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AdminDashboard from './AdminDashboard/AdminDashboard';
 import AdminStatistics from './AdminStatistics/AdminStatistics';
 import AttendeeRegistration from './AttendeeRegistration/AttendeeRegistration';
@@ -22,41 +22,42 @@ import ReviewPaperDetails from './ReviewPapers/ReviewPaperDetails/ReviewPaperDet
 import ReviewPapers from './ReviewPapers/ReviewPapers';
 import Downloads from './TemplatesDownloads/Downloads';
 import Workshops from './Workshops/Workshops';
+import WorkshopConducter from './WorkshopConductor/WorkshopConductor'
 
 class FrontEnd extends Component {
-    state = {  }
-    render() { 
-        return ( 
+    state = {}
+    render() {
+        return (
             <div>
                 <Router>
-                    <Header/>
-                        <Switch>
-                            <Route path="/" exact component={Home} />
-                            <Route path="/keynotes" component={KeyNotes}/>
-                            <Route path="/papers" component={Papers}/>
-                            {/* <Route path="/presentations" component={Presentations}/> */}
-                            <Route path="/workshops" component={Workshops}/>
-                            <Route path="/importantdates" component={ImportantDates}/>
-                            <Route path="/downloads" component={Downloads}/>
-                            <Route path="/program" component={Program}/>
-                            <Route path="/login" component={Login}/>
-                            <Route path="/paperregistration" component={PaperRegistration}/>
-                            <Route path="/attendeeregistration" component={AttendeeRegistration}/>
-                            <Route path="/committeeregistration" component={CommitteeRegistration}/>
-                            <Route path="/review/:email" component={ReviewPaperDetails}/>
-                            <Route path="/review/" component={ReviewPapers}/>
-                            <Route path="/reviewer" component={ReviewerDashboard}/>
-                            <Route path="/researcherprofile" component={ResearcherDashboard}/>
-                            <Route path="/admin" component={AdminDashboard}/>
-                            <Route path="/test" component={ReviewPapers}/>
+                    <Header />
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/keynotes" component={KeyNotes} />
+                        <Route path="/papers" component={Papers} />
+                        <Route path="/conductorregistration" component={WorkshopConducter} />
+                        <Route path="/workshops" component={Workshops} />
+                        <Route path="/importantdates" component={ImportantDates} />
+                        <Route path="/downloads" component={Downloads} />
+                        <Route path="/program" component={Program} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/paperregistration" component={PaperRegistration} />
+                        <Route path="/attendeeregistration" component={AttendeeRegistration} />
+                        <Route path="/committeeregistration" component={CommitteeRegistration} />
+                        <Route path="/review/:email" component={ReviewPaperDetails} />
+                        <Route path="/review/" component={ReviewPapers} />
+                        <Route path="/reviewer" component={ReviewerDashboard} />
+                        <Route path="/researcherprofile" component={ResearcherDashboard} />
+                        <Route path="/admin" component={AdminDashboard} />
+                        <Route path="/test" component={ReviewPapers} />
 
-                            <Route component={NotFoundError}/>
-                        </Switch>
-                    <Footer/>
+                        <Route component={NotFoundError} />
+                    </Switch>
+                    <Footer />
                 </Router>
             </div>
-         );
+        );
     }
 }
- 
+
 export default FrontEnd;
