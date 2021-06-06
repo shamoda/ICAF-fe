@@ -1,38 +1,31 @@
 import React, { Component } from 'react';
-import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner } from 'react-bootstrap';
+import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faFastBackward, faFastForward, faFilePdf, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
-import './PapersList.css'
-import PapersListDataService from './PapersListDataService';
-import Authentication from '../../authentication/Authentication';
-import Program from '../Program/ResearchProgram';
+import { faEye, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
+import WorkshopDataService from './WorkshopDataService'
 
-class PapersList extends Component {
-
+class WorkshopList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            papers: [],
-
+            proposals: [],
             currentPage: 1,
             entriesPerPage: 5,
             search: '',
             searchMessage: null,
             loading: false
         }
-
         this.refreshPapers = this.refreshPapers.bind(this);
+        // this.submitBtnClicked = this.submitBtnClicked.bind(this);
     }
 
     refreshPapers() {
         let example = {
-            title: this.state.search,
-            status: 'approved',
-            paid: true
+            status: 'pending'
         }
-        PapersListDataService.getResearchPapers(example)
+        WorkshopDataService.getProposal(example)
             .then(response => {
-                this.setState({ papers: response.data })
+                this.setState({ proposals: response.data })
             })
     }
 
@@ -40,39 +33,13 @@ class PapersList extends Component {
         this.refreshPapers()
     }
 
-    downloadPaperTemplateClicked(fileName) {
-        if (!Authentication.isUserLoggedIn()) {
-            swal({
-                // title: "Oops!!!",
-                title: "First you have to Login",
-                icon: "warning",
-                buttons: true,
-            }).then((result) => {
-                if ((result)) {
-                    return this.props.redirectToLogin()
-                }
-            })
-        } else {
-            this.setState({ loading: true })
-            PapersListDataService.downloadPaper(fileName)
-                .then(({ data }) => {
-                    this.setState({ loading: false })
-                    const downloadUrl = window.URL.createObjectURL(new Blob([data]));
-                    const link = document.createElement('a');
-                    link.href = downloadUrl;
-                    link.setAttribute('download', fileName);
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                    swal({
-                        title: "Research Paper Downloaded",
-                        icon: "success",
-                        button: "Ok",
-                    })
-                });
-        }
-    }
+    formChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        }, () => console.log('form changed'));
+    };
 
+    //Pagination
     firstPage = () => {
         if (this.state.currentPage > 1) {
             this.setState({
@@ -90,21 +57,19 @@ class PapersList extends Component {
     };
 
     lastPage = () => {
-        if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
+        if (this.state.currentPage < Math.ceil(this.state.proposals.length / this.state.entriesPerPage)) {
             this.setState({
-                currentPage: Math.ceil(this.state.papers.length / this.state.entriesPerPage)
+                currentPage: Math.ceil(this.state.proposals.length / this.state.entriesPerPage)
             });
         }
     };
-
     nextPage = () => {
-        if (this.state.currentPage < Math.ceil(this.state.papers.length / this.state.entriesPerPage)) {
+        if (this.state.currentPage < Math.ceil(this.state.proposals.length / this.state.entriesPerPage)) {
             this.setState({
                 currentPage: this.state.currentPage + 1
             });
         }
     };
-
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -112,15 +77,12 @@ class PapersList extends Component {
 
     };
 
-
-
     render() {
-
-        const { currentPage, entriesPerPage, papers, search } = this.state;
+        const { currentPage, entriesPerPage, proposals, search } = this.state;
         const lastIndex = currentPage * entriesPerPage;
         const firstIndex = lastIndex - entriesPerPage;
-        const currentEntries = papers.slice(firstIndex, lastIndex);
-        const totalPages = papers.length / entriesPerPage;
+        const currentEntries = proposals.slice(firstIndex, lastIndex);
+        const totalPages = proposals.length / entriesPerPage;
 
         const pageNumCss = {
             width: "45px",
@@ -137,7 +99,6 @@ class PapersList extends Component {
             border: "none",
             borderColor: "#24a0ed"
         }
-
         return (
             <div>
                 <Container className="paperlist-container">
@@ -145,37 +106,38 @@ class PapersList extends Component {
                         <Card.Header style={{ backgroundColor: "white" }}>
                             <div style={{ float: "left", fontSize: "20px", fontWeight: "600" }}>
                                 <FontAwesomeIcon icon={faFilePdf} />&nbsp; Research Papers
-                            </div>
+                        </div>
                             <div style={{ float: "right" }}>
                                 <InputGroup size="sm">
                                     <FontAwesomeIcon style={{ marginTop: "8px" }} icon={faSearch} />&nbsp; <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="start typing..." name="search" value={this.state.search} className="" />&nbsp;
-                                </InputGroup>
+                            </InputGroup>
                             </div>
                         </Card.Header>
 
                         <Card.Body style={{ backgroundColor: "white" }}>
                             <Table hover style={{ backgroundColor: "white" }} variant="">
                                 <tbody>
-
-                                    {this.state.papers.length === 0 ? <tr align="center">
+                                    {this.state.proposals.length === 0 ? <tr align="center">
                                         <td colSpan="2" >No Records Found</td>
                                     </tr> :
-
-                                        currentEntries.map((paper) => (
-                                            <tr key={paper.email}>
+                                        currentEntries.map((p) => (
+                                            <tr key={p.workshoId}>
                                                 <td style={{ padding: "30px" }}>
-                                                    <h5>{paper.title}</h5>
-                                                    <p style={{ margin: "5px 0px" }}>By: {paper.author}</p>
-                                                    <p style={{ margin: "0px" }}>{paper.paperAbstract.slice(0, 270)}...</p>
+                                                    <h4>{p.title}</h4>
+                                                    <h6>{p.subject}</h6>
+                                                    <p style={{ margin: "5px 0px" }}>Workshop Conductor: {p.conductor}</p>
                                                 </td>
-                                                <td style={{ width: "15%", textAlign: "center", padding: "75px 0px" }}><Button onClick={() => this.downloadPaperTemplateClicked(paper.fileName)} variant="outline-dark"><FontAwesomeIcon icon={faDownload} />&nbsp; Download</Button></td>
+                                                <td style={{ width: "15%", textAlign: "center", padding: "40px 10px" }}>
+                                                    <Form autoComplete="off" >
+                                                        <Button variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
+                                                    </Form>
+                                                </td>
                                             </tr>))
                                     }
 
                                 </tbody>
                             </Table>
                         </Card.Body>
-
                         <Card.Footer style={{ backgroundColor: "white", color: "black" }}>
                             <div style={{ float: "left" }}>
                                 Showing Page {currentPage} of {Math.ceil(totalPages)}
@@ -185,10 +147,10 @@ class PapersList extends Component {
                                     <InputGroup.Prepend>
                                         <Button type="button" variant="outline-dark" disabled={currentPage === 1 ? true : false} onClick={this.firstPage}>
                                             <FontAwesomeIcon icon={faFastBackward} /> First
-                                        </Button>
+                                    </Button>
                                         <Button type="button" variant="outline-dark" disabled={currentPage === 1 ? true : false} onClick={this.prevPage}>
                                             <FontAwesomeIcon icon={faStepBackward} /> Prev
-                                        </Button>
+                                    </Button>
                                     </InputGroup.Prepend>
                                     <FormControl style={pageNumCss} className="" name="currentPage" value={currentPage} disabled />
                                     <InputGroup.Append>
@@ -214,5 +176,4 @@ class PapersList extends Component {
         );
     }
 }
-
-export default PapersList;
+export default WorkshopList;

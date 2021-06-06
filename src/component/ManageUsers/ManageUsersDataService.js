@@ -1,25 +1,24 @@
-  
 import axios from 'axios'
 
 class ManageUsersDataService {
 
-    getUsers(example){
+    getUsers(example) {
         return axios.post('http://localhost:8080/api/v1/user/filter/admin', example);
     }
 
-    deleteUser(email){
+    deleteUser(email) {
         return axios.delete(`http://localhost:8080/api/v1/user/${email}`);
     }
 
-    deleteAttendee(email){
+    deleteAttendee(email) {
         return axios.delete(`http://localhost:8080/api/v1/attendee/${email}`);
     }
 
-    deleteResearcher(email){
+    deleteResearcher(email) {
         return axios.delete(`http://localhost:8080/api/v1/researcher/${email}`);
     }
 
-    deleteWorkshopConductor(email){
+    deleteWorkshopConductor(email) {
         return axios.delete(`http://localhost:8080/api/v1/workshop/${email}`);
     }
 

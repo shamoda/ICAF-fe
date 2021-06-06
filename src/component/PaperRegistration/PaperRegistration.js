@@ -5,10 +5,10 @@ import PaperRegistrationDataService from './PaperRegistrationDataService'
 import './PaperRegistration.css'
 
 class PaperRegistration extends Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             title: '',
             author: '',
             paperAbstract: '',
@@ -20,11 +20,14 @@ class PaperRegistration extends Component {
             paper: null,
             error: null,
             loading: false
-         }
+        }
 
         this.registerResearcher = this.registerResearcher.bind(this);
         this.displayError = this.displayError.bind(this);
         this.onFileChange = this.onFileChange.bind(this);
+    }
+    componentDidMount() {
+        window.scrollTo(0, 0)
     }
 
     registerResearcher(event) {
@@ -58,7 +61,7 @@ class PaperRegistration extends Component {
             this.displayError('Invalid phone number')
         } else {
 
-            this.setState({loading: true})
+            this.setState({ loading: true })
 
             let formData = new FormData();
             formData.append('title', this.state.title);
@@ -71,25 +74,25 @@ class PaperRegistration extends Component {
             formData.append('paper', this.state.paper);
 
             PaperRegistrationDataService.registerResearcher(formData)
-                .then( response => {
-                    this.setState({loading: false})
+                .then(response => {
+                    this.setState({ loading: false })
                     swal({
                         title: "Paper Submission Successful!",
                         text: "Log in to your profile to stay up to date",
                         icon: "success",
                         button: "Login",
-                      }).then(result => {
+                    }).then(result => {
                         return this.props.history.push('/login')
-                      })
+                    })
                 })
-                .catch( error => {
-                    this.setState({loading: false})
+                .catch(error => {
+                    this.setState({ loading: false })
                     swal({
                         title: "Oops!",
                         text: "Something went wrong, please try again.",
                         icon: "error",
                         button: "Ok",
-                      })
+                    })
                 })
 
         }
@@ -101,9 +104,9 @@ class PaperRegistration extends Component {
         })
     }
 
-    handleChange = event =>{
+    handleChange = event => {
         this.setState({
-            [event.target.name] : event.target.value,
+            [event.target.name]: event.target.value,
             error: null
         }, () => console.log(this.state));
     };
@@ -117,8 +120,8 @@ class PaperRegistration extends Component {
         }
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div>
                 <div className="paperregistration-title">
                     RESEARCH PAPER SUBMISSION
@@ -128,47 +131,47 @@ class PaperRegistration extends Component {
                     <Form autoComplete="off" onSubmit={this.registerResearcher}>
                         <Form.Group controlId="title" className="paperregistration-form-group">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="title" value={this.state.title} type="text" placeholder="research paper title" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="title" value={this.state.title} type="text" placeholder="research paper title" className="paperregistration-form-input" />
                             <Form.Text className="text-muted">
                                 This title will be used in the future reference
                             </Form.Text>
                         </Form.Group>
                         <Form.Group controlId="author" className="paperregistration-form-group">
                             <Form.Label>Author(s)</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="author" value={this.state.author} type="text" placeholder="research contribution" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="author" value={this.state.author} type="text" placeholder="research contribution" className="paperregistration-form-input" />
                             <Form.Text className="text-muted">
                                 Separate each author's name with a pipe symbol (ex: "J. Doe | A. Marry")
                             </Form.Text>
                         </Form.Group>
                         <Form.Group controlId="paperAbstract" className="paperregistration-form-group">
                             <Form.Label>Abstract</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="paperAbstract" value={this.state.paperAbstract} maxLength="650"  as="textarea" rows={5} placeholder="abstract about your research" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="paperAbstract" value={this.state.paperAbstract} maxLength="650" as="textarea" rows={5} placeholder="abstract about your research" className="paperregistration-form-input" />
                         </Form.Group>
                         <Form.Group controlId="name" className="paperregistration-form-group">
                             <Form.Label>Contact Person Name</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="name" value={this.state.name} type="text" placeholder="contact person name" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="name" value={this.state.name} type="text" placeholder="contact person name" className="paperregistration-form-input" />
                         </Form.Group>
                         <Form.Group controlId="email" className="paperregistration-form-group">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="email" value={this.state.email} type="email" placeholder="we will contact you via this email" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="email" value={this.state.email} type="email" placeholder="we will contact you via this email" className="paperregistration-form-input" />
                             <Form.Text className="text-muted">
                                 Use this email to login to your profile
                             </Form.Text>
                         </Form.Group>
                         <Form.Group controlId="contact" className="paperregistration-form-group">
                             <Form.Label>Contact No</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="contact" value={this.state.contact} type="number" placeholder="we will contact you via this number" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="contact" value={this.state.contact} type="number" placeholder="we will contact you via this number" className="paperregistration-form-input" />
                         </Form.Group>
                         <Form.Group controlId="password" className="paperregistration-form-group">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="password" value={this.state.password} type="password" placeholder="password" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="password" value={this.state.password} type="password" placeholder="password" className="paperregistration-form-input" />
                         </Form.Group>
                         <Form.Group controlId="temppassword" className="paperregistration-form-group">
                             <Form.Label>Re-Enter Password</Form.Label>
-                            <Form.Control onChange={this.handleChange} name="temppassword" value={this.state.temppassword} type="password" placeholder="re-enter password" className = "paperregistration-form-input" />
+                            <Form.Control onChange={this.handleChange} name="temppassword" value={this.state.temppassword} type="password" placeholder="re-enter password" className="paperregistration-form-input" />
                         </Form.Group>
                         <Form.Group className="paperregistration-form-group">
-                            <Form.File name="paper" label="Attach Research Paper" onChange={this.onFileChange}  accept=".pdf" />
+                            <Form.File name="paper" label="Attach Research Paper" onChange={this.onFileChange} accept=".pdf" />
                             <Form.Text className="text-muted">
                                 File format: PDF
                             </Form.Text>
@@ -180,13 +183,13 @@ class PaperRegistration extends Component {
 
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
-                    <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
+                        <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
                     </Modal.Header>
                 </Modal>
 
             </div>
-         );
+        );
     }
 }
- 
+
 export default PaperRegistration;
