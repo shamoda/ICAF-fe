@@ -74742,6 +74742,7 @@ class Athentication {
   // editor
   // admin
   successfulLogin(user) {
+    // 
     // this.setupAxiosInterceptors(authHead)
     sessionStorage.setItem('authenticatedUserEmail', user.email);
     sessionStorage.setItem('authenticatedUserName', user.name);
