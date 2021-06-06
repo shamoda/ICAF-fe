@@ -14,7 +14,6 @@ import ManageUsers from './ManageUsers/ManageUsers';
 import NotFoundError from './NotFoundError/NotFoundError';
 import PaperRegistration from './PaperRegistration/PaperRegistration';
 import Papers from './Papers/Papers';
-import PapersList from './PapersList/PapersList';
 import Program from './Program/Program';
 import ResearcherDashboard from './ResearcherDashboard/ResearcherDashboard';
 import ReviewerDashboard from './ReviewerDashboard/ReviewerDashboard';
@@ -24,7 +23,7 @@ import Downloads from './TemplatesDownloads/Downloads';
 import Workshops from './Workshops/Workshops';
 import WorkshopConducter from './WorkshopConductor/WorkshopConductor'
 import WorkshopRegistration from './WorkshopRegistration/WorkshopRegistration';
-
+import ReviewWorkshopDetails from './ReviewWorkshop/ReviewWorkshopDetails'
 class FrontEnd extends Component {
     state = {}
     render() {
@@ -47,6 +46,7 @@ class FrontEnd extends Component {
                         <Route path="/attendeeregistration" component={AttendeeRegistration} />
                         <Route path="/committeeregistration" component={CommitteeRegistration} />
                         <Route path="/review/:email" component={ReviewPaperDetails} />
+                        <Route path="/reviewWorkshop/:id" component={ReviewWorkshopDetails} />
                         <Route path="/review/" component={ReviewPapers} />
                         <Route path="/reviewer" component={ReviewerDashboard} />
                         <Route path="/researcherprofile" component={ResearcherDashboard} />

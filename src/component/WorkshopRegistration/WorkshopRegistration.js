@@ -106,8 +106,9 @@ class WorkshopRegistration extends Component {
                         text: "Log in to your profile to stay updated",
                         icon: "success",
                         button: "Login",
+                    }).then(result => {
+                        return this.props.history.push(`/login`)
                     })
-                    this.props.history.push('/login')
                 }).catch((err) => {
                     this.setState({ loading: false })
                     swal({

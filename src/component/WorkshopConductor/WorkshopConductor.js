@@ -156,8 +156,9 @@ class WorkshopRegistration extends Component {
                         text: "Please enter your workshop Details here",
                         icon: "success",
                         button: "Login",
+                    }).then(result => {
+                        return this.props.history.push(`/workshopregistration/${workshop.email}`)
                     })
-                    this.props.history.push(`/workshopregistration/${workshop.email}`)
                 }).catch((err) => {
                     this.setState({ loading: false })
                     swal({
