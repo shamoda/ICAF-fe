@@ -13,6 +13,7 @@ class PostList extends Component {
                 title: '',
                 date: '',
                 venue: '',
+                search: ''
             }
         }
         this.getWorkshop = this.getWorkshop.bind(this)
@@ -24,7 +25,7 @@ class PostList extends Component {
 
     getWorkshop() {
         let workshop = {
-            status: 'approved'
+            publish: 'published',
         }
         this.setState({ loading: true })
         ProgramDataService.getWorkshop(workshop)

@@ -5,9 +5,9 @@ import CommitteeRegistration from '../CommitteeRegistration/CommitteeRegistratio
 import ManageUsers from '../ManageUsers/ManageUsers';
 import ReviewPapers from '../ReviewPapers/ReviewPapers';
 import ReviewWorkshop from '../ReviewWorkshop/ReviewWorkshop';
-import PostList from '../Program/PostList';
 import './AdminDashboard.css'
-//trest
+import AdminPostList from './AdminPostList';
+
 class AdminDashboard extends Component {
 
     submitBtnClicked = (email) => {
@@ -24,12 +24,9 @@ class AdminDashboard extends Component {
                 <div className="program-title">
                     ADMIN PORTAL
                 </div>
-
                 <AdminStatistics />
-
                 <div>
                     <Container className="admindash-container">
-
                         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                             <Row>
                                 <Col sm={2}>
@@ -97,7 +94,7 @@ class AdminDashboard extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="fourth">
                                             <div>
-                                                <PostList />
+                                                <AdminPostList />
                                             </div>
                                         </Tab.Pane>
                                     </Tab.Content>

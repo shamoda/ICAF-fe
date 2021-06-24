@@ -16,9 +16,9 @@ class WorkshopProgram extends Component {
                     WORKSHOP PROGRAM
                 </div>
                 <Container className="workshops-container">
-                    <Row>
+                    {/* <Row>
                         <WorkshopCorousel />
-                    </Row>
+                    </Row> */}
 
                     <Card border="dark" className="mb-2" style={{ marginTop: '20px' }}>
                         <Card.Header>2021 ICAF</Card.Header>
