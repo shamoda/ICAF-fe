@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { faDownload, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEdit, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Container, Form, FormLabel, Modal, Row, Spinner, Alert } from 'react-bootstrap';
 import swal from 'sweetalert';
@@ -18,7 +18,8 @@ class ReviewWorkshopDetails extends Component {
                 subject: '',
                 description: '',
                 filename: '',
-                currentdate: ''
+                currentdate: '',
+                adminComment: ''
             },
             review: {
                 status: '',
@@ -52,6 +53,7 @@ class ReviewWorkshopDetails extends Component {
                 workshop['subject'] = data.subject
                 workshop['filename'] = data.fileName
                 workshop['currentdate'] = data.current
+                workshop['adminComment'] = data.aComment
                 this.setState({
                     workshop
                 })
@@ -164,6 +166,7 @@ class ReviewWorkshopDetails extends Component {
                     <Button style={{ marginBottom: 10 }} variant="dark">{workshop.workshopId}</Button>
                     <h4>{workshop.title}</h4>
                     <h6>{workshop.conductor}</h6>
+                    <Button variant="outline-dark" onClick={() => this.props.history.push(`/conductorDetails/${workshop.conductor}/${workshop.workshopId}`)}><FontAwesomeIcon size="sm" icon={faChalkboardTeacher} />&nbsp; Find Workshop Conducter Details</Button> <br /><br /><br />
                     <Button onClick={this.downloadProposalTemplateClicked} style={{ background: "transparent", color: "blue", border: "none", marginBottom: "40px", padding: "0px" }} ><FontAwesomeIcon size="sm" icon={faDownload} />&nbsp; Download</Button>
                     <p><b>Workshop Details</b></p>
                     <Row>
@@ -182,6 +185,12 @@ class ReviewWorkshopDetails extends Component {
                             Description :&nbsp; <br />
                             <h6>
                                 {workshop.description}
+                            </h6>
+                        </Col>
+                        <Col>
+                            Admin Comment :&nbsp; <br />
+                            <h6>
+                                {workshop.adminComment}
                             </h6>
                         </Col>
 
