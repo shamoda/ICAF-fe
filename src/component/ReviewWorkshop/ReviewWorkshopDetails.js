@@ -78,8 +78,9 @@ class ReviewWorkshopDetails extends Component {
                     text: "Keep reviewing, Good Luck!!",
                     icon: "success",
                     button: "Login",
+                }).then(() => {
+                    this.props.history.push('/reviewer')
                 })
-                this.props.history.push('/reviewer')
             }).catch((err) => {
                 this.setState({ loading: false })
                 swal({
@@ -187,14 +188,17 @@ class ReviewWorkshopDetails extends Component {
                                 {workshop.description}
                             </h6>
                         </Col>
-                        <Col>
-                            Admin Comment :&nbsp; <br />
-                            <h6>
-                                {workshop.adminComment}
-                            </h6>
-                        </Col>
-
                     </Row>
+                    <br />
+                    <Row>
+                        <Col>
+                            <h6> Admin Comment</h6>
+                            {workshop.adminComment ? workshop.adminComment : "Admin comment is still not available !!"}
+                        </Col>
+                    </Row>
+
+
+
                     <div style={{ marginTop: "40px" }}>
                         <p><b>Submit Your Review</b></p>
                         <Form autoComplete="off" onSubmit={this.reviewProposal} >
