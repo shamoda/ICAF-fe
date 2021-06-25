@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Row, Col, Card, InputGroup, FormControl } from 'react-bootstrap';
+import { Button, Row, Col, Card, InputGroup, FormControl, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFastBackward, faFastForward, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import './WorkshopEditor.css'
@@ -19,9 +19,14 @@ class EditorCard extends Component {
                             <Col>
                                 <Button style={{ fontSize: 10 }} variant="dark" >{p.workshopId}</Button>
                             </Col>
-                            <Col xs={8}>
+                            <Col xs={7}>
 
                                 <h6>{p.title}</h6>
+                            </Col>
+                            <Col>
+                                {p.publish === "pending" && <Badge variant="warning">{p.publish}</Badge>}
+                                {p.publish === "published" && <Badge variant="success">{p.publish}</Badge>}
+                                {p.publish === "unpublished" && <Badge variant="danger">{p.publish}</Badge>}
                             </Col>
                         </Row>
                     </Card>
