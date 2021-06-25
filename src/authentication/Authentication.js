@@ -10,8 +10,8 @@ class Athentication {
     // editor
     // admin
 
-    successfulLogin(user) {  //
-        // this.setupAxiosInterceptors(authHead)
+    successfulLogin(user, authHead) {  //
+        this.setupAxiosInterceptors(authHead)
         sessionStorage.setItem('authenticatedUserEmail', user.email);
         sessionStorage.setItem('authenticatedUserName', user.name);
         sessionStorage.setItem('authenticatedUserContact', user.contact);
@@ -90,15 +90,16 @@ class Athentication {
         this.id = axios.interceptors.request.use(
             (config) => {
                 config.headers.authorization = basicAuthHeader;
+                console.log('setting interceptor id: ' + this.id)
                 return config;
             }
         )
     }
 
     ejectAxiosInterceptor() {
-        console.log(this.id)
+        console.log('ejecting interceptor id: ' + this.id)
         axios.interceptors.request.eject(this.id)
-        console.log(this.id)
+        console.log('ejected interceptor id: ' + this.id)
     }
 
 }

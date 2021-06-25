@@ -11,7 +11,7 @@ class ReviewWorkshopDetailDataService {
     }
 
     getWorkshop(id) {
-        return axios.get(`http://localhost:8080/api/v1//getWorkshopById/${id}`);
+        return axios.get(`http://localhost:8080/api/v1/getWorkshopById/${id}`);
     }
 }
 export default new ReviewWorkshopDetailDataService();
