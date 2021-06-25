@@ -13,16 +13,14 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = { show: false }
-
         this.papers = this.papers.bind(this)
         this.presentations = this.presentations.bind(this)
         this.workshops = this.workshops.bind(this)
         this.importantDates = this.importantDates.bind(this)
         this.researchProgram = this.researchProgram.bind(this)
-        this.workshopProgram = this.workshopProgram.bind(this)
         this.registrations = this.registrations.bind(this)
         this.downloads = this.downloads.bind(this)
-
+        this.workshopProgram = this.workshopProgram.bind(this)
     }
 
     papers() {
@@ -89,8 +87,7 @@ class Header extends Component {
                     </Nav.Item>
                     <Nav.Item>
                         <NavDropdown className="nav-link header-item header-dropdown" title={<span className="header-dropdown-item">For Attendees</span>} id="nav-dropdown">
-                            <NavDropdown.Item onClick={this.researchProgram} eventKey="4.1">Research Program</NavDropdown.Item>
-                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={this.researchProgram} eventKey="4.1">Rearch Program</NavDropdown.Item>
                             <NavDropdown.Item onClick={this.workshopProgram} eventKey="4.1">Workshop Program</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={this.registrations} eventKey="4.1">Registrations</NavDropdown.Item>
@@ -98,7 +95,7 @@ class Header extends Component {
                     </Nav.Item>
                     <Nav.Item>
                         {Authentication.loggedAsResearcher() && <NavLink className="nav-link header-item" to="/researcherprofile">My Profile</NavLink>}
-                        {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/conductorProfile">My Profile</NavLink>}
+                        {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/workshopprofile">My Profile</NavLink>}
                         {/* {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="/attendeeprofile">My Profile</NavLink>} */}
                         {Authentication.loggedAsReviewer() && <NavLink className="nav-link header-item" to="/reviewer">Dashboard</NavLink>}
                         {Authentication.loggedAsEditor() && <NavLink className="nav-link header-item" to="/editor">Dashboard</NavLink>}

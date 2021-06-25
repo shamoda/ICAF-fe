@@ -24,9 +24,20 @@ import Workshops from './Workshops/Workshops';
 import WorkshopConducter from './WorkshopConductor/WorkshopConductor'
 import WorkshopRegistration from './WorkshopRegistration/WorkshopRegistration';
 import ReviewWorkshopDetails from './ReviewWorkshop/ReviewWorkshopDetails'
-import NotSupported from './NotSupported/NotSupported';
+import ResearchProgram from './Program/ResearchProgram';
+import WorkshopProgram from './Program/WorkshopProgram';
+import WorkshopEditorDashBoard from './WorkshopEditor/WorkshopEditorDashBoard';
+import WorkshopEditor from './WorkshopEditor/WorkshopEditor';
+import WorkshopDetails from './Workshops/WorkshopDetails';
+import WorkshopConductorProfile from './WorkshopConductorProfile/WorkshopConducorProfile';
+import ConductorDetails from './WorkshopConductor/ConductorDetails'
+import AdminPost from './AdminDashboard/AdminPost';
+import AdminReviewWorkshop from './AdminDashboard/AdminReviewWorkshop';
+
 class FrontEnd extends Component {
-    state = {}
+    state = {
+
+    }
     render() {
         return (
             <div>
@@ -37,11 +48,15 @@ class FrontEnd extends Component {
                         <Route path="/keynotes" component={KeyNotes} />
                         <Route path="/papers" component={Papers} />
                         <Route path="/conductorregistration" component={WorkshopConducter} />
+                        <Route path="/conductorDetails/:id/:workshop" component={ConductorDetails} />
                         <Route path="/workshopregistration/:id" component={WorkshopRegistration} />
+                        <Route path="/workshops/:id" component={WorkshopDetails} />
                         <Route path="/workshops" component={Workshops} />
                         <Route path="/importantdates" component={ImportantDates} />
                         <Route path="/downloads" component={Downloads} />
-                        <Route path="/program" component={Program} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/researchProgram" component={ResearchProgram} />
+                        <Route path="/workshopProgram" component={WorkshopProgram} />
                         <Route path="/login" component={Login} />
                         <Route path="/paperregistration" component={PaperRegistration} />
                         <Route path="/attendeeregistration" component={AttendeeRegistration} />
@@ -51,8 +66,13 @@ class FrontEnd extends Component {
                         <Route path="/review/" component={ReviewPapers} />
                         <Route path="/reviewer" component={ReviewerDashboard} />
                         <Route path="/researcherprofile" component={ResearcherDashboard} />
+                        <Route path="/conductorProfile" component={WorkshopConductorProfile} />
                         <Route path="/admin" component={AdminDashboard} />
+                        <Route path="/adminReviewWorkshop/:id" component={AdminReviewWorkshop} />
                         <Route path="/test" component={ReviewPapers} />
+                        <Route path="/edit/:id" component={WorkshopEditor} />
+                        <Route path="/editorDashBoard" component={WorkshopEditorDashBoard} />
+                        <Route path="/adminPost/:id" component={AdminPost} />
                         <Route component={NotFoundError} />
                         
                     </Switch>

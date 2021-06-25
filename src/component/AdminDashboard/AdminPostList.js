@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Badge, Form } from 'react-bootstrap';
+import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Badge, Form, Image, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
+import AdminDashboardDataService from './AdminDashboardDataService';
 import { withRouter } from 'react-router-dom';
-import { faEye, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
-import ReviewWorkshopDataService from './ReviewWorkshopDataService'
-import Authentication from '../../authentication/Authentication';
 
-class ReviewWorkshop extends Component {
+class AdminPostList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +17,6 @@ class ReviewWorkshop extends Component {
             loading: false
         }
         this.refreshWorkshops = this.refreshWorkshops.bind(this);
-        // this.submitBtnClicked = this.submitBtnClicked.bind(this);
     }
 
     componentDidMount() {
@@ -28,9 +26,11 @@ class ReviewWorkshop extends Component {
     //Pagination
     refreshWorkshops() {
         let example = {
-            title: this.state.search,
+            edit: true,
+            status: 'approved',
+            title: this.state.search
         }
-        ReviewWorkshopDataService.getProposal(example)
+        AdminDashboardDataService.getWorkshop(example)
             .then(response => {
                 this.setState({ proposals: response.data })
             })
@@ -75,22 +75,9 @@ class ReviewWorkshop extends Component {
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
-        }, () => this.refreshWorkshops());
+        }, () => this.refreshPapers());
 
     };
-
-    workshopClickedReviewer = (id) => {
-        this.props.history.push(`/reviewWorkshop/${id}`)
-    }
-
-    workshopClickedAdmin = (id) => {
-        this.props.history.push(`/adminReviewWorkshop/${id}`)
-    }
-
-    routeWorkshop = (id) => {
-        if (Authentication.loggedUserRole() === 'admin') return this.workshopClickedAdmin(id)
-        else if (Authentication.loggedUserRole() === 'reviewer') return this.workshopClickedReviewer(id)
-    }
 
     render() {
         const { currentPage, entriesPerPage, proposals } = this.state;
@@ -128,7 +115,6 @@ class ReviewWorkshop extends Component {
                                 </InputGroup>
                             </div>
                         </Card.Header>
-
                         <Card.Body style={{ backgroundColor: "white" }}>
                             <Table hover style={{ backgroundColor: "white" }} variant="">
                                 <tbody>
@@ -138,22 +124,31 @@ class ReviewWorkshop extends Component {
                                         currentEntries.map((p) => (
                                             <tr key={p.workshopId}>
                                                 <td style={{ padding: "30px" }}>
-                                                    <h5>{p.title}</h5>
-                                                    <h6>{p.subject}</h6>
-                                                    <p style={{ margin: "5px 0px" }}>
-                                                        {p.status === "pending" && <Badge variant="warning">{p.status}</Badge>}
-                                                        {p.status === "approved" && <Badge variant="success">{p.status}</Badge>}
-                                                        {p.status === "rejected" && <Badge variant="danger">{p.status}</Badge>}
-                                                    </p>
-                                                    <p style={{ margin: "5px 0px" }}>By: {p.conductor}</p>
-
+                                                    <Row>
+                                                        <Col>
+                                                            <Image style={{ maxHeight: '100px', maxWidth: '100px' }} src={`https://icaf-2021-proposalss.s3.amazonaws.com/${p.imageName}`} rounded />
+                                                        </Col>
+                                                        <Col>
+                                                            <h5>{p.title}</h5>
+                                                            <h6>{p.subject}</h6>
+                                                        </Col>
+                                                        <Col>
+                                                            <p style={{ margin: "5px 0px" }}>
+                                                                {p.status === "pending" && <Badge variant="warning">{p.status}</Badge>}
+                                                                {p.status === "approved" && <Badge variant="success">{p.status}</Badge>}
+                                                                {p.status === "rejected" && <Badge variant="danger">{p.status}</Badge>}
+                                                            </p>
+                                                            <p style={{ margin: "5px 0px" }}>By: {p.conductor}</p>
+                                                        </Col>
+                                                    </Row>
                                                 </td>
                                                 <td style={{ width: "15%", textAlign: "center", padding: "40px 10px" }}>
                                                     <Form autoComplete="off" >
-                                                        <Button onClick={() => this.routeWorkshop(p.workshopId)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
+                                                        <Button onClick={() => this.props.history.push(`/adminPost/${p.workshopId}`)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faCheck} />&nbsp; Review</Button>
                                                     </Form>
                                                 </td>
-                                            </tr>))
+                                            </tr>
+                                        ))
                                     }
                                 </tbody>
                             </Table>
@@ -194,6 +189,5 @@ class ReviewWorkshop extends Component {
             </div>
         );
     }
-
 }
-export default withRouter(ReviewWorkshop)
+export default withRouter(AdminPostList)
