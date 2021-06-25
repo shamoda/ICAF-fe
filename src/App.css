@@ -1,9 +1,11 @@
+/* hide web view in narrow screens */
 @media (max-width: 1200px) {
   .web {
     display: none;
   }
 }
 
+/* hide mobile view in wider screens */
 @media (min-width: 1201px) {
   .mobile {
     display: none;
