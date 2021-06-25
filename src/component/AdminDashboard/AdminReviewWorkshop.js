@@ -3,11 +3,12 @@ import { faDownload, faEdit, faChalkboardTeacher } from '@fortawesome/free-solid
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Container, Form, FormLabel, Modal, Row, Spinner, Alert } from 'react-bootstrap';
 import swal from 'sweetalert';
-import ReviewWorkshopDetailDataService from './ReviewWorkshopDetailService'
 import InputField from '../../Commons/InputField';
 import Joi from 'joi-browser'
 import moment from "moment";
-class ReviewWorkshopDetails extends Component {
+import ReviewWorkshopDetailService from '../ReviewWorkshop/ReviewWorkshopDetailService';
+import AdminDashboardDataService from './AdminDashboardDataService';
+class AdminReviewWorkshop extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,11 +20,10 @@ class ReviewWorkshopDetails extends Component {
                 description: '',
                 filename: '',
                 currentdate: '',
-                adminComment: ''
             },
             review: {
                 status: '',
-                reviewComment: '',
+                adminComment: '',
             },
             loading: false,
             errors: {}
@@ -44,7 +44,7 @@ class ReviewWorkshopDetails extends Component {
         this.setState({ loading: true })
         let workshop = { ...this.state.workshop }
         let review = { ...this.state.review }
-        ReviewWorkshopDetailDataService.getWorkshop(this.props.match.params.id)
+        AdminDashboardDataService.getWorkshopById(this.props.match.params.id)
             .then(({ data }) => {
                 console.log(data)
                 workshop['title'] = data.title
@@ -69,10 +69,10 @@ class ReviewWorkshopDetails extends Component {
         const { workshop, review } = this.state
         formdata.append('id', workshop.workshopId)
         formdata.append('status', review.status)
-        formdata.append('rComment', review.rComment)
-        formdata.append('conductor', "senath@gmail.net")
+        formdata.append('aComment', review.adminComment)
+        formdata.append('conductor', workshop.conductor)
         this.setState({ loading: true })
-        ReviewWorkshopDetailDataService.reviewWorkshop(formdata)
+        ReviewWorkshopDetailService.reviewWorkshop(formdata)
             .then(() => {
                 this.setState({ loading: false })
                 swal({
@@ -81,7 +81,7 @@ class ReviewWorkshopDetails extends Component {
                     icon: "success",
                     button: "Login",
                 }).then(() => {
-                    this.props.history.push('/reviewer')
+                    this.props.history.push('/admin')
                 })
             }).catch((err) => {
                 this.setState({ loading: false })
@@ -123,8 +123,8 @@ class ReviewWorkshopDetails extends Component {
             })
     }
     Schema = {
-        rcomment: Joi.string().required().label("Comment").max(10),
-        status: Joi.string().required().label("Status"),
+        adminComment: Joi.string().required().label("Comment").max(10),
+        status: Joi.string().label("Status"),
     }
 
     validateField({ name, value }) {
@@ -204,9 +204,6 @@ class ReviewWorkshopDetails extends Component {
                             {review.reviewComment ? review.reviewComment : "Reviewer comment is still not available !!"}
                         </Col>
                     </Row>
-
-
-
                     <div style={{ marginTop: "40px" }}>
                         <p><b>Submit Your Review</b></p>
                         <Form autoComplete="off" onSubmit={this.reviewProposal} >
@@ -235,17 +232,17 @@ class ReviewWorkshopDetails extends Component {
                                 </Col>
                                 <Col xs={5}>
                                     <InputField
-                                        FormLabel="Comment"
-                                        name="rcomment"
-                                        value={review.rcomment}
+                                        FormLabel="Admin Comment"
+                                        name="adminComment"
+                                        value={review.adminComment}
                                         handleChange={this.handleChange}
                                         FormText="Enter your comment here"
                                         type="text"
                                         placeholder="Very good...."
-                                        error={errors.rcomment}
+                                        error={errors.adminComment}
                                         trap={false}
                                     />
-                                    <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                    <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={() => this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
                                 </Col>
 
                             </Row>
@@ -261,4 +258,4 @@ class ReviewWorkshopDetails extends Component {
         );
     }
 }
-export default ReviewWorkshopDetails;
+export default AdminReviewWorkshop;

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Container, Table, Card, InputGroup, FormControl, Modal, Spinner, Badge, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { withRouter } from 'react-router-dom';
 import { faEye, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import ReviewWorkshopDataService from './ReviewWorkshopDataService'
+import Authentication from '../../authentication/Authentication';
 
 class ReviewWorkshop extends Component {
     constructor(props) {
@@ -77,13 +79,25 @@ class ReviewWorkshop extends Component {
 
     };
 
+    workshopClickedReviewer = (id) => {
+        this.props.history.push(`/reviewWorkshop/${id}`)
+    }
+
+    workshopClickedAdmin = (id) => {
+        this.props.history.push(`/adminReviewWorkshop/${id}`)
+    }
+
+    routeWorkshop = (id) => {
+        if (Authentication.loggedUserRole() === 'admin') return this.workshopClickedAdmin(id)
+        else if (Authentication.loggedUserRole() === 'reviewer') return this.workshopClickedReviewer(id)
+    }
+
     render() {
         const { currentPage, entriesPerPage, proposals } = this.state;
         const lastIndex = currentPage * entriesPerPage;
         const firstIndex = lastIndex - entriesPerPage;
         const currentEntries = proposals.slice(firstIndex, lastIndex);
         const totalPages = proposals.length / entriesPerPage;
-        const { workshopClicked } = this.props
 
         const pageNumCss = {
             width: "45px",
@@ -136,7 +150,7 @@ class ReviewWorkshop extends Component {
                                                 </td>
                                                 <td style={{ width: "15%", textAlign: "center", padding: "40px 10px" }}>
                                                     <Form autoComplete="off" >
-                                                        <Button onClick={() => workshopClicked(p.workshopId)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
+                                                        <Button onClick={() => this.routeWorkshop(p.workshopId)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
                                                     </Form>
                                                 </td>
                                             </tr>))
@@ -182,4 +196,4 @@ class ReviewWorkshop extends Component {
     }
 
 }
-export default ReviewWorkshop
+export default withRouter(ReviewWorkshop)

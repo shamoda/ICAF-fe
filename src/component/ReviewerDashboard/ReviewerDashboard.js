@@ -8,9 +8,7 @@ class ReviewerDashboard extends Component {
         return this.props.history.push('/review/' + email);
     }
     //Browser Router also works
-    workshopClicked = (id) => {
-        this.props.history.push(`/reviewWorkshop/${id}`)
-    }
+
     render() {
         return (
             <div>

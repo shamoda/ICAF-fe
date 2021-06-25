@@ -17,7 +17,8 @@ class WorkshopConductorProfile extends Component {
                 status: '',
                 time: '',
                 rComment: '',
-                publish: ''
+                publish: '',
+                postComment: ''
             },
             loading: false,
 
@@ -34,7 +35,7 @@ class WorkshopConductorProfile extends Component {
     getProposalById = () => {
         this.setState({ loading: true })
         const { workshop } = this.state
-        WorkshopConducorProfileDataService.getProposal(this.state.id)
+        WorkshopConducorProfileDataService.getProposal(this.state.workshop.id)
             .then((res) => {
                 workshop["workshopId"] = res.data.workshopId
                 workshop["title"] = res.data.title
@@ -45,8 +46,9 @@ class WorkshopConductorProfile extends Component {
                 workshop["venue"] = res.data.venue
                 workshop["status"] = res.data.status
                 workshop["time"] = res.data.time
-                workshop["rComment"] = res.data.rComment
+                workshop["rComment"] = res.data.rcomment
                 workshop["publish"] = res.data.publish
+                workshop["postComment"] = res.data.post_comment
                 this.setState({
                     workshop,
                 })
@@ -73,14 +75,25 @@ class WorkshopConductorProfile extends Component {
                             <h6 style={{ marginTop: '20px' }}>{workshop.subject}</h6>
                             <div>
                                 Description : {workshop.description}
-
                             </div>
-                            <h6 style={{ marginTop: '40px' }}>Reviewer Comment :  </h6>
+                            {workshop.rComment ?
+                                <div>
+                                    <h6 style={{ marginTop: '40px' }}>Reviewer Comment :  </h6>
+                                    {workshop.rComment}
+                                </div>
+                                : ''
+                            }
+                            <br />  <br />
+                            {workshop.rComment ?
+                                <div>
+                                    <h6 style={{ marginTop: '40px' }}>Reviewer Comment :  </h6>
+                                    {workshop.rComment}
+                                </div>
+                                : ''
+                            }
+                            <br />  <br />
                             <div>
-                                {workshop.rComment}
-                            </div>
-                            <div>
-                                {workshop.publish ? <Link to={`workshop/${workshop.workshopId}`}>Published post</Link> : ""}
+                                {workshop.publish === 'published' ? <Button variant="danger"><Link to={`workshop/${workshop.workshopId}`}>Published post</Link></Button> : <Button variant="danger">Post is not published yet!!!</Button>}
                             </div>
                         </Card.Text>
                     </Card.Body>

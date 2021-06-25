@@ -31,6 +31,8 @@ import WorkshopEditor from './WorkshopEditor/WorkshopEditor';
 import WorkshopDetails from './Workshops/WorkshopDetails';
 import WorkshopConductorProfile from './WorkshopConductorProfile/WorkshopConducorProfile';
 import ConductorDetails from './WorkshopConductor/ConductorDetails'
+import AdminPost from './AdminDashboard/AdminPost';
+import AdminReviewWorkshop from './AdminDashboard/AdminReviewWorkshop';
 class FrontEnd extends Component {
     state = {
 
@@ -65,9 +67,11 @@ class FrontEnd extends Component {
                         <Route path="/researcherprofile" component={ResearcherDashboard} />
                         <Route path="/conductorProfile" component={WorkshopConductorProfile} />
                         <Route path="/admin" component={AdminDashboard} />
+                        <Route path="/adminReviewWorkshop/:id" component={AdminReviewWorkshop} />
                         <Route path="/test" component={ReviewPapers} />
                         <Route path="/edit/:id" component={WorkshopEditor} />
                         <Route path="/editorDashBoard" component={WorkshopEditorDashBoard} />
+                        <Route path="/adminPost/:id" component={AdminPost} />
                         <Route component={NotFoundError} />
                     </Switch>
                     <Footer />
