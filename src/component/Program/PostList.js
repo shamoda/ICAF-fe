@@ -26,6 +26,7 @@ class PostList extends Component {
     getWorkshop() {
         let workshop = {
             publish: 'published',
+            status: 'approved'
         }
         this.setState({ loading: true })
         ProgramDataService.getWorkshop(workshop)
@@ -41,7 +42,7 @@ class PostList extends Component {
             <div className={"row mt-4 pt-5"} >
                 <Row >
                     {proposals.map((p) => (
-                        <Col sm={4} className={"card-group mb-4"}>
+                        <Col sm={3} className={"card-group mb-4"}>
                             <Card >
                                 <Card.Img variant="top" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${p.imageName}`} style={{ height: '80px' }}></Card.Img>
                                 <Card.Body>

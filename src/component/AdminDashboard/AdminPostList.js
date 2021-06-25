@@ -144,7 +144,6 @@ class AdminPostList extends Component {
                                                 </td>
                                                 <td style={{ width: "15%", textAlign: "center", padding: "40px 10px" }}>
                                                     <Form autoComplete="off" >
-
                                                         <Button onClick={() => this.props.history.push(`/adminPost/${p.workshopId}`)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faCheck} />&nbsp; Review</Button>
                                                     </Form>
                                                 </td>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Badge } from 'react-bootstrap';
 import notfound from '../../asset/notfound.png'
 class EditorWorkshopList extends Component {
     constructor(props) {
@@ -14,7 +14,8 @@ class EditorWorkshopList extends Component {
                 date: '',
                 venue: '',
                 workshopId: '',
-                status: ''
+                status: '',
+                publish: ''
             }
         }
     }
@@ -27,18 +28,20 @@ class EditorWorkshopList extends Component {
         const { workshop } = this.props
         return (
             <div>
-                <Card border="dark" style={{ width: '500px', height: '500px', marginBottom: '30px', marginTop: '20px', marginLeft: '200px' }}>
+                <Card border="dark" style={{ width: '500px', maxheight: '600px', marginBottom: '30px', marginTop: '20px', marginLeft: '200px' }}>
                     <Card.Header>ICAF 2021 WORKSHOP CORNER</Card.Header>
                     {!workshop.workshopId ?
                         <div>
                             <img style={{ height: '400px' }} src={notfound} />
-                            <Button style={{ fontSize: 15, marginLeft: '80px' }} variant="danger"><h5>Please Select a Workshop !!</h5></Button>
+                            <Button style={{ fontSize: 15, marginLeft: '100px', marginBottom: '20px' }} variant="danger"><h6>Please Select a Workshop !!</h6></Button>
                         </div>
                         :
                         <Card.Body>
                             <Card.Title>  <Button style={{ fontSize: 10 }} variant="dark">{workshop.workshopId}</Button></Card.Title>
                             <div style={{ marginTop: '-40px', marginLeft: '350px' }}>
-                                <Button style={{ fontSize: 15 }} variant="danger">{workshop.status}</Button>
+                                {workshop.publish === "pending" && <Badge variant="warning">{workshop.publish}</Badge>}
+                                {workshop.publish === "published" && <Badge variant="success">{workshop.publish}</Badge>}
+                                {workshop.publish === "unpublished" && <Badge variant="danger">{workshop.publish}</Badge>}
                             </div>
                             <Card.Text style={{ marginTop: '20px' }}>
                                 <h5 style={{ marginTop: '20px' }}>{workshop.title}</h5>
@@ -46,9 +49,8 @@ class EditorWorkshopList extends Component {
                                 <div>
                                     {workshop.description}
                                 </div>
-                                <h6 style={{ marginTop: '40px' }}>xxx</h6>
                             </Card.Text>
-                            <Button style={{ fontSize: 10 }} variant="dark" onClick={() => this.shiftoEdit(workshop.workshopId)}>EDIT</Button>
+                            <Button style={{ fontSize: 10, width: '100px' }} variant="dark" onClick={() => this.shiftoEdit(workshop.workshopId)}>EDIT POST</Button>
                         </Card.Body>//
                     }
                 </Card>

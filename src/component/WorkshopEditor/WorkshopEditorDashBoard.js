@@ -19,7 +19,8 @@ class WorkshopEditorDashBoard extends Component {
                 description: '',
                 date: '',
                 venue: '',
-                status: ''
+                status: '',
+                publish: ''
             }
         }
         this.getWorkshops = this.getWorkshops.bind(this)
@@ -28,12 +29,11 @@ class WorkshopEditorDashBoard extends Component {
     componentDidMount() {
         this.getWorkshops()
         window.scrollTo(0, 0) //Scrolling to when mounting
-
     }
 
     getWorkshops() {
         let workshop = {
-            status: 'pending'
+            status: 'approved'//test
         }
         this.setState({ loading: true })
         EditorDataService.EditWorkshop(workshop)
@@ -55,6 +55,7 @@ class WorkshopEditorDashBoard extends Component {
                 workshop["date"] = res.data.date
                 workshop["venue"] = res.data.venue
                 workshop["status"] = res.data.status
+                workshop["publish"] = res.data.publish
                 this.setState({
                     workshop,
                 })
