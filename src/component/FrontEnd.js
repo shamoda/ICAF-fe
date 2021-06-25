@@ -33,6 +33,7 @@ import WorkshopConductorProfile from './WorkshopConductorProfile/WorkshopConduco
 import ConductorDetails from './WorkshopConductor/ConductorDetails'
 import AdminPost from './AdminDashboard/AdminPost';
 import AdminReviewWorkshop from './AdminDashboard/AdminReviewWorkshop';
+
 class FrontEnd extends Component {
     state = {
 
@@ -73,6 +74,7 @@ class FrontEnd extends Component {
                         <Route path="/editorDashBoard" component={WorkshopEditorDashBoard} />
                         <Route path="/adminPost/:id" component={AdminPost} />
                         <Route component={NotFoundError} />
+                        
                     </Switch>
                     <Footer />
                 </Router>
