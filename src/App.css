@@ -1,0 +1,11 @@
+@media (max-width: 1200px) {
+  .web {
+    display: none;
+  }
+}
+
+@media (min-width: 1201px) {
+  .mobile {
+    display: none;
+  }
+}

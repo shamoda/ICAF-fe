@@ -24,6 +24,7 @@ import Workshops from './Workshops/Workshops';
 import WorkshopConducter from './WorkshopConductor/WorkshopConductor'
 import WorkshopRegistration from './WorkshopRegistration/WorkshopRegistration';
 import ReviewWorkshopDetails from './ReviewWorkshop/ReviewWorkshopDetails'
+import NotSupported from './NotSupported/NotSupported';
 class FrontEnd extends Component {
     state = {}
     render() {
@@ -53,6 +54,7 @@ class FrontEnd extends Component {
                         <Route path="/admin" component={AdminDashboard} />
                         <Route path="/test" component={ReviewPapers} />
                         <Route component={NotFoundError} />
+                        
                     </Switch>
                     <Footer />
                 </Router>
