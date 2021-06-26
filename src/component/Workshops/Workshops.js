@@ -1,14 +1,40 @@
 import React, { Component } from 'react';
-import { Col, Container, Row, Button } from 'react-bootstrap';
+import { Col, Container, Row, Button, Modal, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileDownload, faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import './Workshops.css'
+import WorkshopDataService from './WorkshopDataService';
 
 class Workshops extends Component {
-    state = {}
+    constructor(props){
+        super(props);
+        this.state = { loading: false }
+
+        this.downloadProposalTemplateClicked = this.downloadProposalTemplateClicked.bind(this);
+    }
 
     pushtoRegistration = () => {
         this.props.history.push('/conductorRegistration')
+    }
+
+    downloadProposalTemplateClicked() {
+        this.setState({loading: true})
+        WorkshopDataService.downloadproposal()
+            .then(({ data }) => {
+                this.setState({loading: false})
+                const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+                const link = document.createElement('a');
+                link.href = downloadUrl;
+                link.setAttribute('download', 'icaf-workshop-proposal-template.docx');
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                swal({
+                    title: "Workshop Proposal Template Downloaded",
+                    icon: "success",
+                    button: "Ok",
+                  })
+            });
     }
 
     render() {
@@ -50,8 +76,8 @@ class Workshops extends Component {
                         </p>
                     </div>
 
-                    <div className="workshops-topics">
-                        <Button variant="dark" className="workshops-button" ><FontAwesomeIcon style={{ float: "right", marginTop: "3px" }} icon={faFileDownload} />&nbsp; Download Proposal Template</Button>
+                    <div className="workshops-topics" style={{textAlign: "center"}}>
+                        <Button variant="dark" className="workshops-button" onClick={this.downloadProposalTemplateClicked} ><FontAwesomeIcon style={{ float: "right", marginTop: "3px" }} icon={faFileDownload} />&nbsp; Download Proposal Template</Button>
                         <Button variant="dark" className="workshops-button" onClick={this.pushtoRegistration}><FontAwesomeIcon style={{ float: "right", marginTop: "3px" }} icon={faFileUpload} />&nbsp; Submit Workshop Proposal</Button>
                     </div>
 
@@ -69,6 +95,12 @@ class Workshops extends Component {
                         </Row>
                     </div>
                 </Container>
+
+                <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
+                    <Modal.Header>
+                    <Modal.Title><Spinner animation="border" /> Downloading...</Modal.Title>
+                    </Modal.Header>
+                </Modal>
             </div>
         );
     }

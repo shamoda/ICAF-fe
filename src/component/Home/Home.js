@@ -3,9 +3,20 @@ import { Image, Carousel, Tab, Container, Tabs } from 'react-bootstrap';
 import './Home.css'
 import banner from '../../asset/banner1.jpg';
 import PostList from '../Program/PostList';
+import PapersList from '../PapersList/PapersList';
 
 class Home extends Component {
-    state = {}
+    constructor(props) {
+        super(props);
+        this.state = {}
+
+        this.redirectToLogin = this.redirectToLogin.bind(this);
+    }
+
+    redirectToLogin() {
+        return this.props.history.push('/login')
+    }
+
     render() {
         return (
             <div>
@@ -34,7 +45,7 @@ class Home extends Component {
                                 </div>
                             </Tab>
                             <Tab style={{ textAlign: "left" }} eventKey="b" title="Research Papers">
-                                Papers to be rendered
+                                <PapersList redirectToLogin={this.redirectToLogin} />
                             </Tab>
                         </Tabs>
 

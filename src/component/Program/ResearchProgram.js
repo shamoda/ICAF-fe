@@ -34,14 +34,8 @@ class ResearchProgram extends Component {
                             lectus purus, eget auctor mi gravida ut. Vivamus pellentesque est at ante tempor, sit amet sollicitudin
                             orci mollis.
                         </div>
-                        <div className="program-topics">
-                            <Tabs style={{ textAlign: "center" }} variant="tabs" defaultActiveKey="a" unmountOnExit={true} >
-                                <Tab style={{ textAlign: "left" }} eventKey="a" title="Papers">
-                                    <PapersList redirectToLogin={this.redirectToLogin} />
-                                </Tab>
-
-                            </Tabs>
-
+                        <div className="program-topics" style={{textAlign:"left"}}>
+                            <PapersList redirectToLogin={this.redirectToLogin} />
                         </div>
                     </Container>
                 </div>

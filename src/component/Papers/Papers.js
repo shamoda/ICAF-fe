@@ -108,7 +108,7 @@ class Papers extends Component {
                         </p>
                     </div>
 
-                    <div className="papers-topics">
+                    <div className="papers-topics" style={{textAlign:"center"}}>
                         <Button onClick={this.downloadTemplateClicked} variant="dark" className="papers-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Download Template</Button>
                         <Button onClick={this.submitPaperClicked} variant="dark" className="papers-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileUpload } />&nbsp; Submit My Paper</Button>
                     </div>
