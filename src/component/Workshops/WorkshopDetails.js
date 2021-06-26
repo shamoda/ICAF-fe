@@ -3,7 +3,6 @@ import { Col, Container, Row, Modal, Spinner, Card } from 'react-bootstrap';
 import moment from "moment";
 import WorkshopDataService from './WorkshopDataService'
 
-
 class WorkshopDetails extends Component {
     constructor(props) {
         super(props);
