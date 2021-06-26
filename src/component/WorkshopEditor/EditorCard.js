@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Row, Col, Card, InputGroup, FormControl, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFastBackward, faFastForward, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
+
 import './WorkshopEditor.css'
 class EditorCard extends Component {
     constructor(props) {

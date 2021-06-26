@@ -21,7 +21,8 @@ class AdminPost extends Component {
                 status: '',
                 time: '',
                 imageName: '',
-                conductor: ''
+                conductor: '',
+                editDate: ''
             },
             reviewPost: {
                 publish: 'pending',
@@ -75,6 +76,7 @@ class AdminPost extends Component {
                 workshop["venue"] = res.data.venue
                 workshop["status"] = res.data.status
                 workshop["time"] = res.data.time
+                workshop["editDate"] = res.data.editDate
                 workshop["imageName"] = res.data.imageName
                 reviewPost["publish"] = res.data.publish
                 reviewPost["postComment"] = res.data.postComment
@@ -157,6 +159,8 @@ class AdminPost extends Component {
                             <Row style={{ marginTop: '25px' }}>
                                 <Col sm={3}>
                                     Date : {workshop.date}
+                                    <br /> <br />
+                                    <div style={{ fontSize: 12 }}>Last modified on : {moment(workshop.editDate).format("MMMM Do YYYY, h:mm:ss a")}</div>
                                 </Col>
                                 <Col>
                                     Time  :  {moment(workshop.time, "HH:mm:ss").format("LT")}

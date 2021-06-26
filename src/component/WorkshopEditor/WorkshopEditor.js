@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Container, Button, Modal, Spinner, Col, Row, FormGroup, FormText } from 'react-bootstrap';
 import swal from 'sweetalert';
 import Joi from 'joi-browser'
-import { faChalkboardTeacher, faCalendarTimes, faRemoveFormat } from '@fortawesome/free-solid-svg-icons';
+import { faChalkboardTeacher, faCalendarTimes, faBackward } from '@fortawesome/free-solid-svg-icons';
 import './WorkshopEditor.css'
 import InputField from '../../Commons/InputField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -306,6 +306,9 @@ class WorkshopEditor extends Component {
                         <Row>
                             <Col sm={3}>
                                 <Button type="submit" variant="dark" className="workshop1-button">Save</Button>
+                            </Col>
+                            <Col sm={3}>
+                                <Button type="light" variant="dark" onClick={() => this.props.history.push('/editorDashboard')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                             </Col>
                             {/* <Col>
                                 <h6>{workshop.publish}</h6>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Card, Badge } from 'react-bootstrap';
+import moment from 'moment';
 import notfound from '../../asset/notfound.png'
 class EditorWorkshopList extends Component {
     constructor(props) {
@@ -15,7 +16,8 @@ class EditorWorkshopList extends Component {
                 venue: '',
                 workshopId: '',
                 status: '',
-                publish: ''
+                publish: '',
+                editDate: ''
             }
         }
     }
@@ -49,6 +51,11 @@ class EditorWorkshopList extends Component {
                                 <div>
                                     {workshop.description}
                                 </div>
+
+                                <div style={{ fontSize: 14 }}>
+                                    Post Comment :  <Badge variant="warning">{workshop.postComment}</Badge>
+                                </div>
+                                <div style={{ fontSize: 12 }}>Last modified on : {moment(workshop.editDate).format("MMMM Do YYYY, h:mm:ss a")}</div>
                             </Card.Text>
                             <Button style={{ fontSize: 10, width: '100px' }} variant="dark" onClick={() => this.shiftoEdit(workshop.workshopId)}>EDIT POST</Button>
                         </Card.Body>//

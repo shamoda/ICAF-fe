@@ -20,7 +20,9 @@ class WorkshopEditorDashBoard extends Component {
                 date: '',
                 venue: '',
                 status: '',
-                publish: ''
+                publish: '',
+                editDate: '',
+                postComment: ''
             }
         }
         this.getWorkshops = this.getWorkshops.bind(this)
@@ -56,6 +58,8 @@ class WorkshopEditorDashBoard extends Component {
                 workshop["venue"] = res.data.venue
                 workshop["status"] = res.data.status
                 workshop["publish"] = res.data.publish
+                workshop["editDate"] = res.data.editDate
+                workshop["postComment"] = res.data.postComment
                 this.setState({
                     workshop,
                 })

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faFastBackward, faFastForward, faFilePdf, faSave, faSearch, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import AdminDashboardDataService from './AdminDashboardDataService';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 
 class AdminPostList extends Component {
     constructor(props) {
@@ -139,6 +140,7 @@ class AdminPostList extends Component {
                                                                 {p.status === "rejected" && <Badge variant="danger">{p.status}</Badge>}
                                                             </p>
                                                             <p style={{ margin: "5px 0px" }}>By: {p.conductor}</p>
+                                                            <div style={{ fontSize: 9 }}>Last modified on : {moment(p.editDate).format("MMMM Do YYYY, h:mm:ss a")}</div>
                                                         </Col>
                                                     </Row>
                                                 </td>
