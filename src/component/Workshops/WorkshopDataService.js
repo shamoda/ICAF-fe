@@ -13,6 +13,10 @@ class WorkshopDataService {
     getWorkshopById(id) {
         return axios.get(`http://localhost:8080/api/v1/getWorkshopById/${id}`);
     }
+
+    getConductorData(conductor) {//test
+        return axios.get(`http://localhost:8080/api/v1/getConductor/${conductor}`);
+    }
 }
 
 export default new WorkshopDataService();
