@@ -11,7 +11,7 @@ class EditorDataService {
     }
 
     publishEdit(post) {
-        return axios.post(`http://localhost:8080/api/v1//editProposal`, post)
+        return axios.post('http://localhost:8080/api/v1/editProposal', post)
     }
 
     getImageUrl(fileName) {
@@ -19,3 +19,4 @@ class EditorDataService {
     }
 }
 export default new EditorDataService();
+//testeds

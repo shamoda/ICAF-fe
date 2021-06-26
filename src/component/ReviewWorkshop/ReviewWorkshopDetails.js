@@ -69,7 +69,7 @@ class ReviewWorkshopDetails extends Component {
         const { workshop, review } = this.state
         formdata.append('id', workshop.workshopId)
         formdata.append('status', review.status)
-        formdata.append('rComment', review.rComment)
+        formdata.append('rComment', review.reviewComment)
         formdata.append('conductor', "senath@gmail.net")
         this.setState({ loading: true })
         ReviewWorkshopDetailDataService.reviewWorkshop(formdata)
@@ -123,7 +123,7 @@ class ReviewWorkshopDetails extends Component {
             })
     }
     Schema = {
-        rcomment: Joi.string().required().label("Comment").max(10),
+        reviewComment: Joi.string().required().label("Comment").max(10),
         status: Joi.string().required().label("Status"),
     }
 
@@ -144,7 +144,7 @@ class ReviewWorkshopDetails extends Component {
             this.setState({
                 review,
                 errors
-            }, () => console.log(this.state));
+            }, () => console.log(this.state)); //test
     };
 
     validate() {
@@ -174,7 +174,7 @@ class ReviewWorkshopDetails extends Component {
                     <p><b>Workshop Details</b></p>
                     <Row>
                         <Col >
-                            Title:  &nbsp;&nbsp;<h6>{workshop.title}</h6>
+                            Title:   &nbsp;&nbsp;<h6>{workshop.title}</h6>
                         </Col>
                         <Col>
                             Subject:  &nbsp; &nbsp;<h6>{workshop.subject}</h6>
@@ -204,9 +204,6 @@ class ReviewWorkshopDetails extends Component {
                             {review.reviewComment ? review.reviewComment : "Reviewer comment is still not available !!"}
                         </Col>
                     </Row>
-
-
-
                     <div style={{ marginTop: "40px" }}>
                         <p><b>Submit Your Review</b></p>
                         <Form autoComplete="off" onSubmit={this.reviewProposal} >
@@ -236,16 +233,16 @@ class ReviewWorkshopDetails extends Component {
                                 <Col xs={5}>
                                     <InputField
                                         FormLabel="Comment"
-                                        name="rcomment"
-                                        value={review.rcomment}
+                                        name="reviewComment"
+                                        value={review.reviewComment}
                                         handleChange={this.handleChange}
                                         FormText="Enter your comment here"
                                         type="text"
                                         placeholder="Very good...."
-                                        error={errors.rcomment}
+                                        error={errors.reviewComment}
                                         trap={false}
                                     />
-                                    <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                    <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
                                 </Col>
 
                             </Row>

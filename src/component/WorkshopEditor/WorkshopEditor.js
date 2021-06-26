@@ -148,6 +148,10 @@ class WorkshopEditor extends Component {
                     text: "Your post would be displayed in the programs section",
                     icon: "success",
                     button: "Login",
+                }).then(() => {
+                    setTimeout(() => {
+                        this.props.history.push('/editorDashboard')
+                    }, 2000);
                 })
             }).catch(() => {
                 this.setState({ loading: false })
@@ -159,9 +163,6 @@ class WorkshopEditor extends Component {
                 })
             })
 
-        setTimeout(() => {
-            this.props.history.push('/editorDashboard')
-        }, 2000);
     }
 
     getImageUrls = () => {
@@ -306,10 +307,10 @@ class WorkshopEditor extends Component {
                             <Col sm={3}>
                                 <Button type="submit" variant="dark" className="workshop1-button">Save</Button>
                             </Col>
-                            <Col>
+                            {/* <Col>
                                 <h6>{workshop.publish}</h6>
                                 <Button variant="warning" onClick={() => this.publishPost()}> <FontAwesomeIcon icon={faRemoveFormat} /> publish post</Button>
-                            </Col>
+                            </Col> */}
                         </Row>
 
                     </Form>
