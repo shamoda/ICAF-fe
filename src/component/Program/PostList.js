@@ -50,7 +50,7 @@ class PostList extends Component {
                                     <Card.Text>
                                         {p.subject}
                                     </Card.Text>
-                                    <Button variant="primary" onClick={() => this.props.history.push(`/workshops/${p.workshopId}`)}>Findout Now</Button>
+                                    <Button variant="dark" onClick={() => this.props.history.push(`/workshops/${p.workshopId}`)}>Findout Now</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
