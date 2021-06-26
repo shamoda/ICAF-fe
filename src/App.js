@@ -11,10 +11,10 @@ const App = () => {
                 <NotSuppoted />
             </div>
             <div className="web">
-                <FrontEnd/>
+                <FrontEnd />
             </div>
         </div>
-    )
+    )//ted
 }
 
-ReactDoM.render(<App/>, document.getElementById("root"))
+ReactDoM.render(<App />, document.getElementById("root"))

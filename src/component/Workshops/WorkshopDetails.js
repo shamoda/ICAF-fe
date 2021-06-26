@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Col, Container, Row, Modal, Spinner, Card } from 'react-bootstrap';
 import moment from "moment";
 import WorkshopDataService from './WorkshopDataService'
-import ReviewWorkshopDataService from '../ReviewWorkshop/ReviewWorkshopDataService';
+
 
 class WorkshopDetails extends Component {
     constructor(props) {
@@ -19,8 +19,8 @@ class WorkshopDetails extends Component {
                 time: '',
                 imageName: '',
                 conductor: '',
-                conductorName: ''
-            }
+            },
+            conductorName: ''
         }
     }
 
@@ -35,6 +35,7 @@ class WorkshopDetails extends Component {
         WorkshopDataService.getConductorData(workshop.conductor)
             .then((res) => {
                 this.setState({ conductorName: res.data.fname + " " + res.data.lname })
+                console.log(workshop.conductorName)
             })
     }
     getProposalById = () => {
@@ -55,12 +56,13 @@ class WorkshopDetails extends Component {
                 this.setState({
                     workshop,
                 })
-                this.getConductorName()
                 this.setState({ loading: false })
+                this.getConductorName()
+
             })
     }
     render() {
-        const { workshop } = this.state
+        const { workshop, conductorName } = this.state
         return (
             <div>
                 <Container style={{ minHeight: '600px' }}>
@@ -70,7 +72,7 @@ class WorkshopDetails extends Component {
                             <h3>{workshop.subject}</h3>
                             <p>{workshop.description}</p>
                             <h6>Venue  : {workshop.venue}</h6>
-                            <h6>Dr. {workshop.conductorName}</h6>
+                            <h6>Dr. {conductorName}</h6>
                             <a style={{ textDecoration: "none" }} href={workshop.conductor} >{workshop.conductor}</a>
                             <Row style={{ marginTop: '25px' }}>
                                 <Col>
