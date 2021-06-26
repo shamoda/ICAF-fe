@@ -181,11 +181,11 @@ class WorkshopEditor extends Component {
         } else {
             workshop["publish"] = "publish"
             this.setState({ workshop })
-        }
+        }//test
     }
     render() {
         const { errors, workshop, imageSelected } = this.state   //properties
-        const { editWorkshop } = this //methods
+        const { editWorkshop } = this //methodss1
         return (
             <div>
                 <div className="workshopregistration-title">

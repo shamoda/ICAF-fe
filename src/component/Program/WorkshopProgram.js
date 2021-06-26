@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProgramDataService from './ProgramDataService';
-import { Col, Container, Row, Modal, Spinner, Card, Button } from 'react-bootstrap';
+import { Col, Container, Row, Modal, Spinner, Card, Badge } from 'react-bootstrap';
 import WorkshopCorousel from './WorkshopCorousel';
 import PostList from './PostList';
 
@@ -23,26 +23,30 @@ class WorkshopProgram extends Component {
                     <Card border="dark" className="mb-2" style={{ marginTop: '20px' }}>
                         <Card.Header>2021 ICAF</Card.Header>
                         <Card.Body>
-                            <Card.Title> Workshop Proposals </Card.Title>
+                            <Card.Title> Workshop Program </Card.Title>
                             <Card.Text>
                                 <div >
                                     <h4>Important</h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
-                                        lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
-                                        Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
+                                        ICAF 2021 has been organized to encourage and educate the upcoming university students to reach the
+                                        standard benchmarks of the fast moving IT industry. ICAF comes forward with a program of 50 workshops
+                                        conducted by professional and highly educated specialists in industry.
+                                        <br /> <br />
+                                        <Badge variant="danger"> Here the speciality is that workshops are free for all the registered students of ICAF 2021!!</Badge>
+                                        <br /> <br />
+                                        <Badge variant="warning"> All the workshops would be conducted in the campus premises,and students would be notified about the workshops in the below section of this page.</Badge>
                                     </p>
                                 </div>
                                 <div>
-                                    <h5>Please address all questions to the ICAF 2021 Workshops Chair</h5>
+                                    <h6>Please address all questions to the ICAF 2021 Workshop Organising board</h6>
                                     <Row>
                                         <Col>
-                                            <h6>Prof. Myra Richards</h6>
-                                            <a style={{ textDecoration: "none" }} href="mailto:m.richards@gmail.com" >m.richards@gmail.com</a>
+                                            <h6>Prof. Harindra Fernando</h6>
+                                            <a style={{ textDecoration: "none" }} href="mailto:m.richards@gmail.com" >H.fernando@gmail.com</a>
                                         </Col>
                                         <Col>
-                                            <h6>Dr. Steve Mclaughlin</h6>
-                                            <a style={{ textDecoration: "none" }} href="mailto:steve.m@gmail.com" >steve.m@gmail.com</a>
+                                            <h6>Dr. Rohithan Rajapaksha</h6>
+                                            <a style={{ textDecoration: "none" }} href="mailto:steve.m@gmail.com" >RohithaRaja@gmail.com</a>
                                         </Col>
                                     </Row>
                                 </div>
