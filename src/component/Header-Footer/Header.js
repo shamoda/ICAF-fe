@@ -97,6 +97,9 @@ class Header extends Component {
                         </NavDropdown>
                     </Nav.Item>
                     <Nav.Item>
+                        <NavLink className="nav-link header-item" to="/contact">Contact</NavLink>
+                    </Nav.Item>
+                    <Nav.Item>
                         {Authentication.loggedAsResearcher() && <NavLink className="nav-link header-item" to="/researcherprofile">My Profile</NavLink>}
                         {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/conductorProfile">My Profile</NavLink>}
                         {/* {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="/attendeeprofile">My Profile</NavLink>} */}
