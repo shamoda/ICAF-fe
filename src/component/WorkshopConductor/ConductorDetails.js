@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Container, Button, Modal, Spinner, Col, Row } from 'react-bootstrap';
+import { Form, Container, Badge, Modal, Spinner, Col, Row } from 'react-bootstrap';
 import { faDownload, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import WorkshopConductorDataService from './WorkshopConductorDataService';
@@ -20,7 +20,8 @@ class ConductorDetails extends Component {
                 post: '',
                 conductor: this.props.match.params.id,
                 workshopId: this.props.match.params.workshop
-            }
+            },
+            loading: false
         }
         this.getConductor = this.getConductor.bind(this)
     }
@@ -32,6 +33,7 @@ class ConductorDetails extends Component {
 
     getConductor() {
         const { conductor } = this.state
+        this.setState({ loading: true })
         WorkshopConductorDataService.getConductorData(conductor.conductor)
             .then((res) => {
                 conductor["fname"] = res.data.fname
@@ -45,6 +47,7 @@ class ConductorDetails extends Component {
                 this.setState({
                     conductor
                 });
+                this.setState({ loading: false })
             })
     }
 
@@ -56,7 +59,7 @@ class ConductorDetails extends Component {
                     WORKSHOP PROPOSOL
                 </div>
                 <Container style={{ marginTop: "50px", marginBottom: "50px" }}>
-                    <Button style={{ marginBottom: 10 }} variant="dark">{conductor.workshopId}</Button>
+                    <Badge style={{ marginBottom: 10 }} variant="dark"><h6>{conductor.workshopId}</h6></Badge>
                     <h4>{conductor.conductor}</h4>
                     <h6>{conductor.fname + " " + conductor.lname}</h6>
                     <Row>
@@ -81,11 +84,11 @@ class ConductorDetails extends Component {
                         </Col>
                     </Row>
                 </Container>
-                {/* <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
+                <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
                         <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
                     </Modal.Header>
-                </Modal> */}
+                </Modal>
             </div >
         )
     }

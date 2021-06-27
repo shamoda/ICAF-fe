@@ -7,7 +7,7 @@ class ReviewWorkshopDataService {
     }
 
     getProposal(workshop) {
-        return axios.post(`http://localhost:8080/api/v1/getWorkshops/search`, workshop);
+        return axios.post(`http://localhost:8080/api/v1/getWorkshops/filter`, workshop);
     }
 }
 export default new ReviewWorkshopDataService()

@@ -101,7 +101,7 @@ class Header extends Component {
                         {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/conductorProfile">My Profile</NavLink>}
                         {/* {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="/attendeeprofile">My Profile</NavLink>} */}
                         {Authentication.loggedAsReviewer() && <NavLink className="nav-link header-item" to="/reviewer">Dashboard</NavLink>}
-                        {Authentication.loggedAsEditor() && <NavLink className="nav-link header-item" to="/editor">Dashboard</NavLink>}
+                        {Authentication.loggedAsEditor() && <NavLink className="nav-link header-item" to="/editorDashboard">Dashboard</NavLink>}
                         {Authentication.loggedAsAdmin() && <NavLink className="nav-link header-item" to="/admin">Dashboard</NavLink>}
                     </Nav.Item>
                     <Nav.Item>
@@ -111,8 +111,13 @@ class Header extends Component {
                         {!Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" to="/login"><FontAwesomeIcon icon={faSignInAlt} /></NavLink>}
                         {Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" onClick={() => Authentication.logout()} to="/"><FontAwesomeIcon icon={faSignOutAlt} /></NavLink>}
                     </Nav.Item>
+                    <Nav.Item>
+                        <h6 style={{ color: "white", marginLeft: '60px' }}>{Authentication.loggedUserName()}</h6>
+                    </Nav.Item>
                 </Nav>
+
                 <UpdateProfile show={this.state.show} onHide={this.showModal} />
+
                 {/*    </Navbar.Collapse>*/}
                 {/*</Navbar>*/}
             </div>

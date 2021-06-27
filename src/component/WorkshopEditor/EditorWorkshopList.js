@@ -35,7 +35,7 @@ class EditorWorkshopList extends Component {
                     {!workshop.workshopId ?
                         <div>
                             <img style={{ height: '400px' }} src={notfound} />
-                            <Button style={{ fontSize: 15, marginLeft: '100px', marginBottom: '20px' }} variant="danger"><h6>Please Select a Workshop !!</h6></Button>
+                            <Badge style={{ fontSize: 15, marginLeft: '110px', marginBottom: '20px' }} variant="danger"><h6>Please Select a Workshop !!</h6></Badge>
                         </div>
                         :
                         <Card.Body>

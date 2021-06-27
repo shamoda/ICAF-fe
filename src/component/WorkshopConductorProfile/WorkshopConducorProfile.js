@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Modal, Spinner, Button, Card } from 'react-bootstrap';
+import { Modal, Spinner, Button, Card, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Authentication from '../../authentication/Authentication';
 import WorkshopConducorProfileDataService from './WorkshopConducorProfileDataService';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImage, faImages } from '@fortawesome/free-solid-svg-icons'
+import './WorkshopConductorProfile.css'
 class WorkshopConductorProfile extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +20,8 @@ class WorkshopConductorProfile extends Component {
                 time: '',
                 rComment: '',
                 publish: '',
-                postComment: ''
+                postComment: '',
+                aComment: ''
             },
             loading: false,
 
@@ -49,6 +52,7 @@ class WorkshopConductorProfile extends Component {
                 workshop["rComment"] = res.data.rcomment
                 workshop["publish"] = res.data.publish
                 workshop["postComment"] = res.data.post_comment
+                workshop["aComment"] = res.data.acomment
                 this.setState({
                     workshop,
                 })
@@ -63,12 +67,14 @@ class WorkshopConductorProfile extends Component {
                 <div className="workshops-title">
                     WORKSHOP CONDUCTOR PORTAL
                 </div>
-                <Card border="dark" style={{ width: '1000px', height: '500px', marginBottom: '30px', marginTop: '20px', marginLeft: '200px' }}>
+                <Card border="dark" className="conductor-profile-card">
                     <Card.Header>ICAF 2021 WORKSHOPS</Card.Header>
                     <Card.Body>
-                        <Card.Title>  <Button style={{ fontSize: 10 }} variant="dark">{workshop.workshopId}</Button></Card.Title>
+                        <Card.Title>  <Badge style={{ fontSize: 15 }} variant="dark">{workshop.workshopId}</Badge></Card.Title>
                         <div style={{ marginTop: '-40px', marginLeft: '350px' }}>
-                            <Button style={{ fontSize: 15, marginLeft: '500px' }} variant="danger">{workshop.status}</Button>
+                            {workshop.status == "pending" ? <Badge variant="warning" style={{ fontSize: 15, marginLeft: '500px' }}>{workshop.status}</Badge> : ""}
+                            {workshop.status == "rejected" ? <Badge variant="danger" style={{ fontSize: 15, marginLeft: '500px' }}>{workshop.status}</Badge> : ""}
+                            {workshop.status == "approved" ? <Badge variant="success" style={{ fontSize: 15, marginLeft: '500px' }}>{workshop.status}</Badge> : ""}
                         </div>
                         <Card.Text style={{ marginTop: '20px' }}>
                             <h5 style={{ marginTop: '20px' }}>{workshop.title}</h5>
@@ -83,17 +89,17 @@ class WorkshopConductorProfile extends Component {
                                 </div>
                                 : ''
                             }
-                            <br />  <br />
-                            {workshop.rComment ?
+                            {workshop.aComment ?
                                 <div>
-                                    <h6 style={{ marginTop: '40px' }}>Reviewer Comment :  </h6>
-                                    {workshop.rComment}
+                                    <h6 style={{ marginTop: '20px' }}>Admin Comment :  </h6>
+                                    {workshop.aComment}
                                 </div>
                                 : ''
                             }
-                            <br />  <br />
-                            <div>
-                                {workshop.publish === 'published' ? <Button variant="danger"><Link to={`workshop/${workshop.workshopId}`}>Published post</Link></Button> : <Button variant="danger">Post is not published yet!!!</Button>}
+                            <div style={{ marginTop: '10px' }}>
+                                {workshop.publish === 'pending' ? <Badge variant="warning">Post is in pending state !!!</Badge> : ""}
+                                {workshop.publish === 'unpublished' ? <Badge variant="danger">Post is in unpublished state !!!</Badge> : ""}
+                                {workshop.publish === 'published' ? <Badge style={{ width: '220px' }} variant="light"><FontAwesomeIcon icon={faImages} /><Link to={`workshops/${workshop.workshopId}`}><h6>Click to go to Published post</h6></Link></Badge> : ""}
                             </div>
                         </Card.Text>
                     </Card.Body>

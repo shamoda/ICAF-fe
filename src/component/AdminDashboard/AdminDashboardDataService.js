@@ -3,7 +3,7 @@ import axios from 'axios'
 class AdminDashboardDataService {
 
     getWorkshop(workshop) {
-        return axios.post(`http://localhost:8080/api/v1/getWorkshops/search`, workshop);
+        return axios.post(`http://localhost:8080/api/v1/getWorkshops/filter`, workshop);
     }
 
     getWorkshopById(id) {
@@ -16,8 +16,6 @@ class AdminDashboardDataService {
     reviewPost(id, posts) {
         return axios.post(`http://localhost:8080/api/v1/publishPost/${id}`, posts)
     }
-    // getWorkshop(post) {
-    //     return axios.get(`http://localhost:8080/api/v1//getWorkshopById`, post);
-    // }
+
 }
 export default new AdminDashboardDataService()

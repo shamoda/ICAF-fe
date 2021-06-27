@@ -18,7 +18,6 @@ class ReviewWorkshop extends Component {
             loading: false
         }
         this.refreshWorkshops = this.refreshWorkshops.bind(this);
-        // this.submitBtnClicked = this.submitBtnClicked.bind(this);
     }
 
     componentDidMount() {

@@ -14,7 +14,7 @@ const App = () => {
                 <FrontEnd />
             </div>
         </div>
-    )//ted
+    )//test
 }
 
 ReactDoM.render(<App />, document.getElementById("root"))

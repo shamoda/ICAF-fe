@@ -27,7 +27,7 @@ class WorkshopDetails extends Component {
         window.scrollTo(0, 0)
         this.getProposalById()
     }
-    //
+    //r
     getConductorName = () => {
         const { workshop } = this.state
         console.log(workshop.conductor)
@@ -55,8 +55,9 @@ class WorkshopDetails extends Component {
                 this.setState({
                     workshop,
                 })
-                this.setState({ loading: false })
                 this.getConductorName()
+                this.setState({ loading: false })
+
 
             })
     }
@@ -72,7 +73,7 @@ class WorkshopDetails extends Component {
                             <p>{workshop.description}</p>
                             <h6>Venue  : {workshop.venue}</h6>
                             <h6>Dr. {conductorName}</h6>
-                            <a style={{ textDecoration: "none" }} href={workshop.conductor} >{workshop.conductor}</a>
+                            <a style={{ textDecoration: "none", color: 'blue' }}>{workshop.conductor}</a>
                             <Row style={{ marginTop: '25px' }}>
                                 <Col>
                                     Date : {workshop.date}

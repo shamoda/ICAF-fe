@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Col, Container, Row, Button, Modal, Spinner } from 'react-bootstrap';
+import { Col, Container, Row, Button, Modal, Spinner, ListGroupItem, ListGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileDownload, faFileUpload } from '@fortawesome/free-solid-svg-icons';
+import { faFileDownload, faFileUpload, faStar } from '@fortawesome/free-solid-svg-icons';
 import './Workshops.css'
 import WorkshopDataService from './WorkshopDataService';
 
 class Workshops extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = { loading: false }
 
@@ -18,10 +18,10 @@ class Workshops extends Component {
     }
 
     downloadProposalTemplateClicked() {
-        this.setState({loading: true})
+        this.setState({ loading: true })
         WorkshopDataService.downloadproposal()
             .then(({ data }) => {
-                this.setState({loading: false})
+                this.setState({ loading: false })
                 const downloadUrl = window.URL.createObjectURL(new Blob([data]));
                 const link = document.createElement('a');
                 link.href = downloadUrl;
@@ -33,7 +33,7 @@ class Workshops extends Component {
                     title: "Workshop Proposal Template Downloaded",
                     icon: "success",
                     button: "Ok",
-                  })
+                })
             });
     }
 
@@ -46,37 +46,62 @@ class Workshops extends Component {
 
                 <Container className="workshops-container">
                     <div className="workshops-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
-                        lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
-                        Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
-                        efficitur a orci. Integer at placerat velit. Nunc vehicula tristique elit sed suscipit. Mauris varius
-                        odio ut lacus interdum, ac mollis elit lobortis. Maecenas fermentum blandit odio nec interdum. Nunc
-                        efficitur diam nulla, hendrerit egestas augue dapibus eu. Donec vitae iaculis neque. Proin fermentum
-                        lectus purus, eget auctor mi gravida ut. Vivamus pellentesque est at ante tempor, sit amet sollicitudin
-                        orci mollis.
+                        ICAF 2021 has been organized to encourage and educate the upcoming university students to reach the
+                        standard benchmarks of the fast moving IT industry. ICAF comes forward with a program of 50 workshops
+                        conducted by professional and highly educated specialists in industry.
+                        If you are a specialized professional in IT industry and interested in sharing your knowledge with young blooming
+                        students , please submit the workshop proposal and add the necessary details.
                     </div>
 
                     <div className="workshops-topics">
-                        <h4>Workshop Proposals</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
-                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
-                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
-                            efficitur a orci. Integer at placerat velit.
-                        </p>
+                        <div className="papers-topics">
+                            <h4>Conference Topics</h4>
+                            <Row>
+                                <Col>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>React JS</ListGroup.Item>
+                                        <ListGroup.Item>Angular</ListGroup.Item>
+                                        <ListGroup.Item>Vue</ListGroup.Item>
+                                        <ListGroup.Item>Electron</ListGroup.Item>
+                                    </ListGroup>
+                                </Col>
+                                <Col>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>Spring Boot</ListGroup.Item>
+                                        <ListGroup.Item>Express JS</ListGroup.Item>
+                                        <ListGroup.Item>Koa JS</ListGroup.Item>
+                                        <ListGroup.Item>Laravel</ListGroup.Item>
+                                    </ListGroup>
+                                </Col>
+                                <Col>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>ASP.NET</ListGroup.Item>
+                                        <ListGroup.Item>Django</ListGroup.Item>
+                                        <ListGroup.Item>Ruby on Rails</ListGroup.Item>
+                                        <ListGroup.Item>ReactiveX JS</ListGroup.Item>
+                                    </ListGroup>
+                                </Col>
+                            </Row>
+                        </div>
+
                     </div>
 
                     <div className="workshops-topics">
                         <h4>Important</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
-                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
-                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
-                            efficitur a orci. Integer at placerat velit.
+                            As very limited number of workshops are only given an opportunity ,the proposal which are submitted traverse through a
+                            a long selection process ,and the following criteria would be taken to consideration in the selection process.
+                            <div style={{ marginLeft: '20px' }}>
+                                <FontAwesomeIcon icon={faStar} /> Quality of the workshop proposal <br />
+                                <FontAwesomeIcon icon={faStar} /> Content of the workshop. <br />
+                                <FontAwesomeIcon icon={faStar} /> Educational qualifications and experience of the workshop conductor <br />
+                            </div>
+                            The status of your proposal would be later notifed you through an email. Please don't be hesitant to contact our below organzing board memebers for
+                            any necessity.
                         </p>
                     </div>
 
-                    <div className="workshops-topics" style={{textAlign: "center"}}>
+                    <div className="workshops-topics" style={{ textAlign: "center" }}>
                         <Button variant="dark" className="workshops-button" onClick={this.downloadProposalTemplateClicked} ><FontAwesomeIcon style={{ float: "right", marginTop: "3px" }} icon={faFileDownload} />&nbsp; Download Proposal Template</Button>
                         <Button variant="dark" className="workshops-button" onClick={this.pushtoRegistration}><FontAwesomeIcon style={{ float: "right", marginTop: "3px" }} icon={faFileUpload} />&nbsp; Submit Workshop Proposal</Button>
                     </div>
@@ -98,7 +123,7 @@ class Workshops extends Component {
 
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
-                    <Modal.Title><Spinner animation="border" /> Downloading...</Modal.Title>
+                        <Modal.Title><Spinner animation="border" /> Downloading...</Modal.Title>
                     </Modal.Header>
                 </Modal>
             </div>

@@ -29,7 +29,7 @@ class WorkshopEditor extends Component {
                 venue: '',
                 time: '',
                 imageName: '',
-                publish: 'unpublish'
+                publish: 'pending'
             },
             loading: false,
             errors: {},
@@ -292,14 +292,14 @@ class WorkshopEditor extends Component {
                         </Row>
                         {/* 2nd Row Ends */}
                         <Form.Group>
-                            <Form.File name="image" label="Workshop Image" onChange={this.onImageChange} style={{ borderWidth: "1px", borderColor: "red" }}>
+                            <Form.File className="editor-formfile" name="image" label="Workshop Image" onChange={this.onImageChange} >
                             </Form.File>
                         </Form.Group>
 
                         {imageSelected ?
-                            <img style={{ width: "100px", height: "100px", borderRadius: "10px", padding: "0px", margin: "10px", textAlign: "center" }} alt="card" src={workshop.imageUrl} />
+                            ""
                             : workshop.imageName ?
-                                <img style={{ width: "100px", height: "100px", borderRadius: "10px", padding: "0px", margin: "10px", textAlign: "center" }} alt="card" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} />
+                                <img className="editor-card-image" alt="card" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} />
                                 : <h6>Image not selected</h6>
                         }
                         <br />

@@ -29,7 +29,7 @@ class AdminPostList extends Component {
         let example = {
             edit: true,
             status: 'approved',
-            title: this.state.search
+            title: this.state.search,
         }
         AdminDashboardDataService.getWorkshop(example)
             .then(response => {
@@ -76,7 +76,7 @@ class AdminPostList extends Component {
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
-        }, () => this.refreshPapers());
+        }, () => this.refreshWorkshops());
 
     };
 
@@ -112,7 +112,7 @@ class AdminPostList extends Component {
                             </div>
                             <div style={{ float: "right" }}>
                                 <InputGroup size="sm">
-                                    <FontAwesomeIcon style={{ marginTop: "8px" }} icon={faSearch} />&nbsp; <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="start typing..." name="search" value={this.state.search} className="" />&nbsp;
+                                    <FontAwesomeIcon style={{ marginTop: "8px" }} icon={faSearch} />&nbsp; <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="Search by title..." name="search" value={this.state.search} className="" />&nbsp;
                                 </InputGroup>
                             </div>
                         </Card.Header>
@@ -132,14 +132,14 @@ class AdminPostList extends Component {
                                                         <Col>
                                                             <h5>{p.title}</h5>
                                                             <h6>{p.subject}</h6>
+                                                            <p style={{ margin: "5px 0px", fontSize: "12px" }}>By: {p.conductor}</p>
                                                         </Col>
                                                         <Col>
                                                             <p style={{ margin: "5px 0px" }}>
-                                                                {p.status === "pending" && <Badge variant="warning">{p.status}</Badge>}
-                                                                {p.status === "approved" && <Badge variant="success">{p.status}</Badge>}
-                                                                {p.status === "rejected" && <Badge variant="danger">{p.status}</Badge>}
+                                                                {p.publish === "pending" && <Badge variant="warning">{p.publish}</Badge>}
+                                                                {p.publish === "published" && <Badge variant="success">{p.publish}</Badge>}
+                                                                {p.publish === "unpublished" && <Badge variant="danger">{p.publish}</Badge>}
                                                             </p>
-                                                            <p style={{ margin: "5px 0px" }}>By: {p.conductor}</p>
                                                             <div style={{ fontSize: 9 }}>Last modified on : {moment(p.editDate).format("MMMM Do YYYY, h:mm:ss a")}</div>
                                                         </Col>
                                                     </Row>

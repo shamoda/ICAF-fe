@@ -26,7 +26,7 @@ class WorkshopProgram extends Component {
                             <Card.Title> Workshop Program </Card.Title>
                             <Card.Text>
                                 <div >
-                                    <h4>Important</h4>
+                                    <h4>Important!</h4>
                                     <p>
                                         ICAF 2021 has been organized to encourage and educate the upcoming university students to reach the
                                         standard benchmarks of the fast moving IT industry. ICAF comes forward with a program of 50 workshops

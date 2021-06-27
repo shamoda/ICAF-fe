@@ -79,7 +79,7 @@ class ReviewWorkshopDetails extends Component {
                     title: "Proposal reviewed successfully !!!",
                     text: "Keep reviewing, Good Luck!!",
                     icon: "success",
-                    button: "Login",
+                    button: "ok",
                 }).then(() => {
                     this.props.history.push('/reviewer')
                 })
