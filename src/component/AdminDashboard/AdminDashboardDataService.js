@@ -17,5 +17,9 @@ class AdminDashboardDataService {
         return axios.post(`http://localhost:8080/api/v1/publishPost/${id}`, posts)
     }
 
+    deleteWorkshop(email) {
+        return axios.delete(`http://localhost:8080/api/v1/workshop/${email}`);
+    }
+
 }
 export default new AdminDashboardDataService()

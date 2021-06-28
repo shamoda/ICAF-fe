@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { faDownload, faEdit, faChalkboardTeacher, faBackward } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEdit, faChalkboardTeacher, faBackward, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Container, Form, FormLabel, Modal, Row, Spinner, Alert } from 'react-bootstrap';
 import swal from 'sweetalert';
@@ -34,6 +34,7 @@ class AdminReviewWorkshop extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.validate = this.validate.bind(this)
         this.validateField = this.validateField.bind(this)
+        this.deleteWorkshop = this.deleteWorkshop.bind(this)
     }
 
     componentDidMount() {
@@ -158,6 +159,31 @@ class AdminReviewWorkshop extends Component {
         return errors
     }
 
+    deleteWorkshop(email) {
+        const { workshop } = this.state
+        this.setState({ loading: true })
+        swal({
+            title: "You are about to delete the workshop,",
+            text: workshop.workshopId,
+            icon: "warning",
+            buttons: true
+        }).then((result) => {
+            (
+                AdminDashboardDataService.deleteWorkshop(email)
+                    .then(response => {
+                        this.setState({ loading: false })
+                        swal({
+                            title: "User Deleted Successfully!",
+                            icon: "success",
+                            button: "Ok",
+                        }).then(() => {
+                            this.props.history.push('/admin')
+                        })
+                    })
+            )
+        })
+    }
+
     render() {
         const { workshop, review, errors } = this.state
         return (
@@ -247,6 +273,12 @@ class AdminReviewWorkshop extends Component {
                             <Row style={{ marginBottom: '20px' }}>
                                 <Col>
                                     <Button type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={() => this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+
+                                </Col>
+                                <Col>
+                                    <Col>
+                                        <Button className="my-1 mr-sm-2" onClick={() => this.deleteWorkshop(workshop.conductor)} variant="outline-danger"><FontAwesomeIcon size="sm" icon={faTrash} /></Button>
+                                    </Col>
                                 </Col>
                                 <Col>
                                     <Button type="light" variant="dark" onClick={() => this.props.history.push('/admin')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
