@@ -67,7 +67,7 @@ class PostList extends Component {
                         {proposals.map((p) => (
                             <Col sm={3} style={{ marginLeft: '20px' }} className={"card-group mb-4"} key={p.workshopId}>
                                 <Card style={{ maxHeight: '400px', minWidth: '300px' }} >
-                                    <Card.Img variant="top" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${p.imageName}`} style={{ height: '80px' }}></Card.Img>
+                                    <Card.Img variant="top" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${p.imageName}`} style={{ height: '80px', minWidth: '300px' }}></Card.Img>
                                     <Card.Body>
                                         <Card.Title>{p.title}</Card.Title>
                                         <Card.Text>
