@@ -32,11 +32,9 @@ class PostList extends Component {
             edit: "true",
             title: this.state.search
         }
-        this.setState({ loading: true })
         ProgramDataService.getWorkshop(workshop)
             .then((response) => {
                 this.setState({ proposals: response.data })
-                this.setState({ loading: false })
             })
     }
 

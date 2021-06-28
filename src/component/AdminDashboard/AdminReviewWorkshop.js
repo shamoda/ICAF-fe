@@ -242,11 +242,15 @@ class AdminReviewWorkshop extends Component {
                                         error={errors.adminComment}
                                         trap={false}
                                     />
-                                    <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={() => this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                </Col>
+                            </Row>
+                            <Row style={{ marginBottom: '20px' }}>
+                                <Col>
+                                    <Button type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={() => this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                </Col>
+                                <Col>
                                     <Button type="light" variant="dark" onClick={() => this.props.history.push('/admin')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                                 </Col>
-
-
                             </Row>
                         </Form>
                     </div>
