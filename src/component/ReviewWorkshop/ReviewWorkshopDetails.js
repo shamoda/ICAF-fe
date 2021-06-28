@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { faDownload, faEdit, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEdit, faChalkboardTeacher, faBackward } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Container, Form, FormLabel, Modal, Row, Spinner, Alert } from 'react-bootstrap';
 import swal from 'sweetalert';
@@ -243,6 +243,9 @@ class ReviewWorkshopDetails extends Component {
                                         trap={false}
                                     />
                                     <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                </Col>
+                                <Col sm={3}>
+                                    <Button type="light" variant="dark" onClick={() => this.props.history.push('/review')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                                 </Col>
 
                             </Row>

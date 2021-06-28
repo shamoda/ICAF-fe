@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { faDownload, faEdit, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEdit, faChalkboardTeacher, faBackward } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Container, Form, FormLabel, Modal, Row, Spinner, Alert } from 'react-bootstrap';
 import swal from 'sweetalert';
@@ -123,7 +123,7 @@ class AdminReviewWorkshop extends Component {
             })
     }
     Schema = {
-        adminComment: Joi.string().required().label("Comment").max(10),
+        adminComment: Joi,
         status: Joi.string().label("Status"),
     }
 
@@ -243,7 +243,9 @@ class AdminReviewWorkshop extends Component {
                                         trap={false}
                                     />
                                     <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={() => this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                    <Button type="light" variant="dark" onClick={() => this.props.history.push('/admin')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                                 </Col>
+
 
                             </Row>
                         </Form>
@@ -254,7 +256,7 @@ class AdminReviewWorkshop extends Component {
                         <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
                     </Modal.Header>
                 </Modal>
-            </div>
+            </div >
         );
     }
 }
