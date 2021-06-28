@@ -84,13 +84,21 @@ class WorkshopEditor extends Component {
     // Joi.ref('password')
     //Joi@13.4 Schema [Validation Library]
     Schema = {
+        id: Joi,
         title: Joi.string().required().label("Workshop Title").max(10),
         subject: Joi.string().required().label("Subject").min(1).max(10),
         description: Joi.string().required().label("Description").min(10).max(200),
         conductor: Joi,
         venue: Joi.string().required().label("Workshop Venue").max(10),
         dates: Joi,
-        time: Joi
+        time: Joi,
+        imageUrl: Joi,
+        image: Joi,
+        proposal: Joi,
+        rComment: Joi,
+        status: Joi,
+        imageName: Joi,
+        publish: Joi
     }
 
     validate() {
@@ -125,7 +133,9 @@ class WorkshopEditor extends Component {
     editWorkshop(event) {
         event.preventDefault()
         const { workshop } = this.state
-        // const errors = this.validate();
+        if (workshop.imageUrl === null) {
+            this.setState({ imageUrlerr: 'Image needs to be selected' })
+        }
         this.setState({ loading: true })
         //Object was used, Code 400 err, [ERR-LOG-02]
         // It uses the same format a form would use if the encoding type were set to "multipart/form-data".
@@ -147,7 +157,7 @@ class WorkshopEditor extends Component {
                     title: "Post submitted successfully",
                     text: "Your post would be displayed in the programs section",
                     icon: "success",
-                    button: "Login",
+                    button: "ok",
                 }).then(() => {
                     setTimeout(() => {
                         this.props.history.push('/editorDashboard')
@@ -278,7 +288,7 @@ class WorkshopEditor extends Component {
                             </Col>
                             <Col>
                                 <Form.Group as={Col} controlId="time">
-                                    <Form.Label>Session End Time :</Form.Label>
+                                    <Form.Label>Time :</Form.Label>
                                     <Form.Control
                                         type="time"
                                         placeholder="Ending time"
@@ -295,13 +305,9 @@ class WorkshopEditor extends Component {
                             <Form.File className="editor-formfile" name="image" label="Workshop Image" onChange={this.onImageChange} >
                             </Form.File>
                         </Form.Group>
+                        <img className="editor-card-image" alt="card" src={workshop.imageUrl} />
+                        : <h6>Image not selected</h6>
 
-                        {imageSelected ?
-                            ""
-                            : workshop.imageName ?
-                                <img className="editor-card-image" alt="card" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} />
-                                : <h6>Image not selected</h6>
-                        }
                         <br />
                         <Row>
                             <Col sm={3}>
