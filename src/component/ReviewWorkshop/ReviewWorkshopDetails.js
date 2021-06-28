@@ -216,7 +216,7 @@ class ReviewWorkshopDetails extends Component {
                                         custom
                                         name="status"
                                         value={review.status}
-                                        required
+                                        // required
                                         onChange={this.handleChange}
                                     >
                                         <option value="">Choose...</option>

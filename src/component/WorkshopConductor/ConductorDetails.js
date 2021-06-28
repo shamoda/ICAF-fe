@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Container, Badge, Modal, Spinner, Col, Row } from 'react-bootstrap';
-import { faDownload, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Button, Container, Badge, Modal, Spinner, Col, Row } from 'react-bootstrap';
+import { faBackward } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import WorkshopConductorDataService from './WorkshopConductorDataService';
 
@@ -81,6 +81,11 @@ class ConductorDetails extends Component {
                         <Col>
                             Educational Qualification 2 :&nbsp;
                             {conductor.eduQuali2}
+                        </Col>
+                    </Row>
+                    <Row style={{ marginBottom: '20px' }}>
+                        <Col sm={3}>
+                            <Button type="light" variant="dark" onClick={() => this.props.history.push(`/reviewWorkshop/${conductor.workshopId}`)} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                         </Col>
                     </Row>
                 </Container>
