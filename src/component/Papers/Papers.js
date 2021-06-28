@@ -7,7 +7,7 @@ import './Papers.css'
 
 class Papers extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = { loading: false }
 
@@ -20,10 +20,10 @@ class Papers extends Component {
     }
 
     downloadTemplateClicked() {
-        this.setState({loading: true})
+        this.setState({ loading: true })
         PapersDataService.downloadPaper()
             .then(({ data }) => {
-                this.setState({loading: false})
+                this.setState({ loading: false })
                 const downloadUrl = window.URL.createObjectURL(new Blob([data]));
                 const link = document.createElement('a');
                 link.href = downloadUrl;
@@ -35,12 +35,12 @@ class Papers extends Component {
                     title: "Research Paper Template Downloaded",
                     icon: "success",
                     button: "Ok",
-                  })
+                })
             });
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div>
                 <div className="papers-title">
                     CALL FOR PAPERS
@@ -48,14 +48,13 @@ class Papers extends Component {
 
                 <Container className="papers-container">
                     <div className="papers-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac, 
-                        lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar. 
-                        Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at, 
-                        efficitur a orci. Integer at placerat velit. Nunc vehicula tristique elit sed suscipit. Mauris varius 
-                        odio ut lacus interdum, ac mollis elit lobortis. Maecenas fermentum blandit odio nec interdum. Nunc 
-                        efficitur diam nulla, hendrerit egestas augue dapibus eu. Donec vitae iaculis neque. Proin fermentum 
-                        lectus purus, eget auctor mi gravida ut. Vivamus pellentesque est at ante tempor, sit amet sollicitudin 
-                        orci mollis.
+                        ICAF 2021 is mainly focus on 2 categories such as research papers publications and conduction of workshops.
+                        Here the specialized professionals of the industry gets the opportunity to publish their research papers in our
+                        ICAF research paper feed,
+                        All the research paper submissions would go under a transparent selection process which is also comprised with
+                        specialists of the industry.
+                        The status of the submissions would be notified to the respective researcher with an email, and the approved papers
+                        would be published in ICAF research paper feed.
                     </div>
 
                     <div className="papers-topics">
@@ -91,9 +90,9 @@ class Papers extends Component {
                     <div className="papers-topics">
                         <h4>Submissions</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac, 
-                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar. 
-                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at, 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
+                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
+                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
                             efficitur a orci. Integer at placerat velit.
                         </p>
                     </div>
@@ -101,27 +100,27 @@ class Papers extends Component {
                     <div className="papers-topics">
                         <h4>Important</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac, 
-                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar. 
-                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at, 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
+                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
+                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
                             efficitur a orci. Integer at placerat velit.
                         </p>
                     </div>
 
-                    <div className="papers-topics" style={{textAlign:"center"}}>
-                        <Button onClick={this.downloadTemplateClicked} variant="dark" className="papers-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileDownload } />&nbsp; Download Template</Button>
-                        <Button onClick={this.submitPaperClicked} variant="dark" className="papers-button"><FontAwesomeIcon style={{float:"right", marginTop:"3px"}} icon={ faFileUpload } />&nbsp; Submit My Paper</Button>
+                    <div className="papers-topics" style={{ textAlign: "center" }}>
+                        <Button onClick={this.downloadTemplateClicked} variant="dark" className="papers-button"><FontAwesomeIcon style={{ float: "right", marginTop: "3px" }} icon={faFileDownload} />&nbsp; Download Template</Button>
+                        <Button onClick={this.submitPaperClicked} variant="dark" className="papers-button"><FontAwesomeIcon style={{ float: "right", marginTop: "3px" }} icon={faFileUpload} />&nbsp; Submit My Paper</Button>
                     </div>
                 </Container>
 
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
-                    <Modal.Title><Spinner animation="border" /> Downloading...</Modal.Title>
+                        <Modal.Title><Spinner animation="border" /> Downloading...</Modal.Title>
                     </Modal.Header>
                 </Modal>
             </div>
-         );
+        );
     }
 }
- 
+
 export default Papers;
