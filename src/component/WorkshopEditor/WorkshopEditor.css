@@ -33,3 +33,12 @@
   border-width: 1px;
   border-color: "red";
 }
+
+.editor-published-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 0px;
+  margin: 10px;
+  text-align: "center";
+}

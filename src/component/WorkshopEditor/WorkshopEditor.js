@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Container, Button, Modal, Spinner, Col, Row, FormGroup, FormText } from 'react-bootstrap';
+import { Form, Container, Button, Modal, Spinner, Col, Row, Badge } from 'react-bootstrap';
 import swal from 'sweetalert';
 import Joi from 'joi-browser'
 import { faChalkboardTeacher, faCalendarTimes, faBackward } from '@fortawesome/free-solid-svg-icons';
@@ -300,15 +300,23 @@ class WorkshopEditor extends Component {
                                 </Form.Group>
                             </Col>
                         </Row>
+                        <Row>
+                            <h6>Published Image</h6>
+                        </Row>
+                        <Row style={{ marginBottom: '20px' }}>
+                            {workshop.imageName ? <img className="editor-published-image" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} alt="card" />
+                                : <Badge variant="danger"><p>Image not Published yet!</p></Badge>}
+                        </Row>
                         {/* 2nd Row Ends */}
                         <Form.Group>
-                            <Form.File className="editor-formfile" name="image" label="Workshop Image" onChange={this.onImageChange} >
+                            <Form.File className="editor-formfile" name="image" label={<h6>Workshop Image</h6>} onChange={this.onImageChange} >
                             </Form.File>
                         </Form.Group>
-                        <img className="editor-card-image" alt="card" src={workshop.imageUrl} />
-                        : <h6>Image not selected</h6>
-
-                        <br />
+                        <Row>
+                            {workshop.imageUrl ? <img className="editor-card-image" alt="card" src={workshop.imageUrl} />
+                                : <Badge variant="danger">Image not selected!</Badge>}
+                            <br />
+                        </Row>
                         <Row>
                             <Col sm={3}>
                                 <Button type="submit" variant="dark" className="workshop1-button">Save</Button>
@@ -316,14 +324,8 @@ class WorkshopEditor extends Component {
                             <Col sm={3}>
                                 <Button type="light" variant="dark" onClick={() => this.props.history.push('/editorDashboard')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                             </Col>
-                            {/* <Col>
-                                <h6>{workshop.publish}</h6>
-                                <Button variant="warning" onClick={() => this.publishPost()}> <FontAwesomeIcon icon={faRemoveFormat} /> publish post</Button>
-                            </Col> */}
                         </Row>
-
                     </Form>
-
                 </Container >
 
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>

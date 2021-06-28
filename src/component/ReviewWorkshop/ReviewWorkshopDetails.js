@@ -242,12 +242,15 @@ class ReviewWorkshopDetails extends Component {
                                         error={errors.reviewComment}
                                         trap={false}
                                     />
-                                    <Button style={{ marginLeft: '-475px' }} type="submit" className="my-1 mr-sm-2" variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm={3}>
+                                    <Button type="submit" variant="dark" className="workshop1-button">Save</Button>
                                 </Col>
                                 <Col sm={3}>
-                                    <Button type="light" variant="dark" onClick={() => this.props.history.push('/review')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
+                                    <Button type="light" variant="dark" onClick={() => this.props.history.push('/reviewer')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                                 </Col>
-
                             </Row>
                         </Form>
                     </div>

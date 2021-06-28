@@ -13,6 +13,10 @@ class Home extends Component {
         this.redirectToLogin = this.redirectToLogin.bind(this);
     }
 
+    componentDidMount() {
+        window.scroll(0, 0)
+    }
+
     redirectToLogin() {
         return this.props.history.push('/login')
     }

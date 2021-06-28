@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ProgramDataService from './ProgramDataService';
-import { Col, Container, Row, Modal, Spinner, Card, Badge } from 'react-bootstrap';
+import { Col, Container, Row, Modal, Spinner, Card, Badge, Button } from 'react-bootstrap';
 import WorkshopCorousel from './WorkshopCorousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBackward } from '@fortawesome/free-solid-svg-icons'
 import PostList from './PostList';
 
 class WorkshopProgram extends Component {
@@ -56,6 +58,11 @@ class WorkshopProgram extends Component {
                     <div>
                         <PostList />
                     </div>
+                    <Row style={{ marginBottom: '20px' }}>
+                        <Col sm={3}>
+                            <Button type="light" variant="dark" onClick={() => this.props.history.push('/')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
+                        </Col>
+                    </Row>
                 </Container>
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
