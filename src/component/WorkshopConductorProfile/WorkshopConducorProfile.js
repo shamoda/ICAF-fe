@@ -31,6 +31,11 @@ class WorkshopConductorProfile extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+
+        if (!Authentication.isUserLoggedIn() || !Authentication.loggedAsWorkshopConductor()) {
+            this.props.history.push('/notallowed');
+        }
+
         this.getProposalById()
         console.log(this.state.id)
     }

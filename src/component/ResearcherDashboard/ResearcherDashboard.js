@@ -5,6 +5,7 @@ import { Button, Col, Container, Modal, Row, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faClock, faCross, faDownload, faSignInAlt, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { PayPalButton } from "react-paypal-button-v2";
+import Authentication from '../../authentication/Authentication';
 
 class ResearcherDashboard extends Component {
     
@@ -77,6 +78,9 @@ class ResearcherDashboard extends Component {
     }
 
     componentDidMount() {
+        if (!Authentication.isUserLoggedIn() || !Authentication.loggedAsResearcher()) {
+            this.props.history.push('/notallowed');
+        }
         this.refreshResearcher()
     }
 

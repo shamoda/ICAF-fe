@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Container, Nav, Row, Tab, Tabs } from 'react-bootstrap';
+import Authentication from '../../authentication/Authentication';
 import AdminStatistics from '../AdminStatistics/AdminStatistics';
 import CommitteeRegistration from '../CommitteeRegistration/CommitteeRegistration';
 import ManageUsers from '../ManageUsers/ManageUsers';
@@ -9,6 +10,12 @@ import './AdminDashboard.css'
 import AdminPostList from './AdminPostList';
 
 class AdminDashboard extends Component {
+
+    componentDidMount() {
+        if (!Authentication.isUserLoggedIn() || !Authentication.loggedAsAdmin()) {
+            this.props.history.push('/notallowed');
+        }
+    }
 
     submitBtnClicked = (email) => {
         return this.props.history.push('/review/' + email);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Carousel, Tab, Container, Tabs } from 'react-bootstrap';
 import './Home.css'
-import banner from '../../asset/banner1.jpg';
+import banner from '../../asset/banner2.jpg';
 import PostList from '../Program/PostList';
 import PapersList from '../PapersList/PapersList';
 

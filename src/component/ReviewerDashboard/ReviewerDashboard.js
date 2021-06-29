@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Tab, Tabs, Button } from 'react-bootstrap';
+import Authentication from '../../authentication/Authentication';
 import ReviewPapers from '../ReviewPapers/ReviewPapers';
 import ReviewWorkshop from '../ReviewWorkshop/ReviewWorkshop'
 class ReviewerDashboard extends Component {
@@ -8,6 +9,12 @@ class ReviewerDashboard extends Component {
         return this.props.history.push('/review/' + email);
     }
     //Browser Router also works
+
+    componentDidMount() {
+        if (!Authentication.isUserLoggedIn() || !Authentication.loggedAsReviewer()) {
+            this.props.history.push('/notallowed');
+        }
+    }
 
     render() {
         return (

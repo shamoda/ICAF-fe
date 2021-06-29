@@ -4,6 +4,7 @@ import EditorCard from './EditorCard';
 import EditorDataService from './EditorDataService'
 import EditorWorkshopList from './EditorWorkshopList';
 import { withRouter } from 'react-router-dom';
+import Authentication from '../../authentication/Authentication';
 
 class WorkshopEditorDashBoard extends Component {
     constructor(props) {
@@ -29,6 +30,9 @@ class WorkshopEditorDashBoard extends Component {
     }
 
     componentDidMount() {
+        if (!Authentication.isUserLoggedIn() || !Authentication.loggedAsEditor()) {
+            this.props.history.push('/notallowed');
+        }
         this.getWorkshops()
         window.scrollTo(0, 0) //Scrolling to when mounting
     }

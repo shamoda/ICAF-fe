@@ -5,6 +5,7 @@ import { faDownload, faEdit, faEye, faFastBackward, faFastForward, faFilePdf, fa
 import swal from 'sweetalert';
 import './ReviewPapers.css'
 import ReviewPapersDataService from './ReviewPapersDataService';
+import Authentication from '../../authentication/Authentication';
 
 class ReviewPapers extends Component {
 
@@ -143,9 +144,6 @@ class ReviewPapers extends Component {
 
         return (
             <div>
-                {/* <div className="attendeeregistration-title">
-                    Pending Papers
-                </div> */}
 
                 <Container className="paperlist-container">
                     <Card className={""} style={{ backgroundColor: "white" }}>
@@ -178,35 +176,9 @@ class ReviewPapers extends Component {
                                                         {paper.status === "approved" && <Badge variant="success">{paper.status}</Badge>}
                                                         {paper.status === "rejected" && <Badge variant="danger">{paper.status}</Badge>}
                                                     </p>
-                                                    {/* <p style={{margin: "0px"}}>{paper.paperAbstract}</p>
-                                        <br/>
-                                        <Row>
-                                            <Col>Name: {paper.name}</Col>
-                                            <Col>Email: {paper.email}</Col>
-                                        </Row>
-                                        <Row>
-                                            <Col>Contact: {paper.contact}</Col>
-                                        </Row>
-                                        <Button style={{background: "transparent", color: "blue", border: "none", margin: "0px", padding: "0px"}} onClick={() => this.downloadPaperTemplateClicked(paper.fileName)}><FontAwesomeIcon size="sm" icon={faDownload} />&nbsp; {paper.fileName}</Button> */}
                                                 </td>
                                                 <td style={{ width: "15%", textAlign: "center", padding: "55px 10px" }}>
                                                     <Form autoComplete="off" >
-                                                        {/* <Form.Control
-                                                    as="select"
-                                                    className="my-1 mr-sm-2"
-                                                    custom
-                                                    onChange={this.formChange}
-                                                    name="status"
-                                                    value={this.state.status}
-                                                    required
-                                                >
-                                                    <option value="">Choose...</option>
-                                                    <option value="approved">Approve</option>
-                                                    <option value="rejected">Reject</option>
-                                                </Form.Control>
-                                                <Form.Group>
-                                                    <Form.Control onChange={this.formChange} name="rComment" value={this.state.rComment} maxLength="100"  as="textarea" rows={3} placeholder="your comment" required />
-                                                </Form.Group> */}
                                                         <Button onClick={() => this.submitBtnClicked(paper.email)} variant="outline-dark"><FontAwesomeIcon size="sm" icon={faEye} />&nbsp; View</Button>
                                                     </Form>
                                                 </td>

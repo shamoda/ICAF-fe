@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import ProgramDataService from './ProgramDataService';
 import { Col, Container, Row, Modal, Spinner, Card, Badge, Button } from 'react-bootstrap';
-import WorkshopCorousel from './WorkshopCorousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBackward } from '@fortawesome/free-solid-svg-icons'
 import PostList from './PostList';
 
-class WorkshopProgram extends Component {
+class WorkshopProgram extends Component { 
     constructor(props) {
         super(props)
         this.state = {}
