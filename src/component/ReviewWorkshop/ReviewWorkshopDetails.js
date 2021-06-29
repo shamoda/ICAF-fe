@@ -248,8 +248,8 @@ class ReviewWorkshopDetails extends Component {
                                 <Col sm={3}>
                                     <Button type="submit" variant="dark" disabled={this.validate()} className="workshop1-button">Save</Button>
                                 </Col>
-                                <Col sm={3}>
-                                    <Button type="light" variant="dark" onClick={() => this.props.history.push('/reviewer')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
+                                <Col>
+                                    <Button style={{float: "right"}} type="light" variant="dark" onClick={() => this.props.history.push('/reviewer')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                                 </Col>
                             </Row>
                         </Form>

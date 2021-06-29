@@ -86,7 +86,7 @@ class PaperRegistration extends Component {
                     this.setState({loading: false})
                     swal({
                         title: "Oops!",
-                        text: "Something went wrong, please try again.",
+                        text: "Seems your email address is already exists. Please try again.",
                         icon: "error",
                         button: "Ok",
                       })

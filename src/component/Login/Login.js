@@ -71,7 +71,7 @@ class Login extends Component {
                 this.setState({loading: false})
                 swal({
                     title: "Oops!",
-                    text: "Something went wrong, please try again.",
+                    text: "Looks like credentials are invalid.",
                     icon: "error",
                     button: "Ok",
                   })
