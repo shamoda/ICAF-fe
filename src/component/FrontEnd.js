@@ -61,7 +61,7 @@ class FrontEnd extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/paperregistration" component={PaperRegistration} />
                         <Route path="/attendeeregistration" component={AttendeeRegistration} />
-                        <Route path="/committeeregistration" component={CommitteeRegistration} />
+                        {/* <Route path="/committeeregistration" component={CommitteeRegistration} /> */}
                         <Route path="/review/:email" component={ReviewPaperDetails} />
                         <Route path="/reviewWorkshop/:id" component={ReviewWorkshopDetails} />
                         <Route path="/review/" component={ReviewPapers} />

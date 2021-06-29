@@ -67,7 +67,7 @@ class WorkshopDetails extends Component {
             <div>
                 <Container style={{ minHeight: '600px' }}>
                     <Card style={{ marginTop: '20px', marginBottom: '10px' }}>
-                        <img src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} style={{ maxwidth: "400px", maxHeight: '300px' }} />
+                        <img src={`https://icaf-2021-proposals.s3.amazonaws.com/${workshop.imageName}`} style={{ maxwidth: "400px", maxHeight: '300px' }} />
                         <div style={{ marginLeft: '20px', marginBottom: '20px' }}>
                             <h3>{workshop.subject}</h3>
                             <p>{workshop.description}</p>

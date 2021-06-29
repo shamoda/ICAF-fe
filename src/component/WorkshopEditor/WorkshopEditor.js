@@ -304,7 +304,7 @@ class WorkshopEditor extends Component {
                             <h6>Published Image</h6>
                         </Row>
                         <Row style={{ marginBottom: '20px' }}>
-                            {workshop.imageName ? <img className="editor-published-image" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} alt="card" />
+                            {workshop.imageName ? <img className="editor-published-image" src={`https://icaf-2021-proposals.s3.amazonaws.com/${workshop.imageName}`} alt="card" />
                                 : <Badge variant="danger"><p>Image not Published yet!</p></Badge>}
                         </Row>
                         {/* 2nd Row Ends */}

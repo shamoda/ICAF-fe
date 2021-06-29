@@ -29,8 +29,8 @@ class PostList extends Component {
         let workshop = {
             publish: "published",
             status: "approved",
-            edit: "true",
-            title: this.state.search
+            edit: "true"
+            // title: this.state.search
         }
         ProgramDataService.getWorkshop(workshop)
             .then((response) => {
@@ -55,17 +55,17 @@ class PostList extends Component {
         }
         return (
             <div>
-                <div style={{ marginTop: '20px' }}>
+                {/* <div style={{ marginTop: '20px' }}>
                     <InputGroup size="xs">
                         <FontAwesomeIcon style={{ marginTop: "8px" }} icon={faSearch} />&nbsp; <FormControl onChange={this.handleChange} style={searchBox} autoComplete="off" placeholder="Search by title..." name="search" value={search} className="" />&nbsp;
                     </InputGroup>
-                </div>
+                </div> */}
                 <div className={"row mt-4 pt-5"} >
                     <Row >
                         {proposals.map((p) => (
                             <Col sm={3} style={{ marginLeft: '20px' }} className={"card-group mb-4"} key={p.workshopId}>
                                 <Card >
-                                    <Card.Img variant="top" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${p.imageName}`}></Card.Img>
+                                    <Card.Img variant="top" src={`https://icaf-2021-proposals.s3.amazonaws.com/${p.imageName}`}></Card.Img>
                                     <Card.Body>
                                         <Card.Title>{p.title}</Card.Title>
                                         <Card.Text>

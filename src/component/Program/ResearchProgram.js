@@ -25,13 +25,12 @@ class ResearchProgram extends Component {
                 <div>
                     <Container className="program-container">
                         <div className="program-description">
-                            ICAF 2021 is mainly focus on 2 categories such as research papers publications and conduction of workshops.
-                            Here the specialized professionals of the industry gets the opportunity to publish their research papers in our
-                            ICAF research paper feed,
-                            All the research paper submissions would go under a transparent selection process which is also comprised with
+                            ICAF 2021 is mainly focus on 2 categories such as research paper publications and conduction of workshops.
+                            Here the specialized professionals of the industry has published their research papers in
+                            ICAF-2021 research paper feed,
+                            All these research papers have gone under a transparent selection process which is also comprised with
                             specialists of the industry.
-                            The status of the submissions would be notified to the respective researcher with an email, and the approved papers
-                            would be published in ICAF research paper feed.
+                            Here the speciality is that research papers are free to download for all the registered members of ICAF-2021
                         </div>
                         <div className="program-topics" style={{ textAlign: "left" }}>
                             <PapersList redirectToLogin={this.redirectToLogin} />

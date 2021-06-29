@@ -127,7 +127,7 @@ class AdminPostList extends Component {
                                                 <td style={{ padding: "30px" }}>
                                                     <Row>
                                                         <Col>
-                                                            <Image style={{ maxHeight: '100px', maxWidth: '100px' }} src={`https://icaf-2021-proposalss.s3.amazonaws.com/${p.imageName}`} rounded />
+                                                            <Image style={{ maxHeight: '100px', maxWidth: '100px' }} src={`https://icaf-2021-proposals.s3.amazonaws.com/${p.imageName}`} rounded />
                                                         </Col>
                                                         <Col>
                                                             <h5>{p.title}</h5>

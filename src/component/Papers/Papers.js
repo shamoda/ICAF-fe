@@ -49,8 +49,8 @@ class Papers extends Component {
                 <Container className="papers-container">
                     <div className="papers-description">
                         ICAF 2021 is mainly focus on 2 categories such as research papers publications and conduction of workshops.
-                        Here the specialized professionals of the industry gets the opportunity to publish their research papers in our
-                        ICAF research paper feed,
+                        Here the specialized professionals of the industry gets the opportunity to publish their research papers in 
+                        ICAF-2021 research paper feed,
                         All the research paper submissions would go under a transparent selection process which is also comprised with
                         specialists of the industry.
                         The status of the submissions would be notified to the respective researcher with an email, and the approved papers
@@ -90,20 +90,40 @@ class Papers extends Component {
                     <div className="papers-topics">
                         <h4>Submissions</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
-                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
-                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
-                            efficitur a orci. Integer at placerat velit.
+                            All submissions must be done on or before 21st March 2021. Scientific Reports publishes original research in two formats: Article and Registered Report.
+                            we do not impose strict limits on word count or page number. However, we strongly recommend that you write concisely and stick to the following guidelines:
+                            <ul>
+                                <li>Articles should ideally be no more than 11 typeset pages</li>
+                                <li>The main text should be no more than 4,500 words </li>
+                                <li>The title should be no more than 20 words</li>
+                                <li>The abstract should be no more than 200 words</li>
+                            </ul>
+                            <br/>
+                            We don’t copy edit your references. Therefore, it’s essential you format them correctly, as they will be linked electronically to external databases where possible. 
+                            At Scientific Reports, we use the standard Nature referencing style. So, when formatting your references, make sure they:
+                            <ul>
+                                <li>Run sequentially (and are always numerical).</li>
+                                <li>Sit within square brackets.</li>
+                                <li>Only have one publication linked to each number.</li>
+                                <li>Don’t include grant details and acknowledgements.</li>
+                            </ul>
                         </p>
                     </div>
 
                     <div className="papers-topics">
                         <h4>Important</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce velit est, posuere non libero ac,
-                            lobortis pharetra lorem. Donec volutpat mi eu tortor elementum, vitae placerat libero pulvinar.
-                            Aliquam rhoncus lectus nec mauris sagittis semper. Maecenas justo leo, interdum vel viverra at,
-                            efficitur a orci. Integer at placerat velit.
+                            <ul>
+                                <li>One researcher can publish one and only one research paper.</li>
+                                <li>ICAF adhere Zero percent plagiarism policy. Submitted paper must be 100% original. If you are referring any other paper, you should have proper permission to use their research and proper reference/citation should be given in paper.</li>
+                                <li> As we say research paper, we mean your paper should be proper research, new innovation or further research work.</li>
+                                <li>If there are more than one author in paper, all the authors must be in mutual understanding before submitting paper to ICAF. 
+                                    Your paper must be properly formatted and adhere ICAF standard of paper formatting. 
+                                    Submitted paper should be in single or double column standard paper format.
+                                    Template is provided down below
+                                </li>
+                                <li>Researchers need to pay the submission fee of $25, once their submission get approved. Then only the research paper will be published on ICAF-2021</li>
+                            </ul>
                         </p>
                     </div>
 

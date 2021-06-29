@@ -148,14 +148,14 @@ class AdminPost extends Component {
             <div>
                 <Container style={{ minHeight: '600px' }}>
                     <Card style={{ marginTop: '20px', marginBottom: '10px' }}>
-                        <img src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} style={{ maxwidth: "400px", maxHeight: '300px' }} />
+                        <img src={`https://icaf-2021-proposals.s3.amazonaws.com/${workshop.imageName}`} style={{ maxwidth: "400px", maxHeight: '300px' }} />
                         <div style={{ marginLeft: '20px', marginBottom: '20px' }}>
                             <h3>{workshop.title}</h3>
                             <h4>{workshop.subject}</h4>
                             <p>{workshop.description}</p>
                             <h6>Dr. {this.state.conductorName}</h6>
                             <h6>Venue  : {workshop.venue}</h6>
-                            <a style={{ textDecoration: "none" }} href={workshop.conductor} >{workshop.conductor}</a>
+                            <p style={{ textDecoration: "none", color: "blue" }}  >{workshop.conductor}</p>
                             <Row style={{ marginTop: '25px' }}>
                                 <Col sm={3}>
                                     Date : {workshop.date}

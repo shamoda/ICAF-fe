@@ -95,6 +95,10 @@ class PaperRegistration extends Component {
         }
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     displayError(msg) {
         this.setState({
             error: msg

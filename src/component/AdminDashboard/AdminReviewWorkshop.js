@@ -98,7 +98,7 @@ class AdminReviewWorkshop extends Component {
     downloadProposalTemplateClicked() {
         const { filename } = this.state.workshop
         this.setState({ loading: true })
-        ReviewWorkshopDetailDataService.downloadProposal(filename)
+        ReviewWorkshopDetailService.downloadProposal(filename)
             .then(({ data }) => {
                 this.setState({ loading: false })
                 const downloadUrl = window.URL.createObjectURL(new Blob([data]));

@@ -100,12 +100,12 @@ class Header extends Component {
                         <NavLink className="nav-link header-item" to="/contact">Contact</NavLink>
                     </Nav.Item>
                     <Nav.Item>
-                        {Authentication.loggedAsResearcher() && <NavLink className="nav-link header-item" to="/researcherprofile">My Profile</NavLink>}
-                        {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/conductorProfile">My Profile</NavLink>}
-                        {/* {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="/attendeeprofile">My Profile</NavLink>} */}
-                        {Authentication.loggedAsReviewer() && <NavLink className="nav-link header-item" to="/reviewer">Dashboard</NavLink>}
-                        {Authentication.loggedAsEditor() && <NavLink className="nav-link header-item" to="/editorDashboard">Dashboard</NavLink>}
-                        {Authentication.loggedAsAdmin() && <NavLink className="nav-link header-item" to="/admin">Dashboard</NavLink>}
+                        {Authentication.loggedAsResearcher() && <NavLink className="nav-link header-item" to="/researcherprofile">{Authentication.loggedUserName()}</NavLink>}
+                        {Authentication.loggedAsWorkshopConductor() && <NavLink className="nav-link header-item" to="/conductorProfile">{Authentication.loggedUserName()}</NavLink>}
+                        {Authentication.loggedAsAttendee() && <NavLink className="nav-link header-item" to="#">{Authentication.loggedUserName()}</NavLink>}
+                        {Authentication.loggedAsReviewer() && <NavLink className="nav-link header-item" to="/reviewer">{Authentication.loggedUserName()}</NavLink>}
+                        {Authentication.loggedAsEditor() && <NavLink className="nav-link header-item" to="/editorDashboard">{Authentication.loggedUserName()}</NavLink>}
+                        {Authentication.loggedAsAdmin() && <NavLink className="nav-link header-item" to="/admin">{Authentication.loggedUserName()}</NavLink>}
                     </Nav.Item>
                     <Nav.Item>
                         {Authentication.isUserLoggedIn() && <NavLink onClick={this.showModal} to="#" className="nav-link header-item"><FontAwesomeIcon icon={faUserLock} /> </NavLink>}
@@ -114,9 +114,9 @@ class Header extends Component {
                         {!Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" to="/login"><FontAwesomeIcon icon={faSignInAlt} /></NavLink>}
                         {Authentication.isUserLoggedIn() && <NavLink className="nav-link header-item" onClick={() => Authentication.logout()} to="/"><FontAwesomeIcon icon={faSignOutAlt} /></NavLink>}
                     </Nav.Item>
-                    <Nav.Item>
+                    {/* <Nav.Item>
                         <h6 style={{ color: "white", marginLeft: '60px' }}>{Authentication.loggedUserName()}</h6>
-                    </Nav.Item>
+                    </Nav.Item> */}
                 </Nav>
 
                 <UpdateProfile show={this.state.show} onHide={this.showModal} />
