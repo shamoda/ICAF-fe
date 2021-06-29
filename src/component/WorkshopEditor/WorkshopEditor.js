@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Container, Button, Modal, Spinner, Col, Row, Badge } from 'react-bootstrap';
+import { Form, Container, Button, Modal, Spinner, Col, Row, Badge, Alert } from 'react-bootstrap';
 import swal from 'sweetalert';
 import Joi from 'joi-browser'
 import { faChalkboardTeacher, faCalendarTimes, faBackward } from '@fortawesome/free-solid-svg-icons';
@@ -85,20 +85,20 @@ class WorkshopEditor extends Component {
     //Joi@13.4 Schema [Validation Library]
     Schema = {
         id: Joi,
-        title: Joi.string().required().label("Workshop Title").max(10),
-        subject: Joi.string().required().label("Subject").min(1).max(10),
+        title: Joi.string().required().label("Workshop Title").max(30),
+        subject: Joi.string().required().label("Subject").min(1).max(30),
         description: Joi.string().required().label("Description").min(10).max(200),
-        conductor: Joi,
-        venue: Joi.string().required().label("Workshop Venue").max(10),
-        dates: Joi,
-        time: Joi,
-        imageUrl: Joi,
-        image: Joi,
+        conductor: Joi.string().required().label("Conducter"),
+        venue: Joi.string().required().label("Venue").max(30),
+        dates: Joi.string().required().label("Date"),
+        time: Joi.string().required().label("Time"),
+        image: Joi.required(),
         proposal: Joi,
         rComment: Joi,
         status: Joi,
         imageName: Joi,
-        publish: Joi
+        publish: Joi,
+        imageUrl: Joi.string().required().label("Image")
     }
 
     validate() {
@@ -133,9 +133,9 @@ class WorkshopEditor extends Component {
     editWorkshop(event) {
         event.preventDefault()
         const { workshop } = this.state
-        if (workshop.imageUrl === null) {
-            this.setState({ imageUrlerr: 'Image needs to be selected' })
-        }
+        const errors = this.validate();
+        this.setState({ errors: errors || {} })
+        if (errors) return
         this.setState({ loading: true })
         //Object was used, Code 400 err, [ERR-LOG-02]
         // It uses the same format a form would use if the encoding type were set to "multipart/form-data".
@@ -159,9 +159,7 @@ class WorkshopEditor extends Component {
                     icon: "success",
                     button: "ok",
                 }).then(() => {
-                    setTimeout(() => {
-                        this.props.history.push('/editorDashboard')
-                    }, 2000);
+                    this.props.history.push('/editorDashboard')
                 })
             }).catch(() => {
                 this.setState({ loading: false })
@@ -282,8 +280,12 @@ class WorkshopEditor extends Component {
                                         name="dates"
                                         value={workshop.dates}
                                         onChange={this.handleChange}
-                                        error={errors.dates}
                                     />
+                                    {errors.dates && <Alert variant="danger" >
+                                        <Alert.Heading style={{ fontSize: "15px" }}>
+                                            {errors.dates}
+                                        </Alert.Heading>
+                                    </Alert>}
                                 </Form.Group>
                             </Col>
                             <Col>
@@ -295,8 +297,12 @@ class WorkshopEditor extends Component {
                                         name="time"
                                         value={workshop.time}
                                         onChange={this.handleChange}
-                                        error={errors.time}
                                     />
+                                    {errors.time && <Alert variant="danger" >
+                                        <Alert.Heading style={{ fontSize: "15px" }}>
+                                            {errors.time}
+                                        </Alert.Heading>
+                                    </Alert>}
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -304,7 +310,7 @@ class WorkshopEditor extends Component {
                             <h6>Published Image</h6>
                         </Row>
                         <Row style={{ marginBottom: '20px' }}>
-                            {workshop.imageName ? <img className="editor-published-image" src={`https://icaf-2021-proposals.s3.amazonaws.com/${workshop.imageName}`} alt="card" />
+                            {workshop.imageName ? <img className="editor-published-image" src={`https://icaf-2021-proposalss.s3.amazonaws.com/${workshop.imageName}`} alt="card" />
                                 : <Badge variant="danger"><p>Image not Published yet!</p></Badge>}
                         </Row>
                         {/* 2nd Row Ends */}
@@ -320,6 +326,11 @@ class WorkshopEditor extends Component {
                         <Row>
                             <Col sm={3}>
                                 <Button type="submit" variant="dark" className="workshop1-button">Save</Button>
+                                {errors.imageUrl && <Alert variant="danger" style={{ marginTop: "10px" }} >
+                                    <Alert.Heading style={{ fontSize: "12px" }}>
+                                        {errors.imageUrl}
+                                    </Alert.Heading>
+                                </Alert>}
                             </Col>
                             <Col sm={3}>
                                 <Button type="light" variant="dark" onClick={() => this.props.history.push('/editorDashboard')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>

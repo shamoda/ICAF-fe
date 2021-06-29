@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Spinner, Button, Card, Badge } from 'react-bootstrap';
+import { Modal, Spinner, Button, Card, Badge, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Authentication from '../../authentication/Authentication';
 import WorkshopConducorProfileDataService from './WorkshopConducorProfileDataService';
@@ -72,7 +72,8 @@ class WorkshopConductorProfile extends Component {
                 <div className="workshops-title">
                     WORKSHOP CONDUCTOR PORTAL
                 </div>
-                <Card border="dark" className="conductor-profile-card">
+                <Container style={{paddingTop: "80px", paddingBottom: "80px"}}>
+                <Card border="dark" >
                     <Card.Header>ICAF 2021 WORKSHOPS</Card.Header>
                     <Card.Body>
                         <Card.Title>  <Badge style={{ fontSize: 15 }} variant="dark">{workshop.workshopId}</Badge></Card.Title>
@@ -109,6 +110,7 @@ class WorkshopConductorProfile extends Component {
                         </Card.Text>
                     </Card.Body>
                 </Card>
+                </Container>
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
                         <Modal.Title><Spinner animation="border" /> Please Wait...</Modal.Title>

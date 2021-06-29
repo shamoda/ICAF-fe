@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Col, Container, Row, Modal, Spinner, Card } from 'react-bootstrap';
+import { Col, Container, Row, Modal, Spinner, Card, Button } from 'react-bootstrap';
 import moment from "moment";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBackward } from '@fortawesome/free-solid-svg-icons'
 import WorkshopDataService from './WorkshopDataService'
 
 class WorkshopDetails extends Component {
@@ -68,7 +70,7 @@ class WorkshopDetails extends Component {
                 <Container style={{ minHeight: '600px' }}>
                     <Card style={{ marginTop: '20px', marginBottom: '10px' }}>
                         <img src={`https://icaf-2021-proposals.s3.amazonaws.com/${workshop.imageName}`} style={{ maxwidth: "400px", maxHeight: '300px' }} />
-                        <div style={{ marginLeft: '20px', marginBottom: '20px' }}>
+                        <div style={{ marginLeft: '20px', marginBottom: '20px' ,marginTop:'10px'}}>
                             <h3>{workshop.subject}</h3>
                             <p>{workshop.description}</p>
                             <h6>Venue  : {workshop.venue}</h6>
@@ -85,12 +87,18 @@ class WorkshopDetails extends Component {
                         </div>
                     </Card>
                 </Container>
+                <Row>
+                    <Col style={{ marginLeft: '1200px', marginBottom: '30px' }}>
+                        <Button type="light" variant="dark" onClick={() => this.props.history.push('/workshopprogram')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
+                    </Col>
+                </Row>
+
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>
                         <Modal.Title><Spinner animation="border" /> Please wait...</Modal.Title>
                     </Modal.Header>
                 </Modal>
-            </div>
+            </div >
         );
     }
 }

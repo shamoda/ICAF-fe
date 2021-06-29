@@ -26,16 +26,18 @@ class PostList extends Component {
     }
 
     getWorkshop() {
+        this.setState({ loading: true })
         let workshop = {
             publish: "published",
             status: "approved",
-            edit: "true"
-            // title: this.state.search
+            edit: "true",
+
         }
         ProgramDataService.getWorkshop(workshop)
             .then((response) => {
                 this.setState({ proposals: response.data })
             })
+        this.setState({ loading: false })
     }
 
     handleChange = event => {
@@ -53,6 +55,7 @@ class PostList extends Component {
             border: "none",
             borderColor: "#24a0ed"
         }
+        //tes
         return (
             <div>
                 {/* <div style={{ marginTop: '20px' }}>
@@ -63,9 +66,9 @@ class PostList extends Component {
                 <div className={"row mt-4 pt-5"} >
                     <Row >
                         {proposals.map((p) => (
-                            <Col sm={3} style={{ marginLeft: '20px' }} className={"card-group mb-4"} key={p.workshopId}>
-                                <Card >
-                                    <Card.Img variant="top" src={`https://icaf-2021-proposals.s3.amazonaws.com/${p.imageName}`}></Card.Img>
+                            <Col sm={3} className={"card-group mb-4"} key={p.workshopId}>
+                                <Card style={{ width: '1200px', height: '300px' }}>
+                                    <Card.Img variant="top" style={{ height: '50%' }} src={`https://icaf-2021-proposals.s3.amazonaws.com/${p.imageName}`}></Card.Img>
                                     <Card.Body>
                                         <Card.Title>{p.title}</Card.Title>
                                         <Card.Text>

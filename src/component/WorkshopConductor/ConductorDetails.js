@@ -58,7 +58,7 @@ class ConductorDetails extends Component {
                 <div className="attendeeregistration-title">
                     WORKSHOP PROPOSOL
                 </div>
-                <Container style={{ marginTop: "50px", marginBottom: "50px" }}>
+                <Container style={{padding: "100px 20px"}}>
                     <Badge style={{ marginBottom: 10 }} variant="dark"><h6>{conductor.workshopId}</h6></Badge>
                     <h4>{conductor.conductor}</h4>
                     <h6>{conductor.fname + " " + conductor.lname}</h6>
@@ -83,11 +83,11 @@ class ConductorDetails extends Component {
                             {conductor.eduQuali2}
                         </Col>
                     </Row>
-                    <Row style={{ marginBottom: '20px' }}>
-                        <Col sm={3}>
-                            <Button type="light" variant="dark" onClick={() => this.props.history.push(`/reviewWorkshop/${conductor.workshopId}`)} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
+                    {/* <Row style={{ marginBottom: '20px' }}>
+                        <Col>
+                            <Button type="light" style={{float:'right'}} variant="dark" onClick={() => this.props.history.push(`/reviewWorkshop/${conductor.workshopId}`)} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                         </Col>
-                    </Row>
+                    </Row> */}
                 </Container>
                 <Modal centered size="sm" show={this.state.loading} onHide={() => console.log('please wait...')}>
                     <Modal.Header>

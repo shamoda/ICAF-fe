@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { faDownload, faEdit, faChalkboardTeacher, faBackward, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Col, Container, Form, FormLabel, Modal, Row, Spinner, Alert } from 'react-bootstrap';
+import { Button, Col, Container, Form, FormLabel, Modal, Row, Spinner, Alert, Badge } from 'react-bootstrap';
 import swal from 'sweetalert';
 import InputField from '../../Commons/InputField';
 import Joi from 'joi-browser'
@@ -20,6 +20,7 @@ class AdminReviewWorkshop extends Component {
                 description: '',
                 filename: '',
                 currentdate: '',
+                reviewComment: ''
             },
             review: {
                 status: '',
@@ -55,8 +56,9 @@ class AdminReviewWorkshop extends Component {
                 workshop['subject'] = data.subject
                 workshop['filename'] = data.fileName
                 workshop['currentdate'] = data.current
-                workshop['adminComment'] = data.acomment
-                review['reviewComment'] = data.rcomment
+                workshop['reviewComment'] = data.status
+                review['adminComment'] = data.acomment
+                review['status'] = data.rcomment
                 this.setState({
                     workshop, review
                 })
@@ -80,7 +82,7 @@ class AdminReviewWorkshop extends Component {
                     title: "Proposal reviewed successfully !!!",
                     text: "Keep reviewing, Good Luck!!",
                     icon: "success",
-                    button: "Login",
+                    button: "Ok",
                 }).then(() => {
                     this.props.history.push('/admin')
                 })
@@ -123,9 +125,10 @@ class AdminReviewWorkshop extends Component {
                 })
             })
     }
+
     Schema = {
-        adminComment: Joi,
-        status: Joi.string().label("Status"),
+        adminComment: Joi.string().label("Admin Comment").required().max(30),
+        status: Joi.string().label("Status").required(),
     }
 
     validateField({ name, value }) {
@@ -193,6 +196,11 @@ class AdminReviewWorkshop extends Component {
                 </div>
                 <Container style={{ marginTop: "50px", marginBottom: "50px" }}>
                     <Button style={{ marginBottom: 10 }} variant="dark">{workshop.workshopId}</Button>
+                    <Row style={{ marginLeft: '10px', marginBottom: '10px' }}>
+                        {workshop.status === "pending" && <Badge variant="warning">{workshop.status}</Badge>}
+                        {workshop.status === "approved" && <Badge variant="success">{workshop.status}</Badge>}
+                        {workshop.status === "rejected" && <Badge variant="danger">{workshop.status}</Badge>}
+                    </Row>
                     <h4>{workshop.title}</h4>
                     <h6>{workshop.conductor}</h6>
                     <Button variant="outline-dark" onClick={() => this.props.history.push(`/conductorDetails/${workshop.conductor}/${workshop.workshopId}`)}><FontAwesomeIcon size="sm" icon={faChalkboardTeacher} />&nbsp; Find Workshop Conducter Details</Button> <br /><br /><br />
@@ -218,16 +226,16 @@ class AdminReviewWorkshop extends Component {
                         </Col>
                     </Row>
                     <br />
-                    <Row>
+                    <Row style={{ marginBottom: '10px' }}>
                         <Col>
-                            <h6> Admin Comment</h6>
-                            {workshop.adminComment ? workshop.adminComment : "Admin comment is still not available !!"}
+                            <h6>Admin Comment</h6>
+                            {review.adminComment ? review.adminComment : "Admin comment is still not available !!"}
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <h6> Reviewer Comment</h6>
-                            {review.reviewComment ? review.reviewComment : "Reviewer comment is still not available !!"}
+                            {workshop.reviewComment ? workshop.reviewComment : "Reviewer comment is still not available !!"}
                         </Col>
                     </Row>
                     <div style={{ marginTop: "40px" }}>
@@ -241,18 +249,20 @@ class AdminReviewWorkshop extends Component {
                                         className="my-1 mr-sm-2"
                                         custom
                                         name="status"
+                                        FormText="Enter your workshop status here"
                                         value={review.status}
-                                        // required
+                                        required
                                         onChange={this.handleChange}
+                                        error={errors.status}
                                     >
                                         <option value="">Choose...</option>
                                         <option value="pending">Pending</option>
                                         <option value="approved">Approve</option>
                                         <option value="rejected">Reject</option>
                                     </Form.Control>
-                                    {errors.currentdate && <Alert variant="danger" >
+                                    {errors.status && <Alert variant="danger" >
                                         <Alert.Heading style={{ fontSize: "15px" }}>
-                                            {errors.currentdate}
+                                            {errors.status}
                                         </Alert.Heading>
                                     </Alert>}
                                 </Col>
@@ -272,13 +282,8 @@ class AdminReviewWorkshop extends Component {
                             </Row>
                             <Row style={{ marginBottom: '20px' }}>
                                 <Col>
-                                    <Button type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={() => this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
-
-                                </Col>
-                                <Col>
-                                    <Col>
-                                        <Button className="my-1 mr-sm-2" onClick={() => this.deleteWorkshop(workshop.conductor)} variant="outline-danger"><FontAwesomeIcon size="sm" icon={faTrash} /></Button>
-                                    </Col>
+                                    <Button type="submit" className="my-1 mr-sm-2" variant="outline-dark" disabled={this.validate()}><FontAwesomeIcon size="sm" icon={faEdit} />&nbsp; Submit</Button>
+                                    <Button className="my-1 mr-sm-2" onClick={() => this.deleteWorkshop(workshop.conductor)} variant="outline-danger"><FontAwesomeIcon size="sm" icon={faTrash} /></Button>
                                 </Col>
                                 <Col>
                                     <Button type="light" variant="dark" onClick={() => this.props.history.push('/admin')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>

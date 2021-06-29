@@ -5,10 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBackward } from '@fortawesome/free-solid-svg-icons'
 import PostList from './PostList';
 
-class WorkshopProgram extends Component { 
+class WorkshopProgram extends Component {
     constructor(props) {
         super(props)
         this.state = {}
+    }
+    componentDidMount() {
+        window.scroll(0, 0)
     }
     render() {
         return (
@@ -57,9 +60,9 @@ class WorkshopProgram extends Component {
                     <div>
                         <PostList />
                     </div>
-                    <Row style={{ marginBottom: '20px' }}>
-                        <Col sm={3}>
-                            <Button type="light" variant="dark" onClick={() => this.props.history.push('/')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
+                    <Row style={{ marginBottom: '20px'}}>
+                        <Col>
+                            <Button style={{float:'right'}} type="light" variant="dark" onClick={() => this.props.history.push('/')} className="workshop1-button"> <FontAwesomeIcon icon={faBackward} /> Back</Button>
                         </Col>
                     </Row>
                 </Container>

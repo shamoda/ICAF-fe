@@ -87,14 +87,28 @@ class Workshops extends Component {
                     </div>
 
                     <div className="workshops-topics">
+                        <h4>Submission </h4>
+                        <p>
+                            Authors are invited to submit proposals for academic workshops that they will lead and orchestrate at the conference. Authors may submit multiple proposals. Each proposal can be submitted to only one Academic Workshop Proposal Track. 
+                            Please use the following guidelines to design and format your proposal.
+                            <ul>
+                                <li>Place title at the top of the page</li>
+                                <li>The abstract should be no more than 250 words</li>
+                                <li>List the names and institutional affiliations of the individuals who will lead the workshop. All workshop leads must commit to attend the conference and facilitate the workshop.</li>
+                            </ul>
+                        </p>
+                        <br/>
+
                         <h4>Important</h4>
                         <p>
                             As very limited number of workshops are only given an opportunity ,the proposal which are submitted traverse through a
                             a long selection process ,and the following criteria would be taken to consideration in the selection process.
                             <div style={{ marginLeft: '20px' }}>
-                                <FontAwesomeIcon icon={faStar} /> Quality of the workshop proposal <br />
-                                <FontAwesomeIcon icon={faStar} /> Content of the workshop. <br />
-                                <FontAwesomeIcon icon={faStar} /> Educational qualifications and experience of the workshop conductor <br />
+                                <ul>
+                                    <li>Quality of the workshop proposal</li>
+                                    <li>Content of the workshop.</li>
+                                    <li>Educational qualifications and experience of the workshop conductor</li>
+                                </ul>
                             </div>
                             The status of your proposal would be later notifed you through an email. Please don't be hesitant to contact our below organzing board memebers for
                             any necessity.
