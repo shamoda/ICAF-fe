@@ -6,7 +6,7 @@ import { faChalkboardTeacher, faCalendarTimes, faBackward } from '@fortawesome/f
 import './WorkshopEditor.css'
 import InputField from '../../Commons/InputField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import EditorDataservice from './EditorDataservice';
+import EditorDataService from './EditorDataService';
 import TextArea from '../../Commons/TextArea';
 
 class WorkshopEditor extends Component {
@@ -64,7 +64,7 @@ class WorkshopEditor extends Component {
 
     getProposal() {
         const { workshop } = this.state
-        EditorDataservice.getWorkshopById(workshop.id)
+        EditorDataService.getWorkshopById(workshop.id)
             .then((res) => {
                 workshop["title"] = res.data.title
                 workshop["subject"] = res.data.subject
@@ -150,7 +150,7 @@ class WorkshopEditor extends Component {
         formData.append('description', workshop.description)
         formData.append('conductor', workshop.conductor)
         formData.append('publish', workshop.publish)
-        EditorDataservice.publishEdit(formData)
+        EditorDataService.publishEdit(formData)
             .then(() => {
                 this.setState({ loading: false })
                 swal({
@@ -175,7 +175,7 @@ class WorkshopEditor extends Component {
 
     getImageUrls = () => {
         const { workshop } = this.state
-        EditorDataservice.getImageUrl(workshop.imageName)
+        EditorDataService.getImageUrl(workshop.imageName)
             .then(({ data }) => {
                 return data
             })
