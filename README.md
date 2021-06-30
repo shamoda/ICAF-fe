@@ -1,10 +1,10 @@
-# International Conference on Application Frameworks-2021 
+## International Conference on Application Frameworks-2021 
 
 ICAF-2021 is a Conference management tool, which is developed with the intent to manage and automate tasks of the conference organizing committee efficiently and effectively. 
 
-## High Level Architecture Diagram
+### High Level Architecture Diagram
 
-![architecture diagram].(/src/asset/architecture.png)
+![image one](/src/asset/architecture.png)
 
 
 To run on your local machine
