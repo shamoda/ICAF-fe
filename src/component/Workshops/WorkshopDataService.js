@@ -1,21 +1,22 @@
 import axios from 'axios'
+import { HOST_URL } from '../../Api'
 
 class WorkshopDataService {
 
     downloadproposal() {
-        return axios.get(`http://localhost:8080/api/v1/download/template/icaf-workshop-proposal-template.docx`, { responseType: 'blob' });
+        return axios.get(HOST_URL+`/api/v1/download/template/icaf-workshop-proposal-template.docx`, { responseType: 'blob' });
     }
 
     getProposal(workshop) {
-        return axios.post(`http://localhost:8080/api/v1/getWorkshops/search`, workshop);
+        return axios.post(HOST_URL+`/api/v1/getWorkshops/search`, workshop);
     }
 
     getWorkshopById(id) {
-        return axios.get(`http://localhost:8080/api/v1/getWorkshopById/${id}`);
+        return axios.get(HOST_URL+`/api/v1/getWorkshopById/${id}`);
     }
 
-    getConductorData(conductor) {//test
-        return axios.get(`http://localhost:8080/api/v1/getConductor/${conductor}`);
+    getConductorData(conductor) {
+        return axios.get(HOST_URL+`/api/v1/getConductor/${conductor}`);
     }
 }
 

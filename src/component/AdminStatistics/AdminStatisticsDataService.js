@@ -1,10 +1,10 @@
-  
 import axios from 'axios'
+import { HOST_URL } from '../../Api'
 
 class AdminStatisticsDataService {
 
     getAnalytics(){
-        return axios.get('http://localhost:8080/api/v1/analytics');
+        return axios.get(HOST_URL+'/api/v1/analytics');
     }
 
 }

@@ -37,10 +37,6 @@ class Login extends Component {
 
         this.setState({loading: true}, () => console.log(''))
 
-        // let formData = new FormData();
-        // formData.append('email', this.state.email);
-        // formData.append('password', this.state.password);
-
         AuthenticationDataService.login(this.state.email, this.state.password)
             .then(response => {
                 this.setState({loading: false})

@@ -1,13 +1,14 @@
-  import axios from 'axios'
+import axios from 'axios'
+import { HOST_URL } from '../../Api'
 
 class UpdateProfileDataService{
 
     updateUser(user){
-        return axios.post('http://localhost:8080/api/v1/user', user);
+        return axios.post(HOST_URL+'/api/v1/user', user);
     }
 
     updatePassword(user){
-      return axios.post('http://localhost:8080/api/v1/user/changepassword', user);
+      return axios.post(HOST_URL+'/api/v1/user/changepassword', user);
     }
 
 }

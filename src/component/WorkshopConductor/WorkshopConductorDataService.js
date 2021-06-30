@@ -1,13 +1,14 @@
 import axios from 'axios'
+import { HOST_URL } from '../../Api'
 
 class WorkshopConductorDataService {
     //Register a workshop
     registerWorkshop(workshop) {
-        return axios.post('http://localhost:8080/api/v1/registerConductor', workshop);
+        return axios.post(HOST_URL+'/api/v1/registerConductor', workshop);
     }
 
     getConductorData(conductor) {
-        return axios.get(`http://localhost:8080/api/v1/getConductor/${conductor}`);
+        return axios.get(HOST_URL+`/api/v1/getConductor/${conductor}`);
     }
 }
 

@@ -1,9 +1,10 @@
 import axios from 'axios'
+import { HOST_URL } from '../../Api'
 
 class CommitteeRegistrationDataService{
 
     committeRegistration(committemember){
-        return axios.post('http://localhost:8080/api/v1/committee', committemember);
+        return axios.post(HOST_URL+'/api/v1/committee', committemember);
     }
 
 
